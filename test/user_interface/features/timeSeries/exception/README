@@ -1,3 +1,0 @@
-This feature folder should contain exception oriented scenarios. This does not necessarily mean failures, 
-rather scenarios that validate the expected ways that the system handles exception cases, 
-such as an invalid input or a request that will return no data, an invalid date rage, etc.
