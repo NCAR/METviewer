@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Overview of METviewer &mdash; METviewer 2.12 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="METviewer 2.12 documentation" href="index.html"/>
+        <link rel="next" title="2. METviewer Installation Guide" href="installation.html"/>
+        <link rel="prev" title="METviewer User’s Guide" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Overview of METviewer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose-and-organization-of-the-user-s-guide">1.1. Purpose and organization of the User’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-developmental-testbed-center-dtc">1.2. The Developmental Testbed Center (DTC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-goals-and-design-philosophy">1.3. METviewer goals and design philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-requirements">1.4. METviewer Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-user-specifications">1.5. METviewer User Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-output">1.6. METviewer Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-plot-formatting-specifications">1.7. METviewer Plot Formatting Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-series-formatting-specifications">1.8. METviewer Series Formatting Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metviewer-history-menu">1.9. METviewer History Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#future-development-plans">1.10. Future development plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-support">1.11. Code support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seriesplots.html">3. Series Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barplots.html">4. Bar Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxplot.html">5. Box Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rocplot.html">6. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliabilityplots.html">7. Reliability Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perfdiag.html">8. Performance Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taylordiag.html">9. Taylor Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contourplot.html">10. Contour Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spreadskillplot.html">11. Spread vs. Skill Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eclvplots.html">12. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scorecard.html">13. Scorecards</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Overview of METviewer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview-of-metviewer">
+<h1><span class="section-number">1. </span>Overview of METviewer<a class="headerlink" href="#overview-of-metviewer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-and-organization-of-the-user-s-guide">
+<h2><span class="section-number">1.1. </span>Purpose and organization of the User’s Guide<a class="headerlink" href="#purpose-and-organization-of-the-user-s-guide" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this User’s Guide is to provide basic information for users of the METviewer database and display system to enable users to create plots from their MET output statistics.</p>
+<p>The METviewer User’s Guide is organized as follows.</p>
+</div>
+<div class="section" id="the-developmental-testbed-center-dtc">
+<h2><span class="section-number">1.2. </span>The Developmental Testbed Center (DTC)<a class="headerlink" href="#the-developmental-testbed-center-dtc" title="Permalink to this headline">¶</a></h2>
+<p>METviewer has been developed, and will be maintained and enhanced, by the Developmental Testbed Center (<a href="#id2"><span class="problematic" id="id3">`DTC&lt;http://www.dtcenter.org/&gt;`_</span></a> ). The main goal of the DTC is to serve as a bridge between operations and research, to facilitate the activities of these two important components of the numerical weather prediction (NWP) community. The DTC provides an environment that is functionally equivalent to the operational environment in which the research community can test model enhancements; the operational community benefits from DTC testing and evaluation of models before new models are implemented operationally. METviewer serves both the research and operational communities in this way - offering capabilities for researchers to test their own enhancements to models and providing a capability for the DTC to evaluate the strengths and weaknesses of advances in NWP prior to operational implementation.</p>
+<p>The METviewer package will also be available to DTC visitors and to the modeling community for testing and evaluation of new model capabilities, applications in new environments, and so on.</p>
+</div>
+<div class="section" id="metviewer-goals-and-design-philosophy">
+<h2><span class="section-number">1.3. </span>METviewer goals and design philosophy<a class="headerlink" href="#metviewer-goals-and-design-philosophy" title="Permalink to this headline">¶</a></h2>
+<p>The METviewer tool reads MET verification statistics output from a database and creates plots using the R statistical package. The tool includes a web application that can be accessed from a web browser to create a single plot. The specification for each plot is built using a series of controls which are then serialized into XML. The controls are found in the left half, lower panel, and lower right quadrant of the METviewer browser. Details about these controls are found in <a class="reference internal" href="#userspec"><span class="std std-ref">METviewer User Specifications</span></a>. For each plot, METviewer generates output in the form of a SQL query, an R script to create the plot, a flat file containing the data that will be plotted and the plot itself. This output populates the upper right quadrant of the METviewer database.</p>
+<p>The METviewer code and documentation is maintained by the DTC in Boulder, Colorado. The MET package is freely available to the modeling, verification, and operational communities, including universities, governments, the private sector, and operational modeling and prediction centers.</p>
+</div>
+<div class="section" id="metviewer-requirements">
+<h2><span class="section-number">1.4. </span>METviewer Requirements<a class="headerlink" href="#metviewer-requirements" title="Permalink to this headline">¶</a></h2>
+<p>METviewer requires installation of Java, Apache / Tomcat, MySQL, and R statistics.</p>
+<div class="figure align-default" id="id1">
+<img alt="_images/MV_flowchart.png" src="_images/MV_flowchart.png" />
+<p class="caption"><span class="caption-text">Figure 1.1 METviewer flowchart, showing types if input data, output types, and options for use.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="metviewer-user-specifications">
+<span id="userspec"></span><h2><span class="section-number">1.5. </span>METviewer User Specifications<a class="headerlink" href="#metviewer-user-specifications" title="Permalink to this headline">¶</a></h2>
+<p>The top menu allows the user to select a database and type for the plot.</p>
+<p>The first section is where the dependable variable (Y-axis) , statistic of interest, and series variables of interest are selected The Y2 axis can be used to plot a Base Rate.</p>
+<p>The fixed variables section controls the constraints for the plot (what period of data is used, what thresholds to include, interpolation method, as well as domains). Fixed values are your stratifications. For example, select one or more thresholds to be aggregated, or one or more initilization times, or a date range based on valid times or cycle time.</p>
+<p>Each of the above selections can have one or multiple items. To add variables, series, or fixed values, select the button with the ‘+’ directly below the desired item. Then additional selections will appear in a new dropdown menu. To delete these extras, select the trash icon to the left of the item.</p>
+<p>The independent variable section is where the X-axis is configured. As an example, forecast lead hour often serves as the x-axis for a series plot.</p>
+<p>This section is reserved for line labels and formatting for the individual series confidence intervals: Normal Bootstrap Standard error (median or mean) – configurable</p>
+<p>Summary – scores computed per each combination of fixed values and independent variable then mean or median taken.</p>
+<p>Aggregate statistics – accumulates SL1L2 lines or CTC counts prior to calculating the statistics.</p>
+<p>Revision statistics - Creates a revision series (e.g. the temporal change in a statistic).</p>
+<p>Confidence intervals - METviewer supports two statistical derivation methods… (1) plot the mean of the daily stats with confidence intervals defined by the “standard error”… that uses the standard deviation to add confidence intervals and assumes normality (2) plot the aggregated statistics with confidence intervals defined by bootstrapping that aggregation.</p>
+<p>Pairwise Differencing – computes the difference in statistics for two models on a pairwise basis (same forecast hour, same initialization, same region, etc…).  Confidence intervals may be applied to determine statistical significance.</p>
+<p>Event Equalization – performs the filtering on two datasets to produce a “homogeneous” intersection between the samples (same forecast hour, same initialization, same region, etc…).  Use of this method is recommended when trying to compare the skill of one or more predictions.
+To test, I tried method (1) and it works fine for some of the categorical stats, like BASER and FMEAN. However, applying it to GSS results in this error:</p>
+</div>
+<div class="section" id="metviewer-output">
+<h2><span class="section-number">1.6. </span>METviewer Output<a class="headerlink" href="#metviewer-output" title="Permalink to this headline">¶</a></h2>
+<p>METviewer output all appears in the tabbed boxes at the top right quadrant of the web browser. The plot will show by default, but the user can click any of the tabs along the top to see the other windows. The tabs include:</p>
+<p>XML - This window contains all the code to reproduce the plot. It is recommended that the user save it. It can be reloaded using the ‘Load XML’ button at the top right of the METviewer web page.</p>
+<p>Log - Contains some runtime information regarding input data, run time, and which scripts were called.</p>
+<p>R script - Contains the R code used to organize the data and create the plot. This can be easily modified directly by the user to create slightly different plots for alternate purposes.</p>
+<p>R data - It is essential that all users look at the contents of this tab. Contained here is the data used to create the plot. Users should check to see if it is correct. Often, a user with limited knowledge of the database may select data in such a way as to combine information in an unintended way. For example, statistics for different event thresholds should not be combined, but if the user fails to select the threshold(s) correctly in the ‘fixed values’ section of METviewer, the plot will show statistics for the combined data.</p>
+<p>SQL - This tab contains the SQL code used to gather the data for the plot.</p>
+<p>Y1 Points - This tab will be blank for several of the plot types.</p>
+<p>Y2 Points - See above.</p>
+<p>The rightmost tab is a small square. Clicking here will save the contents of the current window to your default (usually ‘Downloads’) folder. It is recommended that the user click through at least the plot and xml windows and save this output.</p>
+</div>
+<div class="section" id="metviewer-plot-formatting-specifications">
+<h2><span class="section-number">1.7. </span>METviewer Plot Formatting Specifications<a class="headerlink" href="#metviewer-plot-formatting-specifications" title="Permalink to this headline">¶</a></h2>
+<p>METviewer plot formatting options appear in the tabbed boxes at the bottom right quadrant of the web browser. The “Titles &amp; Labels” tab will show by default, but the user can click any of the tabs along the top to see the other windows. The tabs include:</p>
+<p>Titles and Labels: This menu contains boxes for the user to specify a plot title, caption, and axis labels.</p>
+<p>Common: This tab contains ten check boxes and a confidence level specification box. The ten check boxes add axes, stagger points from different axes, add sample sizes or statistics text to the plots.</p>
+<p>Formatting: Plot, title and grid formatting options are available here. Options include image type, height, width, and resolution. Margins, offsets, text size, line widths, etc. can all be set in units of text point size (e.g. 8 = 8 pt font)</p>
+<p>X1, X2, Y1, and Y2 - These tabs specify the axis labels and values. The text size, weight, alignment and offset can be chosen. For Y1 and Y2 axes, limits and buffers can also be set.</p>
+<p>Legend &amp; Caption: Options for the Legend and Caption include text size, position, alignment, color, offset. For details about setting these specifications, see the R-help pages for the functions “legend” and / or “title”.</p>
+<p>Reset: This button, shown to the far right with a circular arrow icon, will reset all options to the defaults.</p>
+</div>
+<div class="section" id="metviewer-series-formatting-specifications">
+<h2><span class="section-number">1.8. </span>METviewer Series Formatting Specifications<a class="headerlink" href="#metviewer-series-formatting-specifications" title="Permalink to this headline">¶</a></h2>
+<p>At the bottom of the METviewer window is the series formatting box. It allows the user to control the minute details of each line on a plot, including title, color, symbol, line type, line width, legend text.</p>
+<p>Four radio buttons along the bottom of this menu allow users to create a derived curve or remove one, apply default values or lock the formatting in place (so subsequent plots are identical in format).</p>
+</div>
+<div class="section" id="metviewer-history-menu">
+<h2><span class="section-number">1.9. </span>METviewer History Menu<a class="headerlink" href="#metviewer-history-menu" title="Permalink to this headline">¶</a></h2>
+<p>Along the left of the METviewer GUI, hidden by default, is the history menu. To open this menu, click the arrow at the top left side right underneath the “METviewer 2.6” label. This menu provides a list of all (or all successful) recent plotting attempts using the METviewer GUI. Users can select items from this menu to recover plots they may have neglected to save. Clicking on the button showing loads the plot.</p>
+</div>
+<div class="section" id="future-development-plans">
+<h2><span class="section-number">1.10. </span>Future development plans<a class="headerlink" href="#future-development-plans" title="Permalink to this headline">¶</a></h2>
+<p>METviewer is an evolving verification database and display software package. New capabilities are planned in controlled, successive version releases. Bug fixes and user-identified problems will be addressed as they are found. Plans are also in place to incorporate many new capabilities and options in future releases of METviewer. Additionally, updates to accommodate new features of the MET software are often required.</p>
+</div>
+<div class="section" id="code-support">
+<h2><span class="section-number">1.11. </span>Code support<a class="headerlink" href="#code-support" title="Permalink to this headline">¶</a></h2>
+<p>METviewer support is provided through a MET-help e-mail address: <a class="reference external" href="mailto:met_help&#37;&#52;&#48;ucar&#46;edu">met_help<span>&#64;</span>ucar<span>&#46;</span>edu</a>. We will endeavor to respond to requests for help in a timely fashion.</p>
+<p>We welcome comments and suggestions for improvements to METviewer, especially information regarding errors. Comments may be submitted using the MET Feedback form available on the MET website. In addition, comments on this document would be greatly appreciated. While we cannot promise to incorporate all suggested changes, we will certainly take all suggestions into consideration.</p>
+<p>METviewer is a “living” application. Our goal is to continually enhance it and add to its capabilities.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="2. METviewer Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="METviewer User’s Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

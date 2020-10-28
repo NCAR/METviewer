@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. METviewer Installation Guide &mdash; METviewer 2.12 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="METviewer 2.12 documentation" href="index.html"/>
+        <link rel="next" title="3. Series Plots" href="seriesplots.html"/>
+        <link rel="prev" title="1. Overview of METviewer" href="overview.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. METviewer Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">2.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-metviewer">2.2. Installing METviewer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-batch-tool-database-loader-tool-and-web-application">2.2.1. Configure the batch tool, database loader tool and web application:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-and-deploy-the-application">2.2.2. Build and deploy the application:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-metviewer-database">2.2.3. Create a METviewer database:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-test-directory-for-development-optional">2.2.4. Install test directory (for development, optional):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-a-database-accessible-in-the-metviewer-web-application">2.2.5. Making a Database Accessible in the METviewer Web Application:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="seriesplots.html">3. Series Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barplots.html">4. Bar Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxplot.html">5. Box Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rocplot.html">6. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliabilityplots.html">7. Reliability Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perfdiag.html">8. Performance Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taylordiag.html">9. Taylor Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contourplot.html">10. Contour Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spreadskillplot.html">11. Spread vs. Skill Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eclvplots.html">12. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scorecard.html">13. Scorecards</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>METviewer Installation Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metviewer-installation-guide">
+<span id="install"></span><h1><span class="section-number">2. </span>METviewer Installation Guide<a class="headerlink" href="#metviewer-installation-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><span class="section-number">2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This chapter describes how to install METviewer. METviewer has been developed and tested on Linux operating systems. Support for additional platforms and compilers may be added in future releases.</p>
+</div>
+<div class="section" id="installing-metviewer">
+<h2><span class="section-number">2.2. </span>Installing METviewer<a class="headerlink" href="#installing-metviewer" title="Permalink to this headline">¶</a></h2>
+<p>METviewer relies on the following tools. These must be installed and tested prior to installing METviewer:</p>
+<p><strong>Java JDK</strong> - download and install version 1.8</p>
+<p><strong>ant</strong> - download and install the latest version</p>
+<p><strong>MySQL</strong> - download and install the latest version. Use “SET GLOBAL max_allowed_packet=110000000;” by typing the command in MySQL and/or make the corresponding edit to /etc/my.cnf, so that the change persists after the next reboot.</p>
+<p><strong>Apache Tomcat</strong> - download and install the latest version; test the sample JSP web apps</p>
+<p><strong>R</strong> - download and install the latest version</p>
+<div class="section" id="configure-the-batch-tool-database-loader-tool-and-web-application">
+<h3><span class="section-number">2.2.1. </span>Configure the batch tool, database loader tool and web application:<a class="headerlink" href="#configure-the-batch-tool-database-loader-tool-and-web-application" title="Permalink to this headline">¶</a></h3>
+<p>Edit [install]/metviewer/bin/mv_batch.sh:</p>
+<ul class="simple">
+<li><p>set the variable JAVA to point at the jvm instance you would like to run</p></li>
+<li><p>set the variable METvIEWER to point at [install]/metviewer</p></li>
+</ul>
+<p>Edit [install]/metviewer/bin/mv_load.sh:</p>
+<ul class="simple">
+<li><p>set the variable JAVA to point at the jvm instance you would like to run</p></li>
+<li><p>set the variable METvIEWER to point at [install]/metviewer</p></li>
+</ul>
+<p>Edit [install]/metviewer/webapp/metviewer/WEB-INF/classes/log4j.properties:</p>
+<ul class="simple">
+<li><p>set log4j.appender.logfile.File setting to the absolute path of [install]/metviewer/log file</p></li>
+</ul>
+<p>Edit [install]/metviewer/webapp/metviewer/WEB-INF/classes/mvservlet.properties:</p>
+<ul class="simple">
+<li><p>set db.host to the MySQL database server host and port, e.g. db.ncep.gov:3306</p></li>
+<li><p>set db.user and db.password to the database username and password</p></li>
+<li><p>set cache.val to true/false depending on whether value caching should be enabled (recommend true)</p></li>
+<li><p>set cache.stat to true/false depending on whether statistics caching should be enabled (recommend true)</p></li>
+<li><p>set folders.plot_xml to the absolute path of [output_dir]/xml</p></li>
+<li><p>set folders.r_tmpl to the absolute path of [tomcat]/metviewer/R_tmpl</p></li>
+<li><p>set folders.r_work to the absolute path of [tomcat]/metviewer/R_work</p></li>
+<li><p>set folders.plots to the absolute path of [output_dir]/plots</p></li>
+<li><p>set folders.data to the absolute path of [output_dir]/data set folders.scripts to the absolute path of [output_dir]/scripts</p></li>
+<li><p>set redirect to the application name in url (ex. if the application URL is “<a class="reference external" href="http://www.dtcenter.org/met/metviewer/">http://www.dtcenter.org/met/metviewer/</a>” redirect is “metviewer”)</p></li>
+<li><p>set url.output to the url to the output folder</p></li>
+</ul>
+<p>Create output folders: [output_dir]/plots, [output_dir]/data, [output_dir]/scripts, [output_dir]/xml</p>
+<p>Include [output_dir] to Apache context</p>
+</div>
+<div class="section" id="build-and-deploy-the-application">
+<h3><span class="section-number">2.2.2. </span>Build and deploy the application:<a class="headerlink" href="#build-and-deploy-the-application" title="Permalink to this headline">¶</a></h3>
+<p>Build METviewer and the web application:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [install]/metviewer
+ant
+</pre></div>
+</div>
+<p>Install load_batch modual:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [tomcat_base]/webapps
+cp [install]/dist/metviewer.war ./
+</pre></div>
+</div>
+<p>Deploy the web app to tomcat:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [install]/dist
+cp [install]/dist/batch_load.tar [load_batch_dir]
+cd [load_batch_dir]
+tar -zxvf batch_load.tar
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-metviewer-database">
+<h3><span class="section-number">2.2.3. </span>Create a METviewer database:<a class="headerlink" href="#create-a-metviewer-database" title="Permalink to this headline">¶</a></h3>
+<p>Create a database to store MET data, which has the prefix ‘mv_’, e.g. mv_met_data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [install]/metviewer $ mysql -u[db_username] -p[db_password] -e&#39;create database [db_name];&#39;
+mysql -u[db_username] -p[db_password] [db_name] &lt; sql/mv_mysql.sql
+</pre></div>
+</div>
+<p>Create an XML load specification document which contains information about your MET data run the METviewer load tool using the XML load specification as input (called [load_xml] here) and monitor progress:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd [install]/metviewer $ bin/mv_load.sh [load_xml] [optional redirection of output, e.g. &amp;&gt; log/load_[date].log &amp;]&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-test-directory-for-development-optional">
+<h3><span class="section-number">2.2.4. </span>Install test directory (for development, optional):<a class="headerlink" href="#install-test-directory-for-development-optional" title="Permalink to this headline">¶</a></h3>
+<p>Check out test_data (…/apps/verif/metviewer_test_data/test_data/) from CVS and move test_data directory to /d3/projects/METviewer/: create links to R script and sql files.</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /d3/projects/METviewer/test_data $ ln -s /d3/projects/METviewer/src_dev/apps/verif/metviewer/R_tmpl R_tmpl $ mkdir R_work
+cd R_work $ mkdir data $ mkdir plots $ mkdir scripts $ ln -s /d3/projects/METviewer/src_dev/apps/verif/metviewer/R_work/include/ include
+cd /d3/projects/METviewer/test_data/load_data/load $ ln -s /d3/projects/METviewer/src_dev/apps/verif/metviewer/sql/mv_mysql.sql mv_mysql.sql
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="making-a-database-accessible-in-the-metviewer-web-application">
+<h3><span class="section-number">2.2.5. </span>Making a Database Accessible in the METviewer Web Application:<a class="headerlink" href="#making-a-database-accessible-in-the-metviewer-web-application" title="Permalink to this headline">¶</a></h3>
+<p>To make a new database accessible in the METviewer Web Application click on “Reload list of databases” button in the upper right corner of the main JSP page. The list of available databases should be updated and a new database should be in it.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="seriesplots.html" class="btn btn-neutral float-right" title="3. Series Plots" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral" title="1. Overview of METviewer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

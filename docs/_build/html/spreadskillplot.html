@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11. Spread vs. Skill Plots &mdash; METviewer 2.12 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="METviewer 2.12 documentation" href="index.html"/>
+        <link rel="next" title="12. Economic Cost/Loss Value Plots" href="eclvplots.html"/>
+        <link rel="prev" title="10. Contour Plots" href="contourplot.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seriesplots.html">3. Series Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barplots.html">4. Bar Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxplot.html">5. Box Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rocplot.html">6. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliabilityplots.html">7. Reliability Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perfdiag.html">8. Performance Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taylordiag.html">9. Taylor Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contourplot.html">10. Contour Plots</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Spread vs. Skill Plots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">11.1. Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">11.2. How-To</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">11.3. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eclvplots.html">12. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scorecard.html">13. Scorecards</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">11. </span>Spread vs. Skill Plots</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/spreadskillplot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spread-vs-skill-plots">
+<h1><span class="section-number">11. </span>Spread vs. Skill Plots<a class="headerlink" href="#spread-vs-skill-plots" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2><span class="section-number">11.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Spread vs. Skill plots are widely used to evaluate the quality of ensemble forecasting systems. One goal of ensemble forecasting is to have the ensemble members represent the range of possible outcomes, which suggests that the ensemble spread should approximately equal the skill of the ensemble mean (as measured by RMSE). Spread and skill will be plotted on the y-axis, and the user may select the x axis variable. Underdispersed ensembles lack spread and overdispersed ensembles have too much spread.</p>
+<p>Ensemble skill is a measure of ensemble accuracy. A perfect spread/skill ratio is 1.</p>
+</div>
+<div class="section" id="how-to">
+<h2><span class="section-number">11.2. </span>How-To<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
+<p>Selection of options to produce the spread vs. skill plot  proceeds approximately counter-clockwise around the METviewer window.</p>
+<ol class="arabic simple">
+<li><p>Select the desired database from the “Select databases” pulldown menu at the top margin of the METviewer window.</p></li>
+<li><p>There are a number of tabs just under the database pulldown menu. Select the ‘Series’ tab, which is the leftmost tab.</p></li>
+<li><p>Select the type of MET statistics that will be used to create the series plot. Click on the “Plot Data” pulldown menu which is located under the tabs. The list contains “Stat”, “MODE”, or “MODE-TD”. For details about these types of output statistics in MET, please see the most recent version of the <a class="reference external" href="https://dtcenter.org/community-code/model-evaluation-tools-met/documentation">MET User’s Guide</a>.</p></li>
+<li><p>Select the desired variable to calculate statistics for in the “Y1 Axis Variables” tab. The first pulldown menu in the “Y1 Dependent (Forecast) Variables” section lists the variables available in the selected database.</p></li>
+<li><p>Select the desired statistic to calculate in the second pulldown menu which is to the right of variable menu. This lists the available attribute statistics in the selected dataset. Multiple statistics can be selected and they will each be plotted as a separate line on the plot. For a Spread/Skill plot, two statistics must be selected. In the example below the statistics are “SSVAR_RMSE” and “SSVAR_Spread”.</p></li>
+<li><p>Select the Y1 Series Variable from the first pulldown menu in that section. There are many options. “MODEL” is used in the included example. In the second pulldown menu to the right of the first are the series variable options, for example, different models.</p></li>
+<li><p>It usually does not make sense to mix statistics for different groups. The desired group to calculate statistics over can be specified using the “Fixed Values” section. In the example below, a single domain (category: “VX_MASK”, value: “EAST”) and level (category: “FCST_LEV”, value: “Z2”)  are chosen. If multiple domains or thresholds were chosen, the statistics would be a summary of all of those cases together, which may not always be desired.</p></li>
+<li><p>Select the x-axis value in the “Independent Variable” dropdown menu. For a spread/skill plot, this is often a date, lead time, or threshold. For a spread/skill plot, this variable must be continuous and there should be reason to believe that the statistic on the Y1 axis is connected across the values of the independent variable. If not, a scatter plot would be a more appropriate choice than the series plot. In the example in the next section, the Y1 dependent variable “Frequency Bias” is plotted for each of the “Y1 Series Variable” ensemble members.</p></li>
+<li><p>Select the type of statistics summary by selecting the “Aggregation Statistics” button in the “Statistics” section. Aggregated statistics must be selected for certain varieties of statistics. The selection can be made from the leftmost dropdown menu in the “Statistics” section. Select the “Spread/Skill Variance (SSVAR)” option in the dropdown menu.</p></li>
+<li><p>Now enough information has been entered to produce a graph. To do this, click the “Generate Plot” button at the top of the METviewer window (this is in red text). Typically, if a plot is not produced, it is because the database selected does not contain the correct type of data. Also, it is imperative to check the data used for the plot by selecting the “R data” tab on the righthand side, above the plot area. The data from the database that is being used to calculate the statistics is listed in this tab. This tab should be checked to avoid the accidental accumulation of inappropriate database lines. For example, it does not make sense to accumulate statistics over different domains, thresholds, models, etc.</p></li>
+</ol>
+<p>There are many other options for plots, but these are the basics.</p>
+</div>
+<div class="section" id="example">
+<h2><span class="section-number">11.3. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>This example shows the 2-m temperature RMSE and spread for a series of forecast lead times for an ensemble. Plotted are the spread and the skill.</p>
+<div class="figure align-default" id="id1">
+<img alt="_images/spreadskill_plot.png" src="_images/spreadskill_plot.png" />
+<p class="caption"><span class="caption-text">Figure 11.1 Example METviewer Spread vs. Skill plot showing temperature RMSE and spread for a series of forecast lead times.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Here is the associated xml for this example. It can be copied into an empty file and saved to the desktop then uploaded into the system by clicking on the “Load XML” button in the upper-right corner of the GUI. This XML can be downloaded by visiting GitHub here ??[insert link to XML]??.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;plot_spec&gt;
+    &lt;connection&gt;
+        &lt;host&gt;mohawk&lt;/host&gt;
+        &lt;database&gt;mv_hrrr_sppmp_test&lt;/database&gt;
+        &lt;user&gt;******&lt;/user&gt;
+        &lt;password&gt;******&lt;/password&gt;
+        &lt;management_system&gt;mariadb&lt;/management_system&gt;
+    &lt;/connection&gt;
+    &lt;rscript&gt;/usr/local/R/bin/Rscript&lt;/rscript&gt;
+    &lt;folders&gt;
+        &lt;r_tmpl&gt;/opt/vxwww/tomcat/webapps/metviewer//R_tmpl&lt;/r_tmpl&gt;
+        &lt;r_work&gt;/opt/vxwww/tomcat/webapps/metviewer//R_work&lt;/r_work&gt;
+        &lt;plots&gt;/d2/www/dtcenter/met/metviewer_output//plots&lt;/plots&gt;
+        &lt;data&gt;/d2/www/dtcenter/met/metviewer_output//data&lt;/data&gt;
+        &lt;scripts&gt;/d2/www/dtcenter/met/metviewer_output//scripts&lt;/scripts&gt;
+    &lt;/folders&gt;
+    &lt;plot&gt;
+        &lt;template&gt;series_plot.R_tmpl&lt;/template&gt;
+        &lt;dep&gt;
+            &lt;dep1&gt;
+                &lt;fcst_var name=&quot;TMP&quot;&gt;
+                    &lt;stat&gt;SSVAR_RMSE&lt;/stat&gt;
+                    &lt;stat&gt;SSVAR_Spread&lt;/stat&gt;
+                &lt;/fcst_var&gt;
+            &lt;/dep1&gt;
+            &lt;dep2/&gt;
+        &lt;/dep&gt;
+        &lt;series1&gt;
+            &lt;field name=&quot;model&quot;&gt;
+                &lt;val&gt;HRRR_sppmp_ens_hrconus&lt;/val&gt;
+            &lt;/field&gt;
+        &lt;/series1&gt;
+        &lt;series2/&gt;
+        &lt;plot_fix&gt;
+            &lt;field equalize=&quot;false&quot; name=&quot;vx_mask&quot;&gt;
+                &lt;set name=&quot;vx_mask_0&quot;&gt;
+                    &lt;val&gt;EAST&lt;/val&gt;
+                &lt;/set&gt;
+            &lt;/field&gt;
+            &lt;field equalize=&quot;false&quot; name=&quot;fcst_lev&quot;&gt;
+                &lt;set name=&quot;fcst_lev_1&quot;&gt;
+                    &lt;val&gt;Z2&lt;/val&gt;
+                &lt;/set&gt;
+            &lt;/field&gt;
+        &lt;/plot_fix&gt;
+        &lt;plot_cond/&gt;
+        &lt;indep equalize=&quot;false&quot; name=&quot;fcst_lead&quot;&gt;
+            &lt;val label=&quot;0&quot; plot_val=&quot;&quot;&gt;0&lt;/val&gt;
+            &lt;val label=&quot;1&quot; plot_val=&quot;&quot;&gt;10000&lt;/val&gt;
+            &lt;val label=&quot;2&quot; plot_val=&quot;&quot;&gt;20000&lt;/val&gt;
+            &lt;val label=&quot;3&quot; plot_val=&quot;&quot;&gt;30000&lt;/val&gt;
+            &lt;val label=&quot;4&quot; plot_val=&quot;&quot;&gt;40000&lt;/val&gt;
+            &lt;val label=&quot;5&quot; plot_val=&quot;&quot;&gt;50000&lt;/val&gt;
+            &lt;val label=&quot;6&quot; plot_val=&quot;&quot;&gt;60000&lt;/val&gt;
+            &lt;val label=&quot;7&quot; plot_val=&quot;&quot;&gt;70000&lt;/val&gt;
+            &lt;val label=&quot;8&quot; plot_val=&quot;&quot;&gt;80000&lt;/val&gt;
+            &lt;val label=&quot;9&quot; plot_val=&quot;&quot;&gt;90000&lt;/val&gt;
+            &lt;val label=&quot;10&quot; plot_val=&quot;&quot;&gt;100000&lt;/val&gt;
+            &lt;val label=&quot;11&quot; plot_val=&quot;&quot;&gt;110000&lt;/val&gt;
+            &lt;val label=&quot;12&quot; plot_val=&quot;&quot;&gt;120000&lt;/val&gt;
+            &lt;val label=&quot;13&quot; plot_val=&quot;&quot;&gt;130000&lt;/val&gt;
+            &lt;val label=&quot;14&quot; plot_val=&quot;&quot;&gt;140000&lt;/val&gt;
+            &lt;val label=&quot;15&quot; plot_val=&quot;&quot;&gt;150000&lt;/val&gt;
+            &lt;val label=&quot;16&quot; plot_val=&quot;&quot;&gt;160000&lt;/val&gt;
+            &lt;val label=&quot;17&quot; plot_val=&quot;&quot;&gt;170000&lt;/val&gt;
+            &lt;val label=&quot;18&quot; plot_val=&quot;&quot;&gt;180000&lt;/val&gt;
+            &lt;val label=&quot;19&quot; plot_val=&quot;&quot;&gt;190000&lt;/val&gt;
+            &lt;val label=&quot;20&quot; plot_val=&quot;&quot;&gt;200000&lt;/val&gt;
+            &lt;val label=&quot;21&quot; plot_val=&quot;&quot;&gt;210000&lt;/val&gt;
+            &lt;val label=&quot;22&quot; plot_val=&quot;&quot;&gt;220000&lt;/val&gt;
+            &lt;val label=&quot;23&quot; plot_val=&quot;&quot;&gt;230000&lt;/val&gt;
+            &lt;val label=&quot;24&quot; plot_val=&quot;&quot;&gt;240000&lt;/val&gt;
+            &lt;val label=&quot;25&quot; plot_val=&quot;&quot;&gt;250000&lt;/val&gt;
+            &lt;val label=&quot;26&quot; plot_val=&quot;&quot;&gt;260000&lt;/val&gt;
+            &lt;val label=&quot;27&quot; plot_val=&quot;&quot;&gt;270000&lt;/val&gt;
+            &lt;val label=&quot;28&quot; plot_val=&quot;&quot;&gt;280000&lt;/val&gt;
+            &lt;val label=&quot;29&quot; plot_val=&quot;&quot;&gt;290000&lt;/val&gt;
+            &lt;val label=&quot;30&quot; plot_val=&quot;&quot;&gt;300000&lt;/val&gt;
+            &lt;val label=&quot;31&quot; plot_val=&quot;&quot;&gt;310000&lt;/val&gt;
+            &lt;val label=&quot;32&quot; plot_val=&quot;&quot;&gt;320000&lt;/val&gt;
+            &lt;val label=&quot;33&quot; plot_val=&quot;&quot;&gt;330000&lt;/val&gt;
+            &lt;val label=&quot;34&quot; plot_val=&quot;&quot;&gt;340000&lt;/val&gt;
+            &lt;val label=&quot;35&quot; plot_val=&quot;&quot;&gt;350000&lt;/val&gt;
+            &lt;val label=&quot;36&quot; plot_val=&quot;&quot;&gt;360000&lt;/val&gt;
+        &lt;/indep&gt;
+        &lt;agg_stat&gt;
+            &lt;agg_ssvar&gt;true&lt;/agg_ssvar&gt;
+            &lt;boot_repl&gt;1&lt;/boot_repl&gt;
+            &lt;boot_random_seed/&gt;
+            &lt;boot_ci&gt;perc&lt;/boot_ci&gt;
+            &lt;eveq_dis&gt;false&lt;/eveq_dis&gt;
+            &lt;cache_agg_stat&gt;false&lt;/cache_agg_stat&gt;
+        &lt;/agg_stat&gt;
+        &lt;plot_stat&gt;median&lt;/plot_stat&gt;
+        &lt;tmpl&gt;
+            &lt;data_file&gt;plot_20200921_210333.data&lt;/data_file&gt;
+            &lt;plot_file&gt;plot_20200921_210333.png&lt;/plot_file&gt;
+            &lt;r_file&gt;plot_20200921_210333.R&lt;/r_file&gt;
+            &lt;title&gt;2-m Temperature Spread/Skill; Domain: East&lt;/title&gt;
+            &lt;x_label&gt;Forecast Lead &lt;/x_label&gt;
+            &lt;y1_label&gt;Spread/Skill&lt;/y1_label&gt;
+            &lt;y2_label/&gt;
+            &lt;caption/&gt;
+            &lt;job_title/&gt;
+            &lt;keep_revisions&gt;false&lt;/keep_revisions&gt;
+            &lt;listdiffseries1&gt;list()&lt;/listdiffseries1&gt;
+            &lt;listdiffseries2&gt;list()&lt;/listdiffseries2&gt;
+        &lt;/tmpl&gt;
+        &lt;execution_type&gt;Rscript&lt;/execution_type&gt;
+        &lt;event_equal&gt;false&lt;/event_equal&gt;
+        &lt;vert_plot&gt;false&lt;/vert_plot&gt;
+        &lt;x_reverse&gt;false&lt;/x_reverse&gt;
+        &lt;num_stats&gt;false&lt;/num_stats&gt;
+        &lt;indy1_stag&gt;false&lt;/indy1_stag&gt;
+        &lt;indy2_stag&gt;false&lt;/indy2_stag&gt;
+        &lt;grid_on&gt;true&lt;/grid_on&gt;
+        &lt;sync_axes&gt;false&lt;/sync_axes&gt;
+        &lt;dump_points1&gt;false&lt;/dump_points1&gt;
+        &lt;dump_points2&gt;false&lt;/dump_points2&gt;
+        &lt;log_y1&gt;false&lt;/log_y1&gt;
+        &lt;log_y2&gt;false&lt;/log_y2&gt;
+        &lt;varianceinflationfactor&gt;true&lt;/varianceinflationfactor&gt;
+        &lt;plot_type&gt;png16m&lt;/plot_type&gt;
+        &lt;plot_height&gt;8.5&lt;/plot_height&gt;
+        &lt;plot_width&gt;11&lt;/plot_width&gt;
+        &lt;plot_res&gt;72&lt;/plot_res&gt;
+        &lt;plot_units&gt;in&lt;/plot_units&gt;
+        &lt;mar&gt;c(8,4,5,4)&lt;/mar&gt;
+        &lt;mgp&gt;c(1,1,0)&lt;/mgp&gt;
+        &lt;cex&gt;1&lt;/cex&gt;
+        &lt;title_weight&gt;2&lt;/title_weight&gt;
+        &lt;title_size&gt;1.4&lt;/title_size&gt;
+        &lt;title_offset&gt;-2&lt;/title_offset&gt;
+        &lt;title_align&gt;0.5&lt;/title_align&gt;
+        &lt;xtlab_orient&gt;1&lt;/xtlab_orient&gt;
+        &lt;xtlab_perp&gt;-0.75&lt;/xtlab_perp&gt;
+        &lt;xtlab_horiz&gt;0.5&lt;/xtlab_horiz&gt;
+        &lt;xtlab_freq&gt;0&lt;/xtlab_freq&gt;
+        &lt;xtlab_size&gt;1&lt;/xtlab_size&gt;
+        &lt;xlab_weight&gt;1&lt;/xlab_weight&gt;
+        &lt;xlab_size&gt;1&lt;/xlab_size&gt;
+        &lt;xlab_offset&gt;2&lt;/xlab_offset&gt;
+        &lt;xlab_align&gt;0.5&lt;/xlab_align&gt;
+        &lt;ytlab_orient&gt;1&lt;/ytlab_orient&gt;
+        &lt;ytlab_perp&gt;0.5&lt;/ytlab_perp&gt;
+        &lt;ytlab_horiz&gt;0.5&lt;/ytlab_horiz&gt;
+        &lt;ytlab_size&gt;1&lt;/ytlab_size&gt;
+        &lt;ylab_weight&gt;1&lt;/ylab_weight&gt;
+        &lt;ylab_size&gt;1&lt;/ylab_size&gt;
+        &lt;ylab_offset&gt;-2&lt;/ylab_offset&gt;
+        &lt;ylab_align&gt;0.5&lt;/ylab_align&gt;
+        &lt;grid_lty&gt;3&lt;/grid_lty&gt;
+        &lt;grid_col&gt;#cccccc&lt;/grid_col&gt;
+        &lt;grid_lwd&gt;1&lt;/grid_lwd&gt;
+        &lt;grid_x&gt;listX&lt;/grid_x&gt;
+        &lt;x2tlab_orient&gt;1&lt;/x2tlab_orient&gt;
+        &lt;x2tlab_perp&gt;1&lt;/x2tlab_perp&gt;
+        &lt;x2tlab_horiz&gt;0.5&lt;/x2tlab_horiz&gt;
+        &lt;x2tlab_size&gt;0.8&lt;/x2tlab_size&gt;
+        &lt;x2lab_size&gt;0.8&lt;/x2lab_size&gt;
+        &lt;x2lab_offset&gt;-0.5&lt;/x2lab_offset&gt;
+        &lt;x2lab_align&gt;0.5&lt;/x2lab_align&gt;
+        &lt;y2tlab_orient&gt;1&lt;/y2tlab_orient&gt;
+        &lt;y2tlab_perp&gt;0.5&lt;/y2tlab_perp&gt;
+        &lt;y2tlab_horiz&gt;0.5&lt;/y2tlab_horiz&gt;
+        &lt;y2tlab_size&gt;1&lt;/y2tlab_size&gt;
+        &lt;y2lab_size&gt;1&lt;/y2lab_size&gt;
+        &lt;y2lab_offset&gt;1&lt;/y2lab_offset&gt;
+        &lt;y2lab_align&gt;0.5&lt;/y2lab_align&gt;
+        &lt;legend_box&gt;o&lt;/legend_box&gt;
+        &lt;legend_inset&gt;c(0, -.25)&lt;/legend_inset&gt;
+        &lt;legend_ncol&gt;2&lt;/legend_ncol&gt;
+        &lt;legend_size&gt;0.8&lt;/legend_size&gt;
+        &lt;caption_weight&gt;1&lt;/caption_weight&gt;
+        &lt;caption_col&gt;#333333&lt;/caption_col&gt;
+        &lt;caption_size&gt;0.8&lt;/caption_size&gt;
+        &lt;caption_offset&gt;3&lt;/caption_offset&gt;
+        &lt;caption_align&gt;0&lt;/caption_align&gt;
+        &lt;ci_alpha&gt;0.05&lt;/ci_alpha&gt;
+        &lt;plot_ci&gt;c(&quot;none&quot;,&quot;none&quot;)&lt;/plot_ci&gt;
+        &lt;show_signif&gt;c(FALSE,FALSE)&lt;/show_signif&gt;
+        &lt;plot_disp&gt;c(TRUE,TRUE)&lt;/plot_disp&gt;
+        &lt;colors&gt;c(&quot;#ff0000FF&quot;,&quot;#0000ffFF&quot;)&lt;/colors&gt;
+        &lt;pch&gt;c(20,20)&lt;/pch&gt;
+        &lt;type&gt;c(&quot;b&quot;,&quot;b&quot;)&lt;/type&gt;
+        &lt;lty&gt;c(1,1)&lt;/lty&gt;
+        &lt;lwd&gt;c(1,1)&lt;/lwd&gt;
+        &lt;con_series&gt;c(1,1)&lt;/con_series&gt;
+        &lt;order_series&gt;c(1,2)&lt;/order_series&gt;
+        &lt;plot_cmd/&gt;
+        &lt;legend&gt;c(&quot;&quot;,&quot;&quot;)&lt;/legend&gt;
+        &lt;y1_lim&gt;c()&lt;/y1_lim&gt;
+        &lt;x1_lim&gt;c()&lt;/x1_lim&gt;
+        &lt;y1_bufr&gt;0.04&lt;/y1_bufr&gt;
+        &lt;y2_lim&gt;c()&lt;/y2_lim&gt;
+    &lt;/plot&gt;
+&lt;/plot_spec&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eclvplots.html" class="btn btn-neutral float-right" title="12. Economic Cost/Loss Value Plots" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contourplot.html" class="btn btn-neutral" title="10. Contour Plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

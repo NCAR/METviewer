@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>13. Scorecards &mdash; METviewer 2.12 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="METviewer 2.12 documentation" href="index.html"/>
+        <link rel="prev" title="12. Economic Cost/Loss Value Plots" href="eclvplots.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seriesplots.html">3. Series Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barplots.html">4. Bar Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxplot.html">5. Box Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rocplot.html">6. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliabilityplots.html">7. Reliability Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perfdiag.html">8. Performance Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taylordiag.html">9. Taylor Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contourplot.html">10. Contour Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spreadskillplot.html">11. Spread vs. Skill Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eclvplots.html">12. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">13. Scorecards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">13.1. Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-type">13.2. Line Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">13.3. How-To</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">13.4. Example</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">13. </span>Scorecards</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/scorecard.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scorecards">
+<h1><span class="section-number">13. </span>Scorecards<a class="headerlink" href="#scorecards" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2><span class="section-number">13.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A scorecard is a graphical representation of significance and performance of a comparison, normally a comparison between two models. The scorecard can only be produced using xml code. The xml code specifications are listed in the detail below. There is no GUI interface.</p>
+</div>
+<div class="section" id="line-type">
+<h2><span class="section-number">13.2. </span>Line Type<a class="headerlink" href="#line-type" title="Permalink to this headline">¶</a></h2>
+<p>Scorecards can be run with either summary or aggregation logic. Aggregation logic is the default and generally, the better choice. The following are line types scorecards support:</p>
+<ul class="simple">
+<li><p>CTC</p></li>
+<li><p>SL1L2</p></li>
+<li><p>SAL1L2</p></li>
+<li><p>VL1L2</p></li>
+<li><p>VAL1L2</p></li>
+<li><p>PCT</p></li>
+<li><p>GRAD</p></li>
+<li><p>NBRCNT</p></li>
+<li><p>ECNT</p></li>
+<li><p>NBRCTC</p></li>
+<li><p>RPS</p></li>
+</ul>
+</div>
+<div class="section" id="how-to">
+<h2><span class="section-number">13.3. </span>How-To<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
+<p>The scorecard module is used to generate a scorecard PNG and HTML images using data in the METviewer database. The usage statement:</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mv_scorecard.sh scorecard_example.xml
+</pre></div>
+</div>
+<p>where scorecard_example.xml is the XML that contains all of your scorecard specifications.</p>
+<p>The scorecard_example.xml passed to the scorecard module contains information about the scorecard that will be generated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;plot_spec&gt;
+	&lt;connection&gt;
+	  &lt;host&gt;db_host:3306&lt;/host&gt;
+	  &lt;database&gt;database_name&lt;/database&gt;
+	  &lt;user&gt;user_name&lt;/user&gt;
+	  &lt;password&gt;password&lt;/password&gt;
+	  &lt;management_system&gt;mariadb&lt;/management_system&gt;
+        &lt;/connection&gt;
+	
+	&lt;rscript&gt;/usr/local/bin/Rscript&lt;/rscript&gt;
+	
+	&lt;folders&gt;
+	  &lt;r_tmpl&gt;path_to_R_tmpl&lt;/r_tmpl&gt;
+	  &lt;r_work&gt;path_to_R_work/&lt;/r_work&gt;
+	  &lt;plots&gt;path_to_plots_folder&lt;/plots&gt;
+	  &lt;data&gt;path_to_data_folder&lt;/data&gt;
+	  &lt;scripts&gt;path_to_scripts_folder&lt;/scripts&gt;
+        &lt;/folders&gt;
+	
+	&lt;plot&gt;
+	  &lt;view_value&gt;false&lt;/view_value&gt;
+	  &lt;view_symbol&gt;true&lt;/view_symbol&gt;
+	  &lt;view_legend&gt;false&lt;/view_legend&gt;
+	  &lt;stat_flag&gt;EMC&lt;/stat_flag&gt;
+	  &lt;printSQL&gt;FALSE&lt;/printSQL&gt;
+	  &lt;stat&gt;DIFF_SIG&lt;/stat&gt;
+	  &lt;threshold_file&gt;path_to_threshold_file&lt;/threshold_file&gt;
+	  
+	  &lt;left_column_names&gt;
+	    &lt;val&gt;&lt;/val&gt;
+	    &lt;val&gt;&lt;/val&gt;
+	    &lt;val&gt;&lt;/val&gt;		
+          &lt;/left_column_names&gt;
+
+	  &lt;template&gt;scorecard.R_tmpl&lt;/template&gt;
+
+	  &lt;plot_fix&gt;
+	    &lt;field name=&quot;model&quot;&gt;
+	      &lt;val name=&quot;PR4RN_1405&quot;/&gt;
+	      &lt;val name=&quot;GFS2016&quot;/&gt;
+	    &lt;/field&gt;
+	    &lt;field name=&quot;fcst_valid_beg&quot;&gt;
+	      &lt;val name=&quot;2014-05-20 00:00:00&quot;/&gt;
+	      &lt;val name=&quot;2014-07-30 00:00:00&quot;/&gt;
+            &lt;/field&gt;
+	    &lt;field name=&quot;init_hour&quot;&gt;
+	      &lt;val name=&quot;00&quot;/&gt;
+	      &lt;val name=&quot;12&quot;/&gt;
+            &lt;/field&gt;
+	  &lt;/plot_fix&gt;
+	  
+	  &lt;rows&gt;
+            &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;ANOM_CORR&quot; label=&quot;Anom Corr&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;HGT&quot; label=&quot;Heights&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+	          &lt;val name=&quot;P250&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	  	&lt;/field&gt;
+              &lt;/field&gt;
+            &lt;/field&gt;
+
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;VL1L2_CORR&quot; label=&quot;Anom Corr&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;WIND&quot; label=&quot;Vector Wind&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P250&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+	    	 &lt;/field&gt;
+	      &lt;/field&gt;
+	    &lt;/field&gt;
+
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;ANOM_CORR&quot; label=&quot;Anom Corr&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;T&quot; label=&quot;Temp&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+	          &lt;val name=&quot;P250&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+	    
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;ANOM_CORR&quot; label=&quot;Anom Corr&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;PMSL&quot; label=&quot;MSLP&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+	          &lt;val name=&quot;MSL&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+	
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;RMSE&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;HGT&quot; label=&quot;Heights&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P10&quot;/&gt;
+		  &lt;val name=&quot;P20&quot;/&gt;
+		  &lt;val name=&quot;P50&quot;/&gt;
+		  &lt;val name=&quot;P100&quot;/&gt;
+		  &lt;val name=&quot;P200&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;VL1L2_RMSE&quot; label=&quot;RMSE&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;WIND&quot; label=&quot;Vector Wind&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P10&quot;/&gt;
+		  &lt;val name=&quot;P20&quot;/&gt;
+		  &lt;val name=&quot;P50&quot;/&gt;
+		  &lt;val name=&quot;P100&quot;/&gt;
+		  &lt;val name=&quot;P200&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;RMSE&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;T&quot; label=&quot;Temp&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P10&quot;/&gt;
+		  &lt;val name=&quot;P20&quot;/&gt;
+		  &lt;val name=&quot;P50&quot;/&gt;
+		  &lt;val name=&quot;P100&quot;/&gt;
+		  &lt;val name=&quot;P200&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+	    
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;ME&quot; label=&quot;Bias&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;HGT&quot; label=&quot;Heights&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P10&quot;/&gt;
+		  &lt;val name=&quot;P20&quot;/&gt;
+		  &lt;val name=&quot;P50&quot;/&gt;
+		  &lt;val name=&quot;P100&quot;/&gt;
+		  &lt;val name=&quot;P200&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+
+	    &lt;field name=&quot;stat&quot;&gt;		    
+	      &lt;val name=&quot;VL1L2_BIAS&quot; label=&quot;Bias&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;WIND&quot; label=&quot;Wind Speed&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P10&quot;/&gt;
+		  &lt;val name=&quot;P20&quot;/&gt;
+		  &lt;val name=&quot;P50&quot;/&gt;
+		  &lt;val name=&quot;P100&quot;/&gt;
+		  &lt;val name=&quot;P200&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+
+	    &lt;field name=&quot;stat&quot;&gt;
+	      &lt;val name=&quot;ME&quot; label=&quot;Bias&quot;/&gt;
+	      &lt;field name=&quot;fcst_var&quot;&gt;
+		&lt;val name=&quot;T&quot; label=&quot;Temp&quot;/&gt;
+		&lt;field name=&quot;fcst_lev&quot;&gt;
+		  &lt;val name=&quot;P10&quot;/&gt;
+		  &lt;val name=&quot;P20&quot;/&gt;
+		  &lt;val name=&quot;P50&quot;/&gt;
+		  &lt;val name=&quot;P100&quot;/&gt;
+		  &lt;val name=&quot;P200&quot;/&gt;
+		  &lt;val name=&quot;P500&quot;/&gt;
+		  &lt;val name=&quot;P700&quot;/&gt;
+		  &lt;val name=&quot;P850&quot;/&gt;
+		  &lt;val name=&quot;P1000&quot;/&gt;
+	        &lt;/field&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+          &lt;/rows&gt;
+
+	  &lt;columns&gt;
+            &lt;field name=&quot;vx_mask&quot;&gt;
+	      &lt;val name=&quot;G2/PNA&quot; label=&quot;N.American&quot;/&gt;
+	      &lt;field name=&quot;fcst_lead&quot;&gt;
+		&lt;val name=&quot;24&quot; label=&quot;Day 1&quot;/&gt;
+		&lt;val name=&quot;72&quot; label=&quot;Day 3&quot;/&gt;
+		&lt;val name=&quot;120&quot; label=&quot;Day 5&quot;/&gt;
+		&lt;val name=&quot;144&quot; label=&quot;Day 6&quot;/&gt;
+		&lt;val name=&quot;192&quot; label=&quot;Day 8&quot;/&gt;
+		&lt;val name=&quot;240&quot; label=&quot;Day 10&quot;/&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+	    &lt;field name=&quot;vx_mask&quot;&gt;
+	      &lt;val name=&quot;G2/NHX&quot; label=&quot;N.Hemisphere&quot;/&gt;
+	      &lt;field name=&quot;fcst_lead&quot;&gt;
+		&lt;val name=&quot;24&quot; label=&quot;Day 1&quot;/&gt;
+		&lt;val name=&quot;72&quot; label=&quot;Day 3&quot;/&gt;
+		&lt;val name=&quot;120&quot; label=&quot;Day 5&quot;/&gt;
+		&lt;val name=&quot;144&quot; label=&quot;Day 6&quot;/&gt;
+		&lt;val name=&quot;192&quot; label=&quot;Day 8&quot;/&gt;
+		&lt;val name=&quot;240&quot; label=&quot;Day 10&quot;/&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+	    &lt;field name=&quot;vx_mask&quot;&gt;
+	      &lt;val name=&quot;G2/SHX&quot; label=&quot;S.Hemisphere&quot;/&gt;
+	      &lt;field name=&quot;fcst_lead&quot;&gt;
+		&lt;val name=&quot;24&quot; label=&quot;Day 1&quot;/&gt;
+		&lt;val name=&quot;72&quot; label=&quot;Day 3&quot;/&gt;
+		&lt;val name=&quot;120&quot; label=&quot;Day 5&quot;/&gt;
+		&lt;val name=&quot;144&quot; label=&quot;Day 6&quot;/&gt;
+		&lt;val name=&quot;192&quot; label=&quot;Day 8&quot;/&gt;
+		&lt;val name=&quot;240&quot; label=&quot;Day 10&quot;/&gt;
+              &lt;/field&gt;
+            &lt;/field&gt;
+	    &lt;field name=&quot;vx_mask&quot;&gt;
+              &lt;val name=&quot;G2/TRO&quot; label=&quot;Tropics&quot;/&gt;
+	      &lt;field name=&quot;fcst_lead&quot;&gt;
+		&lt;val name=&quot;24&quot; label=&quot;Day 1&quot;/&gt;
+		&lt;val name=&quot;72&quot; label=&quot;Day 3&quot;/&gt;
+		&lt;val name=&quot;120&quot; label=&quot;Day 5&quot;/&gt;
+		&lt;val name=&quot;144&quot; label=&quot;Day 6&quot;/&gt;
+		&lt;val name=&quot;192&quot; label=&quot;Day 8&quot;/&gt;
+		&lt;val name=&quot;240&quot; label=&quot;Day 10&quot;/&gt;
+	      &lt;/field&gt;
+            &lt;/field&gt;
+          &lt;/columns&gt;
+	  
+	  &lt;agg_stat&gt;false&lt;/agg_stat&gt;
+	  &lt;boot_repl&gt;1000&lt;/boot_repl&gt;
+	  &lt;boot_random_seed&gt;1&lt;/boot_random_seed&gt;	  
+	  
+	  &lt;tmpl&gt;
+	    &lt;data_file&gt;scorecard.data&lt;/data_file&gt;
+	    &lt;plot_file&gt;scorecard.png&lt;/plot_file&gt;
+	    &lt;title&gt;METviewer Scorecard&lt;/title&gt;
+          &lt;/tmpl&gt;
+        &lt;/plot&gt;
+&lt;/plot_spec&gt;
+</pre></div>
+</div>
+<p>Here is an explanation for the sections:</p>
+<p><strong>&lt;plot_spec&gt;:</strong> This is the top level tag. It stands for “plot specifications”. Everything is defined in this tag.</p>
+<p><strong>&lt;connection&gt;:</strong> Please reference the “Common XML Structures” documentation. ??**NOTE: This is in Tatiana’s HTML documentation we’ll need to incorporate**??</p>
+<p><strong>&lt;rscript&gt;:</strong> Specifies the Rscript instance to use, for example /usr/local/bin/Rscript.</p>
+<p><strong>&lt;folders&gt;:</strong> A structure that specifies the input and output file system folders.</p>
+<blockquote>
+<div><p><strong>&lt;r_tmpl&gt;:</strong> The folder that contains the R templates used by METviewer, typically <em>R_tmpl/</em> from the METviewer CVS source tree.</p>
+<p><strong>&lt;r_work&gt;:</strong> The folder that will contain the data and generated R scripts, must contain the sub-folder <em>include/</em>.</p>
+<p><strong>&lt;plots&gt;:</strong> The output folder that will contain generated image and HTML files.</p>
+<p><strong>&lt;data&gt;:</strong> The output folder that will contain generated data files.</p>
+<p><strong>&lt;scripts&gt;:</strong> The output folder that will contain scripts files.</p>
+</div></blockquote>
+<p><strong>&lt;plot&gt;:</strong> A structure that specifies scorecard characteristics.</p>
+<blockquote>
+<div><blockquote>
+<div><p><strong>&lt;execution_type&gt;:</strong> <strong>Rscript</strong> or <strong>Python</strong>, indicating whether to use Rscript ot Python for the statistics calculation and plotting (if available). This is an optional element. The default value is Rscript.</p>
+<p><strong>&lt;view_value&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display statistical values in the scorecard cells. The default value is FALSE (do not display).</p>
+<p><strong>&lt;view_symbol&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display a symbol in the scorecard cells. The default value is TRUE (display).</p>
+<p><strong>&lt;view_legend&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display a legend for the scorecard. The default value is TRUE (display).</p>
+<p><strong>&lt;stat_flag&gt;:</strong> <strong>NCAR</strong> or <strong>EMC</strong>, which algorithm to use to calculate statistics. The default value is NCAR.</p>
+<p><strong>&lt;printSQL&gt;:</strong> <strong>FALSE</strong> or <strong>TRUE</strong>, indicating whether or not to print SQL queries. The default value is FALSE (do not print).</p>
+<p><strong>&lt;stat&gt;:</strong> <strong>DIFF</strong> (display a difference between models) or <strong>DIFF_SIG</strong> ( display p_value ) or <strong>SINGLE</strong> (display a value of statistic for the 1st model. In this case the value of the 2nd model is optional), indicating which statistic use to display for both - values and symbols - in the cell. The default value is DIFF_SIG (display p_value).</p>
+<p>or</p>
+<p><strong>&lt;stat_value&gt;:</strong> <strong>DIFF</strong> (display a difference between models) or <strong>DIFF_SIG</strong> (display p_value) or <strong>SINGLE</strong> (display a value of statistic for the 1st model. In this case the value of the 2nd model is optional), indicating which statistic use to display for values in the cell.</p>
+<p><strong>&lt;stat_symbol&gt;:</strong> <strong>DIFF</strong> (display a difference between models) or <strong>DIFF_SIG</strong> (display p_value) or <strong>SINGLE</strong> (display a value of statistic for the 1st model. In this case the value of the 2nd model is optional), indicating which statistic use to display for symbols in the cell.</p>
+<p><strong>&lt;threshold_file&gt;:</strong> full path to the XML file describing configurations for thresholds, colors and symbols.</p>
+<p><strong>&lt;left_column_names&gt;:</strong> a list of names for the most left columns as in &lt;val&gt;NAME&lt;/val&gt; format.</p>
+<p><strong>&lt;symbol_size&gt;:</strong> a size for the symbols. It can be in ‘%’ or ‘px’. For example, ‘120%’ will increase the size of symbols in 1.2 times. ‘20px’ can also be used.</p>
+<p><strong>&lt;template&gt;:</strong> the name of the R plot script template to use. The following templates are currently supported: scorecard.R_tmpl</p>
+<p><strong>&lt;plot_fix&gt;:</strong> describes database fields - models, date range and init hour - that are constant. Model field contains two values - first and second model names. Date range can be specified using ‘fcst_valid_beg’ or ‘fcst_init_beg’ and contains ine or more groups of two values - start and end dates. This example will create a scorecard for two periods (07-01 00:00 - 07-03 12:00) and (07-05 00:00 - 07-10 12:00)</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;fcst_valid_beg&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;2011-07-01 00:00:00&quot;</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;2011-07-03 12:00:00&quot;</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;2011-07-05 00:00:00&quot;</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;2011-07-10 12:00:00&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Init hour can contain one or more values</p>
+<blockquote>
+<div><blockquote>
+<div><div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;first_model&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;second_model&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;fcst_valid_beg&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;start_date&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;end_date&quot;</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!--optional second date range:--&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;start_date&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;end_date&quot;</span> <span class="nt">/&gt;</span>
+<span class="c">&lt;!--or optional single date:--&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;date&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;init_hour&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;first_hour&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>&lt;rows&gt;:</strong> Describes an individual row in the scorecard table.
+Contains one or more nested <strong>&lt;field&gt;</strong> elements.</p>
+<blockquote>
+<div><p><strong>&lt;field&gt;:</strong> Describes an individual row or row group in the scorecard table. Attributes:</p>
+<blockquote>
+<div><p><strong>name:</strong> Database field name</p>
+<p><strong>&lt;val&gt;:</strong> describes a value of the field. Field can have more than one value element. Attributes:</p>
+<blockquote>
+<div><blockquote>
+<div><p><strong>name:</strong> Database field name</p>
+<p><strong>label:</strong> The label that shows up on the image</p>
+</div></blockquote>
+<p><strong>&lt;field&gt;:</strong> next level database field name. Field can have more than one field element</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><strong>&lt;columns&gt;:</strong> describes an individual column in the scorecard table.
+Contains one or more nested <strong>&lt;field&gt;</strong> elements</p>
+<blockquote>
+<div><p><strong>&lt;field&gt;:</strong> Describes an individual column or column group in the scorecard table. Attributes:</p>
+<blockquote>
+<div><p><strong>name:</strong> Database field name</p>
+<p><strong>&lt;val&gt;:</strong> describes a value of the field. Field can have more than one value element. Attributes:</p>
+<blockquote>
+<div><p><strong>name:</strong> Database field name</p>
+<p><strong>label:</strong> The label that shows up on the image</p>
+</div></blockquote>
+<p><strong>&lt;field&gt;:</strong> next level database field name. Field can have more than one field element</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>&lt;agg_stat&gt;:</strong> <strong>TRUE</strong> (bootstrapping) or <strong>FALSE</strong> (student-T/normal), indicating whether or not to create a scorecard using aggregated statistics. The default value is TRUE (use bootstrapping).</p>
+<p><strong>&lt;boot_repl&gt;:</strong> number of bootstrapping replications, use 1 for no bootstrapping. Used when <strong>&lt;agg_stat&gt;</strong> is TRUE.</p>
+<p><strong>&lt;boot_random_seed&gt;:</strong> value of Random.seed for bootstrapping to get a reproducible random results. Used when <strong>&lt;agg_stat&gt;</strong> is TRUE.</p>
+<p><strong>&lt;plot_stat&gt;:</strong> name of the aggregation statistic. <strong>median</strong> or <strong>mean</strong>. The default value is median.</p>
+<p><strong>&lt;tmpl&gt;:</strong></p>
+<blockquote>
+<div><p><strong>&lt;data_file&gt;:</strong> name of the R data.frame data file, inside of the <strong>&lt;r_work&gt;</strong> folder specified above</p>
+<p><strong>&lt;plot_file&gt;:</strong> name of the output image file, inside of the <strong>&lt;plots&gt;</strong> folder specified above.</p>
+<p><strong>&lt;title&gt;:</strong> title of the scorecard displayed on the image. Default value: Verification Scorecard</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="example">
+<h2><span class="section-number">13.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The image below shows the output of scorecard_example.xml.</p>
+<div class="figure align-default" id="id1">
+<img alt="_images/scorecard_example.png" src="_images/scorecard_example.png" />
+<p class="caption"><span class="caption-text">Figure 13.1 Scorecard output example.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="eclvplots.html" class="btn btn-neutral" title="12. Economic Cost/Loss Value Plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

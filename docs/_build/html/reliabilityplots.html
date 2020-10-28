@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. Reliability Plots &mdash; METviewer 2.12 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="METviewer 2.12 documentation" href="index.html"/>
+        <link rel="next" title="8. Performance Diagrams" href="perfdiag.html"/>
+        <link rel="prev" title="6. Receiver Operating Characteristic (ROC) Plots" href="rocplot.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seriesplots.html">3. Series Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="barplots.html">4. Bar Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boxplot.html">5. Box Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rocplot.html">6. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Reliability Plots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">7.1. Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-type">7.2. Line Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to">7.3. How-To</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">7.4. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perfdiag.html">8. Performance Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taylordiag.html">9. Taylor Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contourplot.html">10. Contour Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spreadskillplot.html">11. Spread vs. Skill Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eclvplots.html">12. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scorecard.html">13. Scorecards</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>Reliability Plots</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/reliabilityplots.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reliability-plots">
+<h1><span class="section-number">7. </span>Reliability Plots<a class="headerlink" href="#reliability-plots" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2><span class="section-number">7.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Reliability (or attributes) diagrams are used to show the conditional bias of probabilistic forecasts. If a probability forecast is reliable, then the relative frequency of events for a certain category of probability forecasts will be approximately the same as the forecast probability. In other words, when a 50% probability of precipitation is forecast, approximately half of the corresponding observations should indicate that precipitation fell.</p>
+<p>The reliability diagram groups the forecasts into bins according to the issued probability (x axis). The frequency with which the event was observed to occur for this sub-group of forecasts is then plotted against the y axis. For perfect reliability the forecast probability and the frequency of occurrence should be equal, and the plotted points should lie on the diagonal (by default a solid grey line in the example figure below). In other words, when a 50% probability of precipitation is forecast, approximately half of the corresponding observations should indicate that precipitation fell.</p>
+<p>Reliability diagrams can be used to make adjustments to the conditional bias of the forecast probabilities.</p>
+</div>
+<div class="section" id="line-type">
+<h2><span class="section-number">7.2. </span>Line Type<a class="headerlink" href="#line-type" title="Permalink to this headline">¶</a></h2>
+<p>Reliability diagrams require the probability statistics (PCT line type) generated by either Point-Stat or Grid-Stat.</p>
+</div>
+<div class="section" id="how-to">
+<h2><span class="section-number">7.3. </span>How-To<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
+<p>Selection of options to produce the reliability diagram proceeds approximately counter-clockwise around the METviewer window.</p>
+<ol class="arabic simple">
+<li><p>Select the desired database from the “Select databases” pulldown menu at the top margin of the METviewer window.</p></li>
+<li><p>There are a number of tabs just under the database pulldown menu. Select the ‘Rely’ tab.</p></li>
+<li><p>Select the desired series variable to calculate statistics for in the “Series Variables” tab. Press the “+ Series Variable” button to reveal two pulldown menus. The first pulldown menu in the lists the categories available in the selected dataset. The second pulldown menu allows you to select the value of that category. The reliability diagram only makes sense for probability forecasts. These can be from ensemble forecasts or from a traditional forecast.</p></li>
+<li><p>It usually does not make sense to mix statistics for different groups. The desired group to calculate statistics over can be specified in the “Specialized Plot Fixed Values” section. For a reliability diagram, the forecast variable (“FCST_VAR”) must be selected. In the example below, the forecast variable is “APCP_24_ENS_FREQ_gt12.700”. A single domain (category: “VX_MASK”, value: “EAST”) is chosen. If multiple domains or threshold were chosen, the statistics would be a summary of all of those cases together, which may not always be desired.</p></li>
+<li><p>Choose whether or not to display the reliability event histogram in the “Reliability Event Histogram” section. Event histograms allow the user to see how often the forecast falls within each probability bin. The sample sizes in each bin are typically different, and some may be too small for conclusions. They also allow the user to judge the sharpness of the forecasts.</p></li>
+<li><p>There are two checkboxes in the “Reliability Event Histogram” section.</p>
+<ul class="simple">
+<li><p>Skill line: The skill, or reliability, of a forecast is indicated by the proximity of the plotted curve to the diagonal skill line. The deviation from the diagonal gives the conditional bias. If the curve lies below the line, this indicates over-forecasting (probabilities too high); points above the line indicate under-forecasting (probabilities too low).</p></li>
+<li><p>Reference line: This line (typically dashed) denotes the sample climatology or base rate, the frequency of the event.</p></li>
+</ul>
+</li>
+<li><p>Select what summary curve to display (if any) in the “Summary Curve” section.</p></li>
+<li><p>Adjust the aggregation options, if desired, in the “Aggregation options” section.</p></li>
+<li><p>Now enough information has been entered to produce a graph. To do this, click the “Generate Plot” button at the top of the METviewer window (this is in red text). Typically, if a plot is not produced, it is because the database selected does not contain the correct type of data. Also, it is imperative to check the data used for the plot by selecting the “R data” tab on the righthand side, above the plot area. The data from the database that is being used to calculate the statistics is listed in this tab. This tab should be checked to avoid the accidental accumulation of inappropriate database lines. For example, it does not make sense to accumulate statistics over different domains, thresholds, models, etc.</p></li>
+</ol>
+<p>There are many other options for plots, but these are the basics.</p>
+</div>
+<div class="section" id="example">
+<h2><span class="section-number">7.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The reliability diagram shown below is for the probability of 24 hour precipitation with accumulations greater than or equal to 12.7 cm occurring over the eastern CONUS. In the figure the reliability curve has a positive slope, indicating that as the forecast probability of the event occurring increases, so does the likelihood of observing the event. The forecasts therefore have some reliability. However, the slope is much less than the diagonal, indicating conditional bias or a lack of reliability. In this example, when forecast probability of precipitation is equal to 55% the actual chance of observing the event is closer to 35%.</p>
+<p>The histogram shows the relative frequency with which the event has been predicted (typically over the reference period and at all gridpoints) with different levels of probability. In the example, the majority of forecasts predict low probabilities of precipitation (near the climatological probability of ~5%). The forecast system is also capable of predicting relatively high probabilities of the event (e.g. greater than 40%), but such forecasts are less common.</p>
+<div class="figure align-default" id="id1">
+<img alt="_images/reliability_plot.png" src="_images/reliability_plot.png" />
+<p class="caption"><span class="caption-text">Figure 7.1 Example reliability (attributes diagram) with histogram of observation counts and bootstrap confidence intervals.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Here is the associated xml for this example. It can be copied into an empty file and saved to the desktop then uploaded into the system by clicking on the “Load XML” button in the upper-right corner of the GUI. This XML can be downloaded by visiting GitHub here ??[insert link to XML]??.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;plot_spec&gt;
+    &lt;connection&gt;
+        &lt;host&gt;mohawk&lt;/host&gt;
+        &lt;database&gt;mv_hrrr_sppmp_test&lt;/database&gt;
+        &lt;user&gt;******&lt;/user&gt;
+        &lt;password&gt;******&lt;/password&gt;
+        &lt;management_system&gt;mariadb&lt;/management_system&gt;
+    &lt;/connection&gt;
+    &lt;rscript&gt;/usr/local/R/bin/Rscript&lt;/rscript&gt;
+    &lt;folders&gt;
+        &lt;r_tmpl&gt;/opt/vxwww/tomcat/webapps/metviewer//R_tmpl&lt;/r_tmpl&gt;
+        &lt;r_work&gt;/opt/vxwww/tomcat/webapps/metviewer//R_work&lt;/r_work&gt;
+        &lt;plots&gt;/d2/www/dtcenter/met/metviewer_output//plots&lt;/plots&gt;
+        &lt;data&gt;/d2/www/dtcenter/met/metviewer_output//data&lt;/data&gt;
+        &lt;scripts&gt;/d2/www/dtcenter/met/metviewer_output//scripts&lt;/scripts&gt;
+    &lt;/folders&gt;
+    &lt;plot&gt;
+        &lt;template&gt;rely.R_tmpl&lt;/template&gt;
+        &lt;series1&gt;
+            &lt;field name=&quot;model&quot;&gt;
+                &lt;val&gt;HRRR_sppmp_ens_prob_hrconus&lt;/val&gt;
+            &lt;/field&gt;
+        &lt;/series1&gt;
+        &lt;plot_fix&gt;
+            &lt;field equalize=&quot;false&quot; name=&quot;fcst_var&quot;&gt;
+                &lt;set name=&quot;fcst_var_0&quot;&gt;
+                    &lt;val&gt;APCP_24_ENS_FREQ_ge12.700&lt;/val&gt;
+                &lt;/set&gt;
+            &lt;/field&gt;
+            &lt;field equalize=&quot;false&quot; name=&quot;vx_mask&quot;&gt;
+                &lt;set name=&quot;vx_mask_1&quot;&gt;
+                    &lt;val&gt;EAST&lt;/val&gt;
+                &lt;/set&gt;
+            &lt;/field&gt;
+        &lt;/plot_fix&gt;
+        &lt;rely_event_hist&gt;true&lt;/rely_event_hist&gt;
+        &lt;summary_curve/&gt;
+        &lt;add_skill_line&gt;true&lt;/add_skill_line&gt;
+        &lt;add_reference_line&gt;true&lt;/add_reference_line&gt;
+        &lt;agg_stat&gt;
+            &lt;agg_pct&gt;true&lt;/agg_pct&gt;
+            &lt;boot_repl&gt;1&lt;/boot_repl&gt;
+            &lt;boot_random_seed/&gt;
+            &lt;boot_ci&gt;perc&lt;/boot_ci&gt;
+            &lt;eveq_dis&gt;false&lt;/eveq_dis&gt;
+            &lt;cl_step/&gt;
+        &lt;/agg_stat&gt;
+        &lt;tmpl&gt;
+            &lt;data_file&gt;plot_20200921_172819.data&lt;/data_file&gt;
+            &lt;plot_file&gt;plot_20200921_172819.png&lt;/plot_file&gt;
+            &lt;r_file&gt;plot_20200921_172819.R&lt;/r_file&gt;
+            &lt;title&gt;24hr APCP &amp;gt;=12.7 cm EAST &lt;/title&gt;
+            &lt;x_label&gt;Forecast Probability&lt;/x_label&gt;
+            &lt;y1_label&gt;Observed Frequency&lt;/y1_label&gt;
+            &lt;y2_label/&gt;
+            &lt;caption/&gt;
+            &lt;job_title/&gt;
+            &lt;keep_revisions&gt;false&lt;/keep_revisions&gt;
+            &lt;listdiffseries1&gt;list()&lt;/listdiffseries1&gt;
+            &lt;listdiffseries2&gt;list()&lt;/listdiffseries2&gt;
+        &lt;/tmpl&gt;
+        &lt;execution_type&gt;Rscript&lt;/execution_type&gt;
+        &lt;event_equal&gt;false&lt;/event_equal&gt;
+        &lt;vert_plot&gt;false&lt;/vert_plot&gt;
+        &lt;x_reverse&gt;false&lt;/x_reverse&gt;
+        &lt;num_stats&gt;false&lt;/num_stats&gt;
+        &lt;indy1_stag&gt;false&lt;/indy1_stag&gt;
+        &lt;indy2_stag&gt;false&lt;/indy2_stag&gt;
+        &lt;grid_on&gt;true&lt;/grid_on&gt;
+        &lt;sync_axes&gt;false&lt;/sync_axes&gt;
+        &lt;dump_points1&gt;false&lt;/dump_points1&gt;
+        &lt;dump_points2&gt;false&lt;/dump_points2&gt;
+        &lt;log_y1&gt;false&lt;/log_y1&gt;
+        &lt;log_y2&gt;false&lt;/log_y2&gt;
+        &lt;varianceinflationfactor&gt;true&lt;/varianceinflationfactor&gt;
+        &lt;plot_type&gt;png16m&lt;/plot_type&gt;
+        &lt;plot_height&gt;8.5&lt;/plot_height&gt;
+        &lt;plot_width&gt;11&lt;/plot_width&gt;
+        &lt;plot_res&gt;72&lt;/plot_res&gt;
+        &lt;plot_units&gt;in&lt;/plot_units&gt;
+        &lt;mar&gt;c(8,4,5,4)&lt;/mar&gt;
+        &lt;mgp&gt;c(1,1,0)&lt;/mgp&gt;
+        &lt;cex&gt;1&lt;/cex&gt;
+        &lt;title_weight&gt;2&lt;/title_weight&gt;
+        &lt;title_size&gt;1.4&lt;/title_size&gt;
+        &lt;title_offset&gt;-2&lt;/title_offset&gt;
+        &lt;title_align&gt;0.5&lt;/title_align&gt;
+        &lt;xtlab_orient&gt;1&lt;/xtlab_orient&gt;
+        &lt;xtlab_perp&gt;-0.75&lt;/xtlab_perp&gt;
+        &lt;xtlab_horiz&gt;0.5&lt;/xtlab_horiz&gt;
+        &lt;xtlab_freq&gt;0&lt;/xtlab_freq&gt;
+        &lt;xtlab_size&gt;1&lt;/xtlab_size&gt;
+        &lt;xlab_weight&gt;1&lt;/xlab_weight&gt;
+        &lt;xlab_size&gt;1&lt;/xlab_size&gt;
+        &lt;xlab_offset&gt;2&lt;/xlab_offset&gt;
+        &lt;xlab_align&gt;0.5&lt;/xlab_align&gt;
+        &lt;ytlab_orient&gt;1&lt;/ytlab_orient&gt;
+        &lt;ytlab_perp&gt;0.5&lt;/ytlab_perp&gt;
+        &lt;ytlab_horiz&gt;0.5&lt;/ytlab_horiz&gt;
+        &lt;ytlab_size&gt;1&lt;/ytlab_size&gt;
+        &lt;ylab_weight&gt;1&lt;/ylab_weight&gt;
+        &lt;ylab_size&gt;1&lt;/ylab_size&gt;
+        &lt;ylab_offset&gt;-2&lt;/ylab_offset&gt;
+        &lt;ylab_align&gt;0.5&lt;/ylab_align&gt;
+        &lt;grid_lty&gt;3&lt;/grid_lty&gt;
+        &lt;grid_col&gt;#cccccc&lt;/grid_col&gt;
+        &lt;grid_lwd&gt;1&lt;/grid_lwd&gt;
+        &lt;grid_x&gt;listX&lt;/grid_x&gt;
+        &lt;x2tlab_orient&gt;1&lt;/x2tlab_orient&gt;
+        &lt;x2tlab_perp&gt;1&lt;/x2tlab_perp&gt;
+        &lt;x2tlab_horiz&gt;0.5&lt;/x2tlab_horiz&gt;
+        &lt;x2tlab_size&gt;0.8&lt;/x2tlab_size&gt;
+        &lt;x2lab_size&gt;0.8&lt;/x2lab_size&gt;
+        &lt;x2lab_offset&gt;-0.5&lt;/x2lab_offset&gt;
+        &lt;x2lab_align&gt;0.5&lt;/x2lab_align&gt;
+        &lt;y2tlab_orient&gt;1&lt;/y2tlab_orient&gt;
+        &lt;y2tlab_perp&gt;0.5&lt;/y2tlab_perp&gt;
+        &lt;y2tlab_horiz&gt;0.5&lt;/y2tlab_horiz&gt;
+        &lt;y2tlab_size&gt;1&lt;/y2tlab_size&gt;
+        &lt;y2lab_size&gt;1&lt;/y2lab_size&gt;
+        &lt;y2lab_offset&gt;1&lt;/y2lab_offset&gt;
+        &lt;y2lab_align&gt;0.5&lt;/y2lab_align&gt;
+        &lt;legend_box&gt;o&lt;/legend_box&gt;
+        &lt;legend_inset&gt;c(0, -.25)&lt;/legend_inset&gt;
+        &lt;legend_ncol&gt;1&lt;/legend_ncol&gt;
+        &lt;legend_size&gt;0.8&lt;/legend_size&gt;
+        &lt;caption_weight&gt;1&lt;/caption_weight&gt;
+        &lt;caption_col&gt;#333333&lt;/caption_col&gt;
+        &lt;caption_size&gt;0.8&lt;/caption_size&gt;
+        &lt;caption_offset&gt;3&lt;/caption_offset&gt;
+        &lt;caption_align&gt;0&lt;/caption_align&gt;
+        &lt;ci_alpha&gt;0.05&lt;/ci_alpha&gt;
+        &lt;plot_ci&gt;c(&quot;none&quot;)&lt;/plot_ci&gt;
+        &lt;show_signif&gt;c(FALSE)&lt;/show_signif&gt;
+        &lt;plot_disp&gt;c(TRUE)&lt;/plot_disp&gt;
+        &lt;colors&gt;c(&quot;#0000ffFF&quot;)&lt;/colors&gt;
+        &lt;pch&gt;c(20)&lt;/pch&gt;
+        &lt;type&gt;c(&quot;b&quot;)&lt;/type&gt;
+        &lt;lty&gt;c(1)&lt;/lty&gt;
+        &lt;lwd&gt;c(1)&lt;/lwd&gt;
+        &lt;con_series&gt;c(1)&lt;/con_series&gt;
+        &lt;order_series&gt;c(1)&lt;/order_series&gt;
+        &lt;plot_cmd/&gt;
+        &lt;legend&gt;c(&quot;&quot;)&lt;/legend&gt;
+        &lt;y1_lim&gt;c()&lt;/y1_lim&gt;
+        &lt;x1_lim&gt;c()&lt;/x1_lim&gt;
+        &lt;y1_bufr&gt;0.04&lt;/y1_bufr&gt;
+        &lt;y2_lim&gt;c()&lt;/y2_lim&gt;
+    &lt;/plot&gt;
+&lt;/plot_spec&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="perfdiag.html" class="btn btn-neutral float-right" title="8. Performance Diagrams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rocplot.html" class="btn btn-neutral" title="6. Receiver Operating Characteristic (ROC) Plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
