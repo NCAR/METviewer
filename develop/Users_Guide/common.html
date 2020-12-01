@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Common XML Structures &mdash; METviewer develop documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="METviewer develop documentation" href="../index.html"/>
+        <link rel="up" title="User’s Guide" href="index.html"/>
+        <link rel="next" title="4. Database Loading Module" href="database_loading.html"/>
+        <link rel="prev" title="2. METviewer Installation Guide" href="installation.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="../_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  <div class="version-dropdown">
+                    <select class="version-list" id="version-list">
+                      <option value=''>develop</option>
+                      
+                        
+                          <option value="../latest">latest</option>
+                        
+                      
+                        
+                      
+                    </select>
+                  </div>
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">METviewer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Common XML Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database_loading.html">4. Database Loading Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database_scrubbing.html">5. Database Scrubbing Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">6. Testing Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_service.html">7. METviewer Web Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">8. Batch Plotting Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seriesplots.html">9. Series Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="barplots.html">10. Bar Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boxplot.html">11. Box Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rocplot.html">12. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reliabilityplots.html">13. Reliability Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfdiag.html">14. Performance Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylordiag.html">15. Taylor Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contourplot.html">16. Contour Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spreadskillplot.html">17. Spread vs. Skill Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eclvplots.html">18. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scorecard.html">19. Scorecards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">User’s Guide</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Common XML Structures</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Users_Guide/common.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-xml-structures">
+<h1><span class="section-number">3. </span>Common XML Structures<a class="headerlink" href="#common-xml-structures" title="Permalink to this headline">¶</a></h1>
+<p>The database loading module and batch plotting module both use XML input files. Some XML structures can be used in either input file. These common structures are documented below.</p>
+<div class="line-block">
+<div class="line"><strong>&lt;connection&gt;:</strong> Information about the database connection.</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><strong>&lt;host&gt;:</strong> Database hostname and port number in [host]:[port] format.</div>
+<div class="line"><strong>&lt;database&gt;:</strong> Database name(s) as CSV.</div>
+<div class="line"><strong>&lt;user&gt;:</strong> Database user.</div>
+<div class="line"><strong>&lt;password&gt;:</strong> Database user’s password.</div>
+<div class="line"><strong>&lt;management_system&gt;:</strong> Database type. Can be mysql or mariadb.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>&lt;date_list&gt;:</strong> A structure that specifies a list of date strings in a certain format.</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><strong>&lt;start&gt;:</strong> The start date and time of the date list, specified in the format given by the tag <strong>&lt;format&gt;</strong></div>
+<div class="line"><strong>&lt;end&gt;:</strong> The end date and time, specified in the format given by the tag <strong>&lt;format&gt;</strong></div>
+<div class="line"><strong>&lt;inc&gt;:</strong> The increment, in seconds, between successive members of the date list.</div>
+<div class="line"><strong>&lt;format&gt;:</strong> The date format, specified by the java class SimpleDateFormat.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>&lt;date_offset&gt;:</strong> A structure that specifies a date using an offset from another date.</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line"><strong>&lt;day_offset&gt;:</strong> The number of days to offset (negative means back in time).</div>
+<div class="line"><strong>&lt;hour&gt;:</strong> The hour of day in UTC.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="database_loading.html" class="btn btn-neutral float-right" title="4. Database Loading Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="2. METviewer Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, UCAR/NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+     
+<script>var version_json_loc = "../../versions.json";</script>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/pop_ver.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

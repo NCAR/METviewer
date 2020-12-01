@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. METviewer Web Service &mdash; METviewer develop documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/web_service.html"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="METviewer develop documentation" href="../index.html"/>
+        <link rel="up" title="User’s Guide" href="index.html"/>
+        <link rel="next" title="8. Batch Plotting Module" href="batch.html"/>
+        <link rel="prev" title="6. Testing Module" href="testing.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="../_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  <div class="version-dropdown">
+                    <select class="version-list" id="version-list">
+                      <option value=''>develop</option>
+                      
+                        
+                          <option value="../latest">latest</option>
+                        
+                      
+                        
+                      
+                    </select>
+                  </div>
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">METviewer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common.html">3. Common XML Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database_loading.html">4. Database Loading Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database_scrubbing.html">5. Database Scrubbing Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">6. Testing Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7. METviewer Web Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api-request-response-formats">7.1. API Request/Response Formats</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list-databases">7.1.1. List Databases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-values">7.1.2. List Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-statistics">7.1.3. List Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-plot">7.1.4. Generate Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#open-app-with-predefine-database">7.1.5. Open app with predefine database</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">8. Batch Plotting Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seriesplots.html">9. Series Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="barplots.html">10. Bar Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boxplot.html">11. Box Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rocplot.html">12. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reliabilityplots.html">13. Reliability Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfdiag.html">14. Performance Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylordiag.html">15. Taylor Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contourplot.html">16. Contour Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spreadskillplot.html">17. Spread vs. Skill Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eclvplots.html">18. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scorecard.html">19. Scorecards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">User’s Guide</a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>METviewer Web Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Users_Guide/web_service.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metviewer-web-service">
+<h1><span class="section-number">7. </span>METviewer Web Service<a class="headerlink" href="#metviewer-web-service" title="Permalink to this headline">¶</a></h1>
+<p>The METviewer web service is a web-server driven API that parses XML requests and returns results in an XML structure. All calls are session-less meaning that each individual call does not affect and is not affected by the results of any other call. Also, a client does not have to establish a connection with the server and all calls can be made atomically.</p>
+<p>The web service can be accessed using the relative URL metviewer/servlet, for example <a class="reference external" href="http://www.dtcenter.org/met/metviewer/servlet">http://www.dtcenter.org/met/metviewer/servlet</a>. When the web service receives an HTTP GET request, it echoes the GET parameters and acts as a “ping” mechanism to ensure that the system is online and working. All API XML requests should be issued using an HMTL POST request with the XML request as the entire body. The XML response will indicate the type of request, and echo some information.</p>
+<p>There are several different request types, each with a particular format of response. The METviewer client calls the different API methods in a loose ordering:</p>
+<ol class="arabic simple">
+<li><p>List available databases</p></li>
+<li><p>List forecast variables for user selected database</p></li>
+<li><p>List stats for user selected database and forecast variable</p></li>
+<li><p>List values for user selected fixed fields</p></li>
+<li><p>Repeat steps 2-4 as needed</p></li>
+<li><p>Plot request for user selected database and plot information</p></li>
+</ol>
+<div class="section" id="api-request-response-formats">
+<h2><span class="section-number">7.1. </span>API Request/Response Formats<a class="headerlink" href="#api-request-response-formats" title="Permalink to this headline">¶</a></h2>
+<p>The following sections each describe a web service API function in terms of the request/response XML structure.</p>
+<div class="section" id="list-databases">
+<h3><span class="section-number">7.1.1. </span>List Databases<a class="headerlink" href="#list-databases" title="Permalink to this headline">¶</a></h3>
+<p>List the METviewer databases that are available on the system for access through the web app. The returned list reflects the contents of the mvservlet.properties file in the web app installation folder.</p>
+<p>Request:</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;&lt;list_db/&gt;&lt;/request&gt;</span>
+</pre></div>
+</div>
+<p>Response:</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;list_db&gt;</span>
+  <span class="nt">&lt;val&gt;</span>mv_gfs_nam<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>mv_hmt_2010<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>mv_hmt_2011<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>mv_hwt_2010<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>mv_met_ncep<span class="nt">&lt;/val&gt;</span>
+<span class="nt">&lt;/list_db&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-values">
+<h3><span class="section-number">7.1.2. </span>List Values<a class="headerlink" href="#list-values" title="Permalink to this headline">¶</a></h3>
+<p>The list_val request is used to conditionally list the distinct values in the stat_header table of the selected database. The field whose values to list is specified in the stat_field element. There are two conditions that can be optionally included in the request: a fcst_var/stat pair and a stat_header field name with a set of values. At this point, it is worth noting that although the fields fcst_lead, fcst_valid_beg and fcst_lead_beg are not in the stat_header table of the database schema, they are considered stat_header fields from the standpoint of the METviewer servlet and client. The virtual fields inithour and validhour are considered stat_header fields.</p>
+<p>The id element is common to the list_val and list_stat API methods, and the value specified in the request is simply echoed back to the client in the response. This feature helps the client determine which controls should be updated with the contents of the response.</p>
+<p><strong>Request #1:</strong> In this case, the request is for all distinct values of the stat_header field fcst_var, without any conditions.</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;</span>
+  <span class="nt">&lt;db_con&gt;</span>mv_gfs_nam<span class="nt">&lt;/db_con&gt;</span>
+  <span class="nt">&lt;list_val&gt;</span>
+    <span class="nt">&lt;id&gt;</span>0<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;stat_field&gt;</span>FCST_VAR<span class="nt">&lt;/stat_field&gt;</span>
+  <span class="nt">&lt;/list_val&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+</pre></div>
+</div>
+<p><strong>Response #1</strong></p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;list_val&gt;</span>
+  <span class="nt">&lt;id&gt;</span>0<span class="nt">&lt;/id&gt;</span>
+  <span class="nt">&lt;val&gt;</span>APCP_03<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>APCP_24<span class="nt">&lt;/val&gt;</span>
+<span class="nt">&lt;/list_val&gt;</span>
+</pre></div>
+</div>
+<p><strong>Request #2:</strong> This conditional request is for all distinct values of vx_mask for which the fcst_var is APCP_03 and the statistic type is categorical (the statistic CSI can be found in the database table line_data_cts). An additional stat_header field condition stipulates that only vx_mask values whose fcst_lead is 120000 should be returned.</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;</span>
+  <span class="nt">&lt;db_con&gt;</span>mv_gfs_nam<span class="nt">&lt;/db_con&gt;</span>
+  <span class="nt">&lt;list_val&gt;</span>
+    <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;stat_field&gt;</span>VX_MASK<span class="nt">&lt;/stat_field&gt;</span>
+    <span class="nt">&lt;stat&gt;</span>
+      <span class="nt">&lt;fcst_var</span> <span class="na">name=</span><span class="s">&quot;APCP_03&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;val&gt;</span>CSI<span class="nt">&lt;/val&gt;</span>
+      <span class="nt">&lt;/fcst_var&gt;</span>
+    <span class="nt">&lt;/stat&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;OBTYPE&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;val&gt;</span>MC_PCP<span class="nt">&lt;/val&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/list_val&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+</pre></div>
+</div>
+<p><strong>Response #2:</strong> The response contains only values of vx_mask for which the criteria are satisfied. This feature is useful to users for narrowing the results of subsequent search requests. Note that, for performance reasons, time criteria such as fcst_valid_beg, fcst_init_beg and fcst_lead does not affect the results of non-time based fields and vice versa.</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;list_val&gt;</span>
+  <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+  <span class="nt">&lt;val&gt;</span>FULL<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>CONUS<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>EAST<span class="nt">&lt;/val&gt;</span>
+<span class="nt">&lt;/list_val&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-statistics">
+<h3><span class="section-number">7.1.3. </span>List Statistics<a class="headerlink" href="#list-statistics" title="Permalink to this headline">¶</a></h3>
+<p>The list_stat request builds a list of all statistics available in the METviewer database for the specified fcst_var. It is primarily used to construct the dep1 and dep2 portions of the plot request. Conditional criteria is not supported in list_stat requests.</p>
+<p><strong>Request</strong></p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;</span>
+  <span class="nt">&lt;db_con&gt;</span>mv_gfs_nam<span class="nt">&lt;/db_con&gt;</span>
+  <span class="nt">&lt;list_stat&gt;</span>
+    <span class="nt">&lt;id&gt;</span>0<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;stat_fcst_var&gt;</span>APCP_03<span class="nt">&lt;/stat_fcst_var&gt;</span>
+  <span class="nt">&lt;/list_stat&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+</pre></div>
+</div>
+<p><strong>Response (abridged)</strong></p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;list_stat&gt;</span>
+  <span class="nt">&lt;id&gt;</span>0<span class="nt">&lt;/id&gt;</span>
+  <span class="nt">&lt;val&gt;</span>ACC<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>BASER<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>CSI<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>FAR<span class="nt">&lt;/val&gt;</span>
+  <span class="nt">&lt;val&gt;</span>GSS<span class="nt">&lt;/val&gt;</span>
+<span class="nt">&lt;/list_stat&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-plot">
+<h3><span class="section-number">7.1.4. </span>Generate Plot<a class="headerlink" href="#generate-plot" title="Permalink to this headline">¶</a></h3>
+<p>Once a user has provided all the information for a complete plot specification, the plot request handles the parsing of the plot specification and generation of the plot. If a plot is successfully create from the plot specification, the location of the plot image is included in the response. If any error or warning information was captured from R during the process, it will be included in the r_error element.</p>
+<p><strong>Request</strong></p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;</span>
+  <span class="nt">&lt;db_con&gt;</span>mv_gfs_nam<span class="nt">&lt;/db_con&gt;</span>
+  <span class="nt">&lt;plot&gt;</span>??(see body of plot element) link to Chapter**
+  <span class="nt">&lt;/plot&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+</pre></div>
+</div>
+<p><strong>Response</strong></p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plot&gt;</span>plot_00155_20111019_122758<span class="nt">&lt;/plot&gt;</span>
+<span class="nt">&lt;r_error&gt;</span>NAs produced by integer overflow<span class="nt">&lt;/r_error&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-app-with-predefine-database">
+<h3><span class="section-number">7.1.5. </span>Open app with predefine database<a class="headerlink" href="#open-app-with-predefine-database" title="Permalink to this headline">¶</a></h3>
+<p>Use this url to open METviewer main page with predefine database:</p>
+<p>&lt;<a class="reference external" href="http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database">http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="batch.html" class="btn btn-neutral float-right" title="8. Batch Plotting Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="testing.html" class="btn btn-neutral" title="6. Testing Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, UCAR/NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+     
+<script>var version_json_loc = "../../versions.json";</script>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/pop_ver.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
