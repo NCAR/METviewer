@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Database Scrubbing Module &mdash; METviewer develop documentation</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/database_scrubbing.html"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="METviewer develop documentation" href="../index.html"/>
+        <link rel="up" title="User’s Guide" href="index.html"/>
+        <link rel="next" title="6. Testing Module" href="testing.html"/>
+        <link rel="prev" title="4. Database Loading Module" href="database_loading.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> METviewer
+          
+
+          
+            
+            <img src="../_static/met_viewer_logo_2019_09.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  <div class="version-dropdown">
+                    <select class="version-list" id="version-list">
+                      <option value=''>develop</option>
+                      
+                        
+                          <option value="../latest">latest</option>
+                        
+                      
+                        
+                      
+                    </select>
+                  </div>
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">METviewer</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">2. METviewer Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common.html">3. Common XML Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database_loading.html">4. Database Loading Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Database Scrubbing Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">5.1. Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">6. Testing Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_service.html">7. METviewer Web Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">8. Batch Plotting Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seriesplots.html">9. Series Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="barplots.html">10. Bar Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boxplot.html">11. Box Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rocplot.html">12. Receiver Operating Characteristic (ROC) Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reliabilityplots.html">13. Reliability Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perfdiag.html">14. Performance Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylordiag.html">15. Taylor Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contourplot.html">16. Contour Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spreadskillplot.html">17. Spread vs. Skill Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eclvplots.html">18. Economic Cost/Loss Value Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scorecard.html">19. Scorecards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">METviewer</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">User’s Guide</a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>Database Scrubbing Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Users_Guide/database_scrubbing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="database-scrubbing-module">
+<h1><span class="section-number">5. </span>Database Scrubbing Module<a class="headerlink" href="#database-scrubbing-module" title="Permalink to this headline">¶</a></h1>
+<p>The database scrubbing utility is used to to delete data from METviewer databases that meets some user-specified selection criteria. The usage statement:</p>
+<p>—- Database Scrubbing —-</p>
+<p>Usage: mv_prune.sh prune_db_spec_file</p>
+<blockquote>
+<div><p>where prune_db_spec_file specifies the XML pruning specification document</p>
+</div></blockquote>
+<p>—- Database Scrubbing Done —-</p>
+<p>The prune_db_spec_file passed to the pruning module contains information about the criteria for deleting data. It is an XML file with the top-level tag <strong>&lt;prune_spec&gt;</strong> which contains the elements described below, divided into functional sections. The data to be deleted may be specified in one of three ways: as a list of file names, as a list of directories, or as a set of values for various fields in the data.</p>
+<p><strong>&lt;connection&gt;:</strong> Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??</p>
+<p><strong>&lt;info_only&gt;:</strong> <strong>TRUE</strong> or <strong>FASLE</strong>, this option indicates if the data to be deleted should only be listed (<strong>TRUE</strong>) or the actual deletion performed (<strong>FALSE</strong>).</p>
+<div class="line-block">
+<div class="line"><strong>&lt;fields&gt;:</strong> A list of fields used for pruning.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;value_range&gt;:</strong> An inclusive range for continuous variables, such as dates.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;start&gt;:</strong> Beginning of the range.</div>
+<div class="line"><strong>&lt;end&gt;:</strong> End of the range.</div>
+<div class="line"><br /></div>
+</div>
+<div class="line"><strong>OR</strong></div>
+<div class="line"><br /></div>
+<div class="line"><strong>&lt;value_list&gt;:</strong> A list of values, such as models.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;value&gt;:</strong> A single value.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="line"><strong>OR</strong></div>
+<div class="line"><br /></div>
+<div class="line"><strong>&lt;files&gt;:</strong> A set of files to be removed.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;file&gt;:</strong> File name.</div>
+<div class="line"><br /></div>
+</div>
+<div class="line"><strong>OR</strong></div>
+<div class="line"><br /></div>
+<div class="line"><strong>&lt;folders&gt;:</strong> A set of directories to be removed.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;folder_tmpl&gt;:</strong> A template string describing the file structure of the MET files, which is populated with values specified in the <strong>&lt;load_val&gt;</strong> tag structure.</div>
+<div class="line"><strong>&lt;date_list&gt;:</strong> Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??</div>
+<div class="line"><br /></div>
+<div class="line"><strong>&lt;load_val&gt;:</strong> A tree structure containing values used to populate the <strong>&lt;folder_tmpl&gt;</strong> template.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;field&gt;:</strong> A template value, its name is specified by the attribute name, and its values are specified by its children <strong>&lt;val&gt;</strong> tags.</div>
+<div class="line-block">
+<div class="line"><strong>&lt;val&gt;:</strong> A single template value which will slot into the template in the value specified by the parent field’s name.</div>
+<div class="line"><strong>&lt;date_list&gt;:</strong> Specifies a previously declared <strong>&lt;date_list&gt;</strong> element, using the name attribute, which represents a list of dates in a particular format.</div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2><span class="section-number">5.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Example 1: Prune by describing the data (&lt;fields&gt;)</strong></p>
+<p>The following configuration will remove data from database ‘mv_database’ that has model names NAM and GFS, forecast variable APCP_03 and forecast valid dates between 2013-07-05 06:00 and 2013-07-05 18:00:00</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;prune_spec&gt;</span>
+  <span class="nt">&lt;connection&gt;</span>
+    <span class="nt">&lt;host&gt;</span>db_host:3306<span class="nt">&lt;/host&gt;</span>
+    <span class="nt">&lt;database&gt;</span>mv_database<span class="nt">&lt;/database&gt;</span>
+    <span class="nt">&lt;user&gt;</span>user_name<span class="nt">&lt;user&gt;</span>
+    <span class="nt">&lt;password&gt;</span>user_password<span class="nt">&lt;password&gt;</span>
+  <span class="nt">&lt;/connection&gt;</span>
+
+  <span class="nt">&lt;info_only&gt;</span>false<span class="nt">&lt;/info_only&gt;</span>
+
+  <span class="nt">&lt;fields&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;fcst_valid_beg&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;value_range&gt;</span>
+        <span class="nt">&lt;start&gt;</span>2013-07-05 06:00:00<span class="nt">&lt;/start&gt;</span>
+        <span class="nt">&lt;end&gt;</span>2013-07-05 18:00:00<span class="nt">&lt;/end&gt;</span>
+      <span class="nt">&lt;/value_range&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;value_list&gt;</span>
+        <span class="nt">&lt;value&gt;</span>NAM<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;value&gt;</span>GFS<span class="nt">&lt;/value&gt;</span>
+      <span class="nt">&lt;/value_list&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;fcst_var&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;value_list&gt;</span>
+        <span class="nt">&lt;value&gt;</span>APCP_03<span class="nt">&lt;/value&gt;</span>
+      <span class="nt">&lt;/value_list&gt;</span>
+    <span class="nt">&lt;/field&gt;</span>
+  <span class="nt">&lt;/fields&gt;</span>
+<span class="nt">&lt;/prune_spec&gt;</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Prune by a list of files (&lt;files&gt;) and by a list of directories (&lt;folders&gt;)</strong></p>
+<p>This configuration will remove data from database ‘mv_database’ that was loaded from the following files:</p>
+<p>/d3/metprd/grid_stat/grid_stat_APCP_03_030000L_20130705_030000V.stat
+/d3/metprd/mode/mode_APCP_06_180000L_20130705_180000V_060000A_obj.txt</p>
+<p>And from the following directories:</p>
+<p>/d1/data/arw/FULL/2010051914
+/d1/data/arw/SWC/2010051914
+/d1/data/nmm/FULL/2010051914
+/d1/data/nmm/SWC/2010051914
+/d1/data/arw/FULL/2010051915
+/d1/data/arw/SWC/2010051915
+/d1/data/nmm/FULL/2010051915
+/d1/data/nmm/SWC/2010051915</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;prune_spec&gt;</span>
+  <span class="nt">&lt;connection&gt;</span>
+    <span class="nt">&lt;host&gt;</span>db_host:3306<span class="nt">&lt;/host&gt;</span>
+    <span class="nt">&lt;database&gt;</span>mv_database<span class="nt">&lt;/database&gt;</span>
+    <span class="nt">&lt;user&gt;</span>user_name<span class="nt">&lt;/user&gt;</span>
+    <span class="nt">&lt;password&gt;</span>user_password<span class="nt">&lt;/password&gt;</span>
+  <span class="nt">&lt;/connection&gt;</span>
+
+  <span class="nt">&lt;info_only&gt;</span>false<span class="nt">&lt;/info_only&gt;</span>
+
+  <span class="nt">&lt;files&gt;</span>
+    <span class="nt">&lt;file&gt;</span>/d3/metprd/grid_stat/grid_stat_APCP_03_030000L_20130705_030000V.stat<span class="nt">&lt;/file&gt;</span>
+    <span class="nt">&lt;file&gt;</span>/d3/metprd/grid_stat/grid_stat_APCP_03_030000L_20130705_030000V.stat<span class="nt">&lt;/file&gt;</span>
+  <span class="nt">&lt;/files&gt;</span>
+
+  <span class="nt">&lt;folders&gt;</span>
+    <span class="nt">&lt;date_list</span> <span class="na">name=</span><span class="s">&quot;folder_dates&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;start&gt;</span>2010051914<span class="nt">&lt;/start&gt;</span>
+      <span class="nt">&lt;end&gt;</span>2010051915<span class="nt">&lt;/end&gt;</span>
+      <span class="nt">&lt;inc&gt;</span>3600<span class="nt">&lt;/inc&gt;</span>
+      <span class="nt">&lt;format&gt;</span>yyyyMMddHH<span class="nt">&lt;/format&gt;</span>
+    <span class="nt">&lt;/date_list&gt;</span>
+
+    <span class="nt">&lt;folder_tmpl&gt;</span>/d1/data/{model}/{vx_mask}/{valid_time}<span class="nt">&lt;/folder_tmpl&gt;</span>
+
+    <span class="nt">&lt;load_val&gt;</span>
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;val&gt;</span>arw<span class="nt">&lt;/val&gt;</span>
+        <span class="nt">&lt;val&gt;</span>nmm<span class="nt">&lt;/val&gt;</span>
+      <span class="nt">&lt;/field&gt;</span>
+
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;valid_time&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;date_list</span> <span class="na">name=</span><span class="s">&quot;folder_dates&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/field&gt;</span>
+
+      <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;vx_mask&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;val&gt;</span>FULL<span class="nt">&lt;/val&gt;</span>
+        <span class="nt">&lt;val&gt;</span>SWC<span class="nt">&lt;/val&gt;</span>
+      <span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;/load_val&gt;</span>
+  <span class="nt">&lt;/folders&gt;</span>
+<span class="nt">&lt;/prune_spec&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="testing.html" class="btn btn-neutral float-right" title="6. Testing Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="database_loading.html" class="btn btn-neutral" title="4. Database Loading Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, UCAR/NCAR.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+     
+<script>var version_json_loc = "../../versions.json";</script>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/pop_ver.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
