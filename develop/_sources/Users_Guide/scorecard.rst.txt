@@ -91,15 +91,26 @@ Here is an explanation for the sections:
         
         **<stat_symbol>:** **DIFF** (display a difference between models) or **DIFF_SIG** (display p_value) or **SINGLE** (display a value of statistic for the 1st model. In this case the value of the 2nd model is optional), indicating which statistic use to display for symbols in the cell.
         
-        **<threshold_file>:** full path to the XML file describing configurations for thresholds, colors and symbols.
-        
+        **<threshold_file>:** full path to the XML file describing configurations for thresholds, colors and symbols (optional).
+
+        **<weight_file>:** full path to the XML file describing configurations for weights definitions (optional)
+
         **<left_column_names>:** a list of names for the most left columns as in <val>NAME</val> format.
         
         **<symbol_size>:** a size for the symbols. It can be in '%' or 'px'. For example, '120%' will increase the size of symbols in 1.2 times. '20px' can also be used.
         
         **<template>:** the name of the R plot script template to use. The following templates are currently supported: scorecard.R_tmpl
 
-        **<plot_fix>:** describes database fields - models, date range and init hour - that are constant. Model field contains two values - first and second model names. Date range can be specified using 'fcst_valid_beg' or 'fcst_init_beg' and contains ine or more groups of two values - start and end dates. This example will create a scorecard for two periods (07-01 00:00 - 07-03 12:00) and (07-05 00:00 - 07-10 12:00)
+        **<plot_fix>:** describes database fields - models, date range and init hour - that are constant.
+                Model field contains:
+
+                * two values - first and second model names
+
+                * one value - when the stat values for one model are requested
+
+                * multiples pairs - for the aggregated scorecard
+
+                Date range can be specified using 'fcst_valid_beg' or 'fcst_init_beg' and contains one or more groups of two values - start and end dates. This example will create a scorecard for two periods (07-01 00:00 - 07-03 12:00) and (07-05 00:00 - 07-10 12:00)
 
         .. code-block:: XML
 
@@ -110,7 +121,18 @@ Here is an explanation for the sections:
                  <val name="2011-07-10 12:00:00"/> 
                 </field>
 
-       Init hour can contain one or more values
+
+        Init hour can contain one or more values.
+
+        Date/time fields could have **<label>:** attribute. It will be used in the title instead on the list of dates.
+        For example, if 'fcst_valid_beg' example above had a label **<field name="fcst_valid_beg" label="July 2011">:**
+        Then the title would be
+
+        **METviewer Scorecard**
+
+        *for PR4RN_1405 and GFS2016*
+
+          *July 2011*
        
                 .. code-block:: XML
 

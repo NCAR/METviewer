@@ -521,7 +521,6 @@
 </div></blockquote>
 <p><strong>&lt;plot&gt;:</strong> A structure that specifies scorecard characteristics.</p>
 <blockquote>
-<div><blockquote>
 <div><p><strong>&lt;execution_type&gt;:</strong> <strong>Rscript</strong> or <strong>Python</strong>, indicating whether to use Rscript ot Python for the statistics calculation and plotting (if available). This is an optional element. The default value is Rscript.</p>
 <p><strong>&lt;view_value&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display statistical values in the scorecard cells. The default value is FALSE (do not display).</p>
 <p><strong>&lt;view_symbol&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display a symbol in the scorecard cells. The default value is TRUE (display).</p>
@@ -532,11 +531,21 @@
 <p>or</p>
 <p><strong>&lt;stat_value&gt;:</strong> <strong>DIFF</strong> (display a difference between models) or <strong>DIFF_SIG</strong> (display p_value) or <strong>SINGLE</strong> (display a value of statistic for the 1st model. In this case the value of the 2nd model is optional), indicating which statistic use to display for values in the cell.</p>
 <p><strong>&lt;stat_symbol&gt;:</strong> <strong>DIFF</strong> (display a difference between models) or <strong>DIFF_SIG</strong> (display p_value) or <strong>SINGLE</strong> (display a value of statistic for the 1st model. In this case the value of the 2nd model is optional), indicating which statistic use to display for symbols in the cell.</p>
-<p><strong>&lt;threshold_file&gt;:</strong> full path to the XML file describing configurations for thresholds, colors and symbols.</p>
+<p><strong>&lt;threshold_file&gt;:</strong> full path to the XML file describing configurations for thresholds, colors and symbols (optional).</p>
+<p><strong>&lt;weight_file&gt;:</strong> full path to the XML file describing configurations for weights definitions (optional)</p>
 <p><strong>&lt;left_column_names&gt;:</strong> a list of names for the most left columns as in &lt;val&gt;NAME&lt;/val&gt; format.</p>
 <p><strong>&lt;symbol_size&gt;:</strong> a size for the symbols. It can be in ‘%’ or ‘px’. For example, ‘120%’ will increase the size of symbols in 1.2 times. ‘20px’ can also be used.</p>
 <p><strong>&lt;template&gt;:</strong> the name of the R plot script template to use. The following templates are currently supported: scorecard.R_tmpl</p>
-<p><strong>&lt;plot_fix&gt;:</strong> describes database fields - models, date range and init hour - that are constant. Model field contains two values - first and second model names. Date range can be specified using ‘fcst_valid_beg’ or ‘fcst_init_beg’ and contains ine or more groups of two values - start and end dates. This example will create a scorecard for two periods (07-01 00:00 - 07-03 12:00) and (07-05 00:00 - 07-10 12:00)</p>
+<dl>
+<dt><strong>&lt;plot_fix&gt;:</strong> describes database fields - models, date range and init hour - that are constant.</dt><dd><p>Model field contains:</p>
+<ul class="simple">
+<li><p>two values - first and second model names</p></li>
+<li><p>one value - when the stat values for one model are requested</p></li>
+<li><p>multiples pairs - for the aggregated scorecard</p></li>
+</ul>
+<p>Date range can be specified using ‘fcst_valid_beg’ or ‘fcst_init_beg’ and contains one or more groups of two values - start and end dates. This example will create a scorecard for two periods (07-01 00:00 - 07-03 12:00) and (07-05 00:00 - 07-10 12:00)</p>
+</dd>
+</dl>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;fcst_valid_beg&quot;</span><span class="nt">&gt;</span>
  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;2011-07-01 00:00:00&quot;</span><span class="nt">/&gt;</span>
  <span class="nt">&lt;val</span> <span class="na">name=</span><span class="s">&quot;2011-07-03 12:00:00&quot;</span><span class="nt">/&gt;</span>
@@ -545,8 +554,14 @@
 <span class="nt">&lt;/field&gt;</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>Init hour can contain one or more values</p>
+<p>Init hour can contain one or more values.</p>
+<p>Date/time fields could have <strong>&lt;label&gt;:</strong> attribute. It will be used in the title instead on the list of dates.
+For example, if ‘fcst_valid_beg’ example above had a label <strong>&lt;field name=”fcst_valid_beg” label=”July 2011”&gt;:</strong>
+Then the title would be</p>
+<p><strong>METviewer Scorecard</strong></p>
+<p><em>for PR4RN_1405 and GFS2016</em></p>
+<blockquote>
+<div><p><em>July 2011</em></p>
 <blockquote>
 <div><blockquote>
 <div><div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>
@@ -607,6 +622,7 @@ Contains one or more nested <strong>&lt;field&gt;</strong> elements</p>
 <div><p><strong>&lt;data_file&gt;:</strong> name of the R data.frame data file, inside of the <strong>&lt;r_work&gt;</strong> folder specified above</p>
 <p><strong>&lt;plot_file&gt;:</strong> name of the output image file, inside of the <strong>&lt;plots&gt;</strong> folder specified above.</p>
 <p><strong>&lt;title&gt;:</strong> title of the scorecard displayed on the image. Default value: Verification Scorecard</p>
+</div></blockquote>
 </div></blockquote>
 </div></blockquote>
 </div></blockquote>
