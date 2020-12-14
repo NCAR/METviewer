@@ -155,7 +155,7 @@ Y1 Points - This tab will be blank for several of the plot types.
 Y2 Points - See above.
 
 The rightmost tab is a small square. Clicking here will save the contents of
-the current window to your default (usually 'Downloads') folder. It is
+the current window to the default (usually 'Downloads') folder. It is
 recommended that the user click through at least the plot and xml windows
 and save this output.
 
@@ -271,5 +271,5 @@ document would be greatly appreciated. While we cannot promise to
 incorporate all suggested changes, we will certainly take all suggestions
 into consideration.
 
-METviewer is a "living" application. Our goal is to continually enhance it
+METviewer is a "living" application. The goal is to continually enhance it
 and add to its capabilities. 

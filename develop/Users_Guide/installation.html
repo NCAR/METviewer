@@ -117,7 +117,10 @@
 <li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview of METviewer</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2. METviewer Installation Guide</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">2.1. Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-metviewer">2.2. Installing METviewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-metviewer">2.2. Installing METviewer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configure-and-build-metviewer">2.2.1. Configure and build METviewer</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#making-a-database-accessible-in-the-metviewer-web-application">2.3. Making a Database Accessible in the METviewer Web Application</a></li>
 </ul>
 </li>
@@ -210,140 +213,223 @@
 <span id="install"></span><h1><span class="section-number">2. </span>METviewer Installation Guide<a class="headerlink" href="#metviewer-installation-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2><span class="section-number">2.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>This chapter describes how to install METviewer. METviewer has been developed and tested on Linux operating systems. Support for additional platforms and compilers may be added in future releases.</p>
+<p>This chapter describes how to install METviewer. METviewer has been
+developed and tested on Linux operating systems. Support for additional
+platforms and compilers may be added in future releases.</p>
 </div>
 <div class="section" id="installing-metviewer">
 <h2><span class="section-number">2.2. </span>Installing METviewer<a class="headerlink" href="#installing-metviewer" title="Permalink to this headline">¶</a></h2>
-<p>METviewer relies on the following tools. These must be installed and tested prior to installing METviewer:</p>
+<p>METviewer relies on the following tools. These must be installed and tested
+prior to installing METviewer:</p>
 <p><strong>Java JDK 1.8+</strong></p>
-<p><strong>ant</strong> - <a class="reference external" href="http://ant.apache.org/bindownload.cgi">download ant</a> and install the latest version.</p>
-<p><strong>MySQL</strong> - <a class="reference external" href="https://dev.mysql.com/downloads/mysql/">download MySQL</a> and install the latest version. Use “SET GLOBAL max_allowed_packet=110000000;” by typing the command in MySQL and/or make the corresponding edit to /etc/my.cnf, so that the change persists after the next reboot.</p>
-<p><strong>Apache Tomcat</strong> - <a class="reference external" href="http://tomcat.apache.org/">download Apache Tomcat</a> and install the latest version; test the sample JSP web apps.</p>
-<p><strong>R</strong> - <a class="reference external" href="https://dev.mysql.com/downloads/mysql/">download R</a> and install the latest version.</p>
+<p><strong>Ant</strong> - <a class="reference external" href="http://ant.apache.org/bindownload.cgi">download ant</a> and
+install the latest version.</p>
+<p><strong>Database</strong> - METviewer works with MySQL and MariaDB.
+<a class="reference external" href="https://dev.mysql.com/downloads/mysql/">Download MySQL</a>
+or <a class="reference external" href="https://mariadb.org/download/">download MariaDB</a> and install the
+latest version. Use “SET GLOBAL max_allowed_packet=110000000;” by typing
+the command in MySQL and/or make the corresponding edit to <em>/etc/my.cnf</em>,
+so that the change persists after the next reboot.</p>
+<p><strong>Apache Tomcat</strong> -
+<a class="reference external" href="https://tomcat.apache.org/download-80.cgi">download Apache Tomcat 8</a>
+and install the latest version; test the sample JSP web apps.</p>
+<p>Create an output directory under <em>&lt;Tomcat&gt;/webapps</em> for METviewer output
+files. Under this directory create 4 subdirectories: <em>xml, plots, data,
+scripts</em></p>
+<p><strong>R and R packages</strong> - <a class="reference external" href="https://www.r-project.org/">download R</a> and
+install the latest version. Install required R packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>boot</p></li>
+<li><p>plotrix</p></li>
+<li><p>data.table</p></li>
+<li><p>verification</p></li>
+<li><p>gsl</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Python</strong>: install Python 3.6 or higher. Create an environment
+(METviewer_py3.6.3) and install required packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>kiwisolver==1.0.1</p></li>
+<li><p>bootstrapped</p></li>
+<li><p>plotly==4.9.0</p></li>
+<li><p>kaleido</p></li>
+<li><p>pandas</p></li>
+<li><p>numpy</p></li>
+<li><p>scipy</p></li>
+<li><p>PyYAML</p></li>
+<li><p>psutil</p></li>
+<li><p>requests</p></li>
+<li><p>matplotlib</p></li>
+<li><p>lxml</p></li>
+<li><p>pymysql</p></li>
+<li><p>retrying</p></li>
+</ul>
+</div></blockquote>
+<p><strong>METviewer</strong> -
+clone   <a class="reference external" href="https://github.com/dtcenter/METviewer">METviewer repository</a></p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dtcenter/METviewer.git
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>METcalcpy</strong> -
+clone   <a class="reference external" href="https://github.com/dtcenter/METcalcpy">METcalcpy repository</a></p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dtcenter/METcalcpy.git
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>METplotpy</strong> -
+clone   <a class="reference external" href="https://github.com/dtcenter/METplotpy">METplotpy repository</a></p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dtcenter/METplotpy.git
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="configure-and-build-metviewer">
+<h3><span class="section-number">2.2.1. </span>Configure and build METviewer<a class="headerlink" href="#configure-and-build-metviewer" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Configure the batch tool, database loader tool, and web application:</p>
+<li><p>Configure the batch and loading tools:</p>
 <ul>
-<li><p>edit [install]/metviewer/bin/mv_batch.sh:</p>
+<li><p>Edit <em>METviewer/bin/mv_batch.sh</em>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>set the variable JAVA to point at the desired jvm instance to run</p></li>
-<li><p>set the variable MV_HOME to point at [install]/metviewer</p></li>
+<li><p>Set the variable <strong>JAVA</strong> to point at the desired jvm instance to run</p></li>
+<li><p>Set the variable <strong>MV_HOME</strong> to point at <em>[install]/METviewer</em></p></li>
+<li><p>Set the variable <strong>PYTHON_ENV</strong> to point at the Python environment</p></li>
+<li><p>Set the variable <strong>METCALCPY_HOME</strong> to point to <em>METcalcpy</em> directory</p></li>
+<li><p>Set the variable <strong>METPLOTPY_HOME</strong> to point to <em>METplotpy</em> directory</p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p>edit [install]/metviewer/bin/mv_load.sh:</p>
+<li><p>Edit <em>METviewer/bin/mv_load.sh</em>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>set the variable JAVA to point at the desired jvm instance to run</p></li>
-<li><p>set the variable MV_HOME to point at [install]/metviewer</p></li>
+<li><p>Set the variable <strong>JAVA</strong> to point at the desired jvm instance to run</p></li>
+<li><p>Set the variable <strong>MV_HOME</strong> to point at <em>METviewer</em></p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p>edit [install]/metviewer/webapp/metviewer/WEB-INF/classes/log4j.properties:</p>
+<li><p>Edit <em>METviewer/bin/mv_prune.sh</em>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>set log4j.appender.logfile.File setting to the absolute path of [install]/metviewer/log file</p></li>
+<li><p>Set the variable <strong>JAVA</strong> to point at the desired jvm instance to run</p></li>
+<li><p>Set the variable <strong>MV_HOME</strong> to point at <em>METviewer</em></p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p>edit [install]/metviewer/webapp/metviewer/WEB-INF/classes/mvservlet.properties:</p>
+<li><p>Edit <em>METviewer/bin/mv_scorecard.sh</em>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>set db.host to the MySQL database server host and port, e.g. db.ncep.gov:3306</p></li>
-<li><p>set db.user and db.password to the database username and password</p></li>
-<li><p>set cache.val to true/false depending on whether value caching should be enabled (recommend true)</p></li>
-<li><p>set cache.stat to true/false depending on whether statistics caching should be enabled (recommend true)</p></li>
-<li><p>set folders.plot_xml to the absolute path of [output_dir]/xml</p></li>
-<li><p>set folders.r_tmpl to the absolute path of [tomcat]/metviewer/R_tmpl</p></li>
-<li><p>set folders.r_work to the absolute path of [tomcat]/metviewer/R_work</p></li>
-<li><p>set folders.plots to the absolute path of [output_dir]/plots</p></li>
-<li><p>set folders.data to the absolute path of [output_dir]/data</p></li>
-<li><p>set folders.scripts to the absolute path of [output_dir]/scripts</p></li>
-<li><p>set redirect to the application name in url (ex. if the application URL is “<a class="reference external" href="http://www.dtcenter.org/met/metviewer/">http://www.dtcenter.org/met/metviewer/</a>” redirect is “metviewer”)</p></li>
-<li><p>set url.output to the url to the output folder</p></li>
+<li><p>Set the variable <strong>JAVA</strong> to point at the desired jvm instance to run</p></li>
+<li><p>Set the variable <strong>MV_HOME</strong> to point at METviewer</p></li>
+<li><p>Set the variable <strong>PYTHON_ENV</strong> to point at the Python environment</p></li>
+<li><p>Set the variable <strong>METPLOTPY_HOME</strong> to point to METplotpy directory</p></li>
 </ul>
 </div></blockquote>
 </li>
+<li><p>Create a custom property file by copying
+<em>METviewer/webapp/metviewer/WEB-INF/classes/build.properties</em>
+to <em>METviewer</em> and providing custom values for the parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set <strong>db.host</strong> to the database server host and port,
+e.g. db.ncep.gov:3306</p></li>
+<li><p>Set <strong>db.user</strong> and <strong>db.password</strong> to the database username
+and password</p></li>
+<li><p>Set <strong>db.management.system</strong> to the database type - mysql or mariadb</p></li>
+<li><p>Set redirect to the application name in url (ex. if the
+application URL is “<a class="reference external" href="http://www.dtcenter.org/met/metviewer/">http://www.dtcenter.org/met/metviewer/</a>”
+redirect is “metviewer”)</p></li>
+<li><p>Set <strong>output.dir</strong> to the absolute path of the output directory</p></li>
+<li><p>Set <strong>webapps.dir</strong> to the absolute path of the Tomcat’s webapps
+directory</p></li>
+<li><p>Set <strong>url.output</strong> to the url to the output folder</p></li>
+<li><p>Set <strong>python.env</strong> to the absolute path of the Python environment
+directory</p></li>
+<li><p>Set <strong>metcalcpy.home</strong> to the absolute path of the METcalcpy
+directory</p></li>
+<li><p>Set <strong>metplotpy.home</strong> to the absolute path of the METplotpy
+directory</p></li>
 </ul>
+</div></blockquote>
 </li>
-<li><p>Configure the batch tool, database loader tool, and web application:</p>
-<ul class="simple">
-<li><p>Create output folders: [output_dir]/plots, [output_dir]/data, [output_dir]/scripts, [output_dir]/xml</p></li>
-<li><p>Include [output_dir] to Apache context</p></li>
+<li><p>Edit <em>METviewer/webapp/metviewer/WEB-INF/classes/log4j.properties</em>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set <strong>log4j.appender.logfile.File</strong> setting to the absolute
+path of a log file</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </li>
 <li><p>Build and deploy the application:</p>
 <ul class="simple">
-<li><p>Build METviewer and the web application:</p></li>
+<li><p>Build METviewer and the web application. <code class="docutils literal notranslate"><span class="pre">Replace</span> <span class="pre">the</span> <span class="pre">parameters</span>
+<span class="pre">values</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">Ant</span> <span class="pre">command</span> <span class="pre">to</span> <span class="pre">what</span> <span class="pre">is</span> <span class="pre">appropriate</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">user's</span>
+<span class="pre">setup</span></code>:</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd [install]/metviewer
-$ ant
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> cd MRTviewer
+ ant -Dbuild.properties.file=METViewer/build.properties \
+ -Ddb.management.system=mariadb -Dmetcalcpy.path=METcalcpy/ -Dmetplotpy.path=METplotpy/\
+-Dpython.env.path=METviewer_py3.6.3/  clean all
 </pre></div>
 </div>
 </li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Install load_batch module:</p></li>
+<li><p>Deploy the web app to tomcat</p></li>
 </ul>
 <blockquote>
-<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd [tomcat_base]/webapps
-$ cp [install]/dist/metviewer.war ./
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Deploy the web app to tomcat:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd [install]/dist
-$ cp [install]/dist/batch_load.tar [load_batch_dir]
-$ cd [load_batch_dir]
-$ tar -zxvf batch_load.tar
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp METviewer/dist/metviewer.war Tomcat/webapps
 </pre></div>
 </div>
 </div></blockquote>
 </div></blockquote>
-<ol class="arabic">
+<ol class="arabic" start="3">
 <li><p>Create a METviewer database:</p>
 <ul class="simple">
-<li><p>create a database to store MET data, which has the prefix ‘mv_’, e.g. mv_met_data:</p></li>
+<li><p>Create a database to store MET data, which has the prefix
+‘mv_’, e.g. mv_met_data:</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd [install]/metviewer
-$ mysql -u[db_username] -p[db_password] -e&#39;create database [db_name];&#39;
-$ mysql -u[db_username] -p[db_password] [db_name] &lt; sql/mv_mysql.sql
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>create an XML load specification document which contains information about the MET data</p></li>
-<li><p>run the METviewer load tool using the XML load specification as input (called [load_xml] here) and monitor progress:</p></li>
-</ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd [install]/metviewer
-$ bin/mv_load.sh [load_xml] [optional redirection of output, e.g. &amp;&gt; log/load_[date].log &amp;]&#39;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd METviewer
+mysql -u[db_username] -p[db_password] -e&#39;create database [db_name];&#39;
+mysql -u[db_username] -p[db_password] [db_name] &lt; sql/mv_mysql.sql
 </pre></div>
 </div>
 </li>
 <li><p>Install test directory (for development, optional):</p>
 <ul class="simple">
-<li><p>check out test_data (…/apps/verif/metviewer_test_data/test_data/) from CVS and move test_data directory to /d3/projects/METViewer/:</p></li>
-<li><p>create links to R script and sql files</p></li>
+<li><p>Check out test_data (<em>../apps/verif/metviewer_test_data/test_data/</em>)
+from CVS and move test_data directory to <em>/d3/projects/METViewer/</em>:</p></li>
+<li><p>Create links to R script and sql files</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd /d3/projects/METViewer/test_data
-$ ln -s /d3/projects/METViewer/src_dev/apps/verif/metviewer/R_tmpl R_tmpl
-$ mkdir R_work
-$ cd R_work
-$ mkdir data
-$ mkdir plots
-$ mkdir scripts
-$ ln -s /d3/projects/METViewer/src_dev/apps/verif/metviewer/R_work/include/ include
-$ cd /d3/projects/METViewer/test_data/load_data/load
-$ ln -s /d3/projects/METViewer/src_dev/apps/verif/metviewer/sql/mv_mysql.sql mv_mysql.sql
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd /d3/projects/METViewer/test_data
+ln -s /d3/projects/METViewer/src_dev/apps/verif/metviewer/R_tmpl R_tmpl
+mkdir R_work
+cd R_work
+mkdir data
+mkdir plots
+mkdir scripts
+ln -s /d3/projects/METViewer/src_dev/apps/verif/metviewer/R_work/include/ include
+cd /d3/projects/METViewer/test_data/load_data/load
+ln -s /d3/projects/METViewer/src_dev/apps/verif/metviewer/sql/mv_mysql.sql mv_mysql.sql
 </pre></div>
 </div>
 </li>
 </ol>
 </div>
+</div>
 <div class="section" id="making-a-database-accessible-in-the-metviewer-web-application">
 <h2><span class="section-number">2.3. </span>Making a Database Accessible in the METviewer Web Application<a class="headerlink" href="#making-a-database-accessible-in-the-metviewer-web-application" title="Permalink to this headline">¶</a></h2>
-<p>To make a new database accessible in the METviewer Web Application click on “Reload list of databases” button in the upper right corner of the main JSP page. The list of available databases should be updated and a new database should be in it</p>
+<p>To make a new database accessible in the METviewer Web Application click
+on “Reload list of databases” button in the upper right corner of the
+main JSP page. The list of available databases should be updated and a
+new database should be in it.</p>
 </div>
 </div>
 

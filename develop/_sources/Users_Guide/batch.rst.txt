@@ -1,51 +1,66 @@
 Batch Plotting Module
 =====================
 
-The batch plotting system is used to generate a number of plots of data in the METviewer database. The usage statement:
+The batch plotting system is used to generate a number of plots of data in
+the METviewer database. The usage statement:
 
----- MVBatch ----
-
-Usage: mv_batch
-
-       [-list]
-       [-printSql]
-       plot_spec_file
-       [job_name]
+.. code-block:: none
+		
+  ---- MVBatch ----
+  
+  Usage: mv_batch
+  
+         [-list]
+         [-printSql]
+         plot_spec_file
+         [job_name]
      
-       where "-list" indicates that the available plot jobs should be listed and no plots run
-       "-printSql" print SQL statements
-       "plot_spec_file" specifies the XML plot specification document
-       "job_name" specifies the name of the job from the plot specification to run
-
----- MVBatch Done ----
+         where "-list" indicates that the available plot jobs should be listed and no plots run
+         "-printSql" print SQL statements
+         "plot_spec_file" specifies the XML plot specification document
+         "job_name" specifies the name of the job from the plot specification to run
+  
+  ---- MVBatch Done ----
                   
-The plot_spec_file passed to the batch module contains information about the plots that will be generated. It is an XML file and its top-level tag is **<plot_spec>** which contains the following elements, divided into functional sections.
+The plot_spec_file passed to the batch module contains information about
+the plots that will be generated. It is an XML file and its top-level tag
+is **<plot_spec>** which contains the following elements, divided into
+functional sections.
                                                                                                  
 NOTE: All **<val>** elements should be listed in alphabetical order.
 
-**<connection>:** Please reference the “Common XML Structures” documentation. ??NOTE: This is in Tatiana’s HTML documentation we’ll need to incorporate??
+**<connection>:** Please reference the
+`Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_
+documentation.
 
-**<rscript>:** (optional) This tag specifies the Rscript instance to use, for example /usr/local/bin/Rscript. It defaults to the instance on the user path.
+**<rscript>:** (optional) This tag specifies the Rscript instance to
+use, for example */usr/local/bin/Rscript*. It defaults to the instance
+on the user path.
 
-**<folders>:** A structure that specifies the input and output file system folders.        
+**<folders>:** A structure that specifies the input and output file
+system folders.        
 
-|       **<r_tmpl>:** The folder that contains the R templates used by METviewer, typically R_tmpl/ from the METviewer CVS source tree.        
-|       **<r_work>:** The folder that will contain the data and generated R scripts, must contain the sub-folder include/        
+|       **<r_tmpl>:** The folder that contains the R templates used by METviewer, typically *R_tmpl/* from the METviewer CVS source tree.
+|       **<r_work>:** The folder that will contain the data and generated R scripts, must contain the sub-folder *include/*        
 |       **<plots>:** The output folder that will contain the generated plots.
 |
 
-**<date_list>:** Please reference the “Common XML Structures” documentation. ??NOTE: This is in Tatiana’s HTML documentation we’ll need to incorporate??
+**<date_list>:** Please reference the
+`Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_
+documentation. 
 
-**<date_range>:** A structure that specifies a date range, including all dates and times between. 
+**<date_range>:** A structure that specifies a date range, including all
+dates and times between. 
 
-|        **<start>:** The start date and time of the date list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure (??see common xml)??.
-|        **<end>:** The end date and time of the date list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure ??(see common xml)??
+|        **<start>:** The start date and time of the date list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure. See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_.
+|        **<end>:** The end date and time of the date list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure.  See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_.
 |
 
-**<date_range_list>:** A structure that specifies a list of date ranges, conceptually, a list of **<date_range>** structures.
+**<date_range_list>:** A structure that specifies a list of date ranges,
+conceptually, a list of **<date_range>** structures.
 
-|       **<range_start>:** The start date and time of the first date range of the list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure ??(see common xml)??       
-|       **<range_end>:** The start date and time of the last date range of the list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure ??(see common xml)??        
+|       **<range_start>:** The start date and time of the first date range of the list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure.  See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_     
+|       **<range_end>:** The start date and time of the last date range of the list, specified in the format yyyy-MM-dd [HH:mm:ss], or with a **<date_offset>** structure.  See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_   
 |       **<range_length>:** The range length, in minutes.       
 |       **<inc>:** The increment, in minutes, between the end of the previous range member and the start of the next.
 |
@@ -92,9 +107,13 @@ NOTE: All **<val>** elements should be listed in alphabetical order.
 |                **<val>:** A single value.
 |
 
-         **<series2>:** Describes the database field names and values that constitute the various lines, or series, corresponding to the right y axis (y2-axis) of the plot. The structure is the same as **<series1>** above.
+         **<series2>:** Describes the database field names and values
+	 that constitute the various lines, or series, corresponding to
+	 the right y axis (y2-axis) of the plot. The structure is the same
+	 as **<series1>** above.
 
-       **<series_nobs>:** Indicates which database fields should be used to calculate the number of observations (NOBS) for the plot.
+       **<series_nobs>:** Indicates which database fields should be used
+       to calculate the number of observations (NOBS) for the plot.
 
 |       **<dep1_scale>** or **<dep2_scale>:** Specifies a scale factor for a fcst_var/stat pair, for example to convert the units of a statistic.
 |                **<field>:** Contains the value of the scalar to apply.
@@ -108,16 +127,16 @@ NOTE: All **<val>** elements should be listed in alphabetical order.
 |               **name:** The database field name. Its values are contained in the child tag.
 |                
 |               **<val>:** A single value.
-|               **<date_list>:** Refers to a previously declared **<date_list>**, using the name attribute ??(see common xml)??
-|               **<date_range>:** Refers to a previously declared **<date_range>**, using the name attribute ??(see common xml)??
-|               **<date_range_list>:** Refers to a previously declared **<date_range_list>**, using the name attribute ??(see common xml)??
+|               **<date_list>:** Refers to a previously declared **<date_list>**, using the name attribute. See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_.
+|               **<date_range>:** Refers to a previously declared **<date_range>**, using the name attribute. See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_.
+|               **<date_range_list>:** Refers to a previously declared **<date_range_list>**, using the name attribute. See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_.
 |               **<set>:** A set of values.
 |               **Attributes:**                       
 |                       **name:** (optional) Name of the set, used in the field template.
 |                        
 |                       A set can contain one or more of the following:
 |                       **<val>:** A single value.
-|                       **<date_list>:** Refers to a previously declared **<date_list>**, using the name attribute ??(see common xml)??
+|                       **<date_list>:** Refers to a previously declared **<date_list>**, using the name attribute.  See `Common XML Structures <https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_.
 |
 
         **<plot_cond>:** Contains a SQL clause that will be inserted with the clause generated by the **<plot_fix>** information, allowing a user to specify record conditions for plotted statistics. Examples include:
@@ -127,7 +146,8 @@ NOTE: All **<val>** elements should be listed in alphabetical order.
                         <plot_cond>ld.baser > 0.02</plot_cond>
 
 
-        **<agg>:** This tag has been replaced by **<plot_fix>**. Do not use **<agg>**.
+        **<agg>:** This tag has been replaced by **<plot_fix>**.
+	Do not use **<agg>**.
                 
 |       **<tmpl>:**                     
 |               **<val_map>:** A map of key/value pairs used for when templates are populated.
@@ -138,8 +158,10 @@ NOTE: All **<val>** elements should be listed in alphabetical order.
 |                          **<key>:** The template field value as taken from the database.
 |                          **<val>:** The value to use as a replacement.
 |
-|               **<data_file>:** Path and name of the R data.frame data file, inside of the **<r_work>** folder specified above.                                                                            |               **<plot_file>:** Path and name of the output plot image file, inside of the **<plots>** folder specified above.
-|               **<r_file>:** Path and name of the R script that generates the plot, inside of the **<r_work>** folder specified above.                                                                     |               **<title>:** Title that will be placed on top of the plot.
+|               **<data_file>:** Path and name of the R data.frame data file, inside of the **<r_work>** folder specified above.
+|               **<plot_file>:** Path and name of the output plot image file, inside of the **<plots>** folder specified above.
+|               **<r_file>:** Path and name of the R script that generates the plot, inside of the **<r_work>** folder specified above.
+|               **<title>:** Title that will be placed on top of the plot.
 |               **<x_label>:** x-axis label that will be placed on the plot.
 |               **<y1_label>:** Left y axis (y1-axis) label that will be placed on the plot.
 |               **<y2_label>:** Right y axis (y2-axis) label that will be placed on the plot.
@@ -150,13 +172,26 @@ NOTE: All **<val>** elements should be listed in alphabetical order.
 
 **Template Formatting**
 
-Template values have the syntax {var_name[?param1=val1[&amp;param2=val2[...]]]}. For example, {fcst_lead?format=HH} or {vx_mask?map=masks} or {fcst_thresh?units=in&amp;symbol=letters}. The var_name must be one of the database fields that is used in the plot fixed variables or agg variables. When the template is applied, the current plot values for each variable replaces the tag in the template. The parameters can be used to format, convert or map the values. The dependent variables forecast variables are represented using the syntax {depY_N}, where Y is the y-axis (either 1 or 2) and N is the index of the fcst_var in the **<dep>** structure, starting with 1. The dependent variable statistics are represented using the syntax {depY_N_statS}, where Y and N match the values of the parent fcst_var, and S is the index of the statistic, starting at 1 for each fcst_var.
+Template values have the syntax
+{var_name[?param1=val1[&amp;param2=val2[...]]]}. For example,
+{fcst_lead?format=HH} or {vx_mask?map=masks} or
+{fcst_thresh?units=in&amp;symbol=letters}. The var_name must be one of
+the database fields that is used in the plot fixed variables or agg
+variables. When the template is applied, the current plot values for each
+variable replaces the tag in the template. The parameters can be used to
+format, convert or map the values. The dependent variables forecast
+variables are represented using the syntax {depY_N}, where Y is the
+y-axis (either 1 or 2) and N is the index of the fcst_var in the
+**<dep>** structure, starting with 1. The dependent variable statistics
+are represented using the syntax {depY_N_statS}, where Y and N match the
+values of the parent fcst_var, and S is the index of the statistic,
+starting at 1 for each fcst_var.
 
 |               **map=[name]:** Indicates that the template **<val_map>** structure with the given name should be applied
 |               **format=[format_type]:** Depending on the variable being formatted the following options apply:
 |                       **fcst_lead:** Use HH for the two-character wide hour, HHmm for the four-character hour and minute
 |                       **init_hour** or **valid_hour:** Use HH for the two-character wide hour init_hour.
-|                       **fcst_thresh**, **fcst_thr**, **obs_thresh** or **obs_thr:** Apply the specified decimal format to the threshold value, accoring to the formatting syntax for the java class DecimalFormat.
+|                       **fcst_thresh**, **fcst_thr**, **obs_thresh** or **obs_thr:** Apply the specified decimal format to the threshold value, according to the formatting syntax for the java class DecimalFormat.
 |               For any variable, format=R will replace all non-variable characters (like <, = and .) with appropriate letters and underscores.
 |               **units=in:** Can only be used if the variable is a threshold, converts the threshold value to inches from mm.
 |               **symbol=letters:** Can only be used if the variable is a threshold, converts the threshold criteria to FORTRAN-like letters, e.g. >= becomes ge.
@@ -176,7 +211,7 @@ Template values have the syntax {var_name[?param1=val1[&amp;param2=val2[...]]]}.
 
         **<bootstrapping>:** Replaced by **<agg_stat>**, do not use **<bootstrapping>**.
 
-|       **<agg_stat>:** Contains information about how to calculate and display aggregated statistics. If present, agg_stat is turned on. Depending on the selected **<dep>** statistics, only certain settings are appropriate..
+|       **<agg_stat>:** Contains information about how to calculate and display aggregated statistics. If present, agg_stat is turned on. Depending on the selected **<dep>** statistics, only certain settings are appropriate.
 |               **<agg_ctc>:** **TRUE** or **FALSE**, indicating whether or not to aggregate CTCs.
 |               **<agg_sl1l2>:** **TRUE** or **FALSE**, indicating whether or not to aggregate SL1L2s.
 |               **<agg_sal1l2>:** **TRUE** or **FALSE**, indicating whether or not to aggregate SAL1L2s.
@@ -192,40 +227,57 @@ Template values have the syntax {var_name[?param1=val1[&amp;param2=val2[...]]]}.
 |               **<cache_agg_stat>:** **true** or **false**, turns on/off the prevention the reuse of existing bootstrapping output data.
 |
 
-                When using **<agg_stat>**, the following constraints and conditions apply:
+                When using **<agg_stat>**, the following constraints and
+		conditions apply:
         
                         * To turn off bootstrapping, set **<boot_repl>** to 1.
           
-                        * agg_stat types must only be used with appropriate statistics for each, and only one can be used on a single plot.
+                        * agg_stat types must only be used with appropriate
+			  statistics for each, and only one can be used on
+			  a single plot.
 
-                        * agg_stat is performed once for each plot that is created.
+                        * agg_stat is performed once for each plot that is
+			  created.
 
-                        * A plot cannot have both agg_stat and non-agg_stat data on the same plot.
+                        * A plot cannot have both agg_stat and non-agg_stat
+			  data on the same plot.
 
-                        * If the agg_stat difference curve is turned on, the plot1 difference curve must be turned off.
+                        * If the agg_stat difference curve is turned on,
+			  the plot1 difference curve must be turned off.
           
-                        * To display the calculated bootstrap CIs, set the plot_cis to "boot".
+                        * To display the calculated bootstrap CIs, set
+			  the plot_cis to "boot".
           
-                        * Bootstrapping CIs cannot be calculated for PSTD stats, instead use the "brier" CI type for Brier score.
+                        * Bootstrapping CIs cannot be calculated for PSTD
+			  stats, instead use the "brier" CI type for Brier
+			  score.
           
-                        * The plot must contain statistics for only one fcst_var.
+                        * The plot must contain statistics for only one
+			  fcst_var.
           
-                        * All series on the plot must be derived from the same data
+                        * All series on the plot must be derived from the
+			  same data
           
-                        * If agg_stat is turned on, event equalization must be turned off (it is done automatically).
+                        * If agg_stat is turned on, event equalization
+			  must be turned off (it is done automatically).
           
-                        * agg_stat cannot be used on the same plot with calc_stat.
+                        * agg_stat cannot be used on the same plot with
+			  calc_stat.
 
 |       **<calc_stat>:** Contains flags telling METviewer to calculate the plot statistics from CTCs or partial sums. If present, calc_stat is turned on. Depending on the selected **<dep>** statistics, only certain settings are appropriate.
 |               **<calc_ctc>:** **TRUE** or **FALSE**, indicating whether or not to calculate CTC stats.
 |               **<calc_sl1l2>:** **TRUE** or **FALSE**, indicating whether or not to calculate SL1L2 stats.
 |               **<calc_sal1l2>:** **TRUE** or **FALSE**, indicating whether or not to calculate SAL1L2 stats.
-|               **<calc_vl1l2>:?** **TRUE** or **FALSE**, indicating whether or not to calculate VL1L2 stats.
+|               **<calc_vl1l2>:** **TRUE** or **FALSE**, indicating whether or not to calculate VL1L2 stats.
 |        
-|        When using **<calc_stat>**, the following constraints apply:        
-                * calc_ctc, calc_sl1l2, calc_sal1l2, calc_vl1l2 must only be used with appropriate statistics for each, and only one can be used on a single plot.
+|        When using **<calc_stat>**, the following constraints apply:
+
+                * calc_ctc, calc_sl1l2, calc_sal1l2, calc_vl1l2 must only
+		  be used with appropriate statistics for each, and only
+		  one can be used on a single plot.
           
-                * A plot cannot have both calc_stat and non-calc_stat data on the same plot.
+                * A plot cannot have both calc_stat and non-calc_stat data
+		  on the same plot.
           
                 * calc_stat cannot be used on the same plot with agg_stat.
 
@@ -236,27 +288,35 @@ Template values have the syntax {var_name[?param1=val1[&amp;param2=val2[...]]]}.
 |        
                 When using **<roc_calc>**, the following constraints apply:
         
-                        * Only one of roc_pct or roc_ctc can be used on a single plot.
+                        * Only one of roc_pct or roc_ctc can be used on a
+			  single plot.
         
-                        * If using roc_pct, select a list of probabilistic threshold values as a fcst_thresh **<plot_fix>** value.
+                        * If using roc_pct, select a list of probabilistic
+			  threshold values as a fcst_thresh **<plot_fix>**
+			  value.
           
-                        * If using roc_pct, select a single obs_thresh **<plot_fix>** value.
+                        * If using roc_pct, select a single obs_thresh
+			  **<plot_fix>** value.
           
-                        * If using roc_ctc, select two or more fcst_thresh <plot_fix> values and a single obs_thresh **<plot_fix>** value.
+                        * If using roc_ctc, select two or more fcst_thresh
+			  **<plot_fix>** values and a single obs_thresh
+			  **<plot_fix>** value.
 
-|        **<normalized_histogram>:** Contains flags telling METviewer which type of histogram to built: normalized or raw counts plot. This setting is required if the rhist.R_tmpl is used, otherwise, it is ignored. The default value is **TRUE** (normalized histogram).
+|        **<normalized_histogram>:** Contains flags telling METviewer which type of histogram to build: normalized or raw counts plot. This setting is required if the rhist.R_tmpl is used, otherwise, it is ignored. The default value is **TRUE** (normalized histogram).
 |               **<normalized_histogram>:** **TRUE** or **FALSE**, indicating whether to build a normalized or raw counts histogram.
 |
 
         **<ensss_pts>:** Number of binned points.
         
-                * If the number of binned points is not specified or < 1, use a default.
+                * If the number of binned points is not specified or < 1,
+		  use a default.
           
                 * If the number of binned points is > 10 , use 1.
           
-                * In other cases use the result of division of number of points on 10.
+                * In other cases use the result of division of the number
+		  of points on 10.
 
-|      **<execution_type>:** Rscript or Python, indicating whether to use Rscript ot Python for the statistics calculation and plotting (if available). This is optional element. The default value is Rscript.
+|      **<execution_type>:** Rscript or Python, indicating whether to use Rscript or Python for the statistics calculation and plotting (if available). This is an optional element. The default value is Rscript.
 |      **<event_equal>:** **true** or **false**, turns on the event equalizer.
 |      **<event_equal_m>:** **true** or **false**, turns on the event equalizer for multiple events.
 |      **<vert_plot>:** **true** or **false**, turns on vertical levels plotting.
@@ -336,13 +396,19 @@ Template values have the syntax {var_name[?param1=val1[&amp;param2=val2[...]]]}.
 |      **<box_pts>:** points() - draw points instead of boxes - **TRUE**: draw, **FALSE**: no draw - default value: **FALSE**.
 |      **<box_outline>:** boxplot(outline) - draw outliers - **TRUE**: draw, **FALSE**: no draw - default value: **TRUE**.
 |      **<box_boxwex>:** boxplot(boxwex) - scale factor to apply to all box widths - default value: 1
-|      **<box_notch>:** boxplot(notch) - draw box notces - **TRUE**: notches on, **FALSE**: notches off - default value: **FALSE**
+|      **<box_notch>:** boxplot(notch) - draw box notches - **TRUE**: notches on, **FALSE**: notches off - default value: **FALSE**
 |      **<box_avg>:** points() - draw box averages as asterisks - **TRUE**: on, **FALSE**: off - default value: **FALSE**
 |      **<rely_event_hist>:** - draw histogram of events by threshold on reliability diagram - **TRUE**: draw, **FALSE**: no draw - default value: **TRUE**
 |      **<ci_alpha>:** alpha value used to calculate the standard median error confidence intervals - default value: .05
 |
 
-       The following group of settings should be set to lists of values where the length of each list is equal to the number of series that are specified for the plot. Calculating the number of series and furthermore, the order of the series, can be done by considering the series1, series2 and dep values. For each dep1 statistic, enumerate each series1 permutation. Then, do the same for each dep2 statistic.
+       The following group of settings should be set to lists of values
+       where the length of each list is equal to the number of series that
+       are specified for the plot. Calculating the number of series and
+       furthermore, the order of the series, can be done by considering
+       the series1, series2 and dep values. For each dep1 statistic,
+       enumerate each series1 permutation. Then, do the same for each dep2
+       statistic.
 
 
 |      **<plot_ci>:** confidence interval type for each series - options: none, norm, boot, brier, std - example: c("norm", "none")
@@ -369,7 +435,7 @@ Template values have the syntax {var_name[?param1=val1[&amp;param2=val2[...]]]}.
 |
 |      Elements specific to Rely plot:
 |      **<add_skill_line>:** **TRUE** or **FALSE**, indicating whether or not to display skill line on the graph. The default value is **TRUE** (display skill line).
-|      **<add_reference_line>:** **TRUE** or **FALSE**, indicating whether or not to display reference line on the graph. The default value is **TRUE** (display reference line).
+|      **<add_reference_line>:** **TRUE** or **FALSE**, indicating whether or not to display the reference line on the graph. The default value is **TRUE** (display reference line).
 |
 
 MODE Statistics
@@ -377,9 +443,15 @@ MODE Statistics
 
 Single Object Statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~
-MODE statistics are broken up into two categories: single and pair statistics. Single statistics are suffixed with a three letter code which indicates the group of objects over which the statistic should be calculated or aggregated. The syntax for the three letter code is as follows: STATNAME_CCC where STATNAME is one of the Single Ojbect Statistics in the table below, and CCC follows the following system:
+MODE statistics are broken up into two categories: single and pair
+statistics. Single statistics are suffixed with a three letter code which
+indicates the group of objects over which the statistic should be calculated
+or aggregated. The syntax for the three letter code is as follows:
+STATNAME_CCC where STATNAME is one of the Single Object Statistics in the
+table below, and CCC follows the following system:
 
-[A|F|O|D] - indicating All, Forecast, Observed or a Difference between the forecast statistic and the observed statistic
+[A|F|O|D] - indicating All, Forecast, Observed or a Difference between the
+forecast statistic and the observed statistic
 
 [A|S|C] - indicating All, Simple or Cluster objects
 
@@ -438,7 +510,11 @@ MODE statistics are broken up into two categories: single and pair statistics. S
   * - intensity_sum
     - INTSUM
 
-In addition to the single object statistics, METviewer supports ratios of single object counts and areas, and also some contingency table statistics. These statistics are specified in the table below with their corresponding interpretation. For the area-weighted version of these statistics, replace RATIO\_ with AREARAT\_ and OBJ with OBJA.
+In addition to the single object statistics, METviewer supports ratios of
+single object counts and areas, and also some contingency table statistics.
+These statistics are specified in the table below with their corresponding
+interpretation. For the area-weighted version of these statistics, replace
+RATIO\_ with AREARAT\_ and OBJ with OBJA.
 
 
 .. list-table::
@@ -523,7 +599,9 @@ In addition to the single object statistics, METviewer supports ratios of single
 Pair Object Statistics
 ~~~~~~~~~~~~~~~~~~~~~~
 
-MODE object pair statistics are specified using the following format: STATNAME_CC where STATNAME is one of the Object Pair Statistics in the table below, and CC follows the following system:
+MODE object pair statistics are specified using the following format:
+STATNAME_CC where STATNAME is one of the Object Pair Statistics in the
+table below, and CC follows the following system:
 
 [A|S|C] - indicating All, Simple or Cluster pairs
 

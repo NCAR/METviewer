@@ -47,4 +47,4 @@ The figure below shows an ECLV plot. In this example, three different forecastin
 
 Here is the associated xml for this example. It can be copied into an empty file and saved to the desktop then uploaded into the system by clicking on the “Load XML” button in the upper-right corner of the GUI. This XML can be downloaded by visiting GitHub here ??[insert link to XML]??.
 
-.. literalinclude:: xml/eclv_xml.xml
+.. literalinclude:: ../_static/xml/eclv_xml.xml

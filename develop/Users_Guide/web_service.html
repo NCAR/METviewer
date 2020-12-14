@@ -213,8 +213,8 @@
             
   <div class="section" id="metviewer-web-service">
 <h1><span class="section-number">7. </span>METviewer Web Service<a class="headerlink" href="#metviewer-web-service" title="Permalink to this headline">¶</a></h1>
-<p>The METviewer web service is a web-server driven API that parses XML requests and returns results in an XML structure. All calls are session-less meaning that each individual call does not affect and is not affected by the results of any other call. Also, a client does not have to establish a connection with the server and all calls can be made atomically.</p>
-<p>The web service can be accessed using the relative URL metviewer/servlet, for example <a class="reference external" href="http://www.dtcenter.org/met/metviewer/servlet">http://www.dtcenter.org/met/metviewer/servlet</a>. When the web service receives an HTTP GET request, it echoes the GET parameters and acts as a “ping” mechanism to ensure that the system is online and working. All API XML requests should be issued using an HMTL POST request with the XML request as the entire body. The XML response will indicate the type of request, and echo some information.</p>
+<p>The METviewer web service is a web-server driven API that parses XML requests and returns results in an XML structure. All calls are session-less meaning that each individual call does not affect and is not affected by the results of any other call. Also, a client does not have to establish a connection with the server and all calls can be made automatically.</p>
+<p>The web service can be accessed using the relative URL metviewer/servlet, for example <a class="reference external" href="http://www.dtcenter.org/met/metviewer/servlet">http://www.dtcenter.org/met/metviewer/servlet</a>. When the web service receives an HTTP GET request, it echoes the GET parameters and acts as a “ping” mechanism to ensure that the system is online and working. All API XML requests should be issued using an HTML POST request with the XML request as the entire body. The XML response will indicate the type of request, and echo some information.</p>
 <p>There are several different request types, each with a particular format of response. The METviewer client calls the different API methods in a loose ordering:</p>
 <ol class="arabic simple">
 <li><p>List available databases</p></li>
@@ -247,7 +247,7 @@
 </div>
 <div class="section" id="list-values">
 <h3><span class="section-number">7.1.2. </span>List Values<a class="headerlink" href="#list-values" title="Permalink to this headline">¶</a></h3>
-<p>The list_val request is used to conditionally list the distinct values in the stat_header table of the selected database. The field whose values to list is specified in the stat_field element. There are two conditions that can be optionally included in the request: a fcst_var/stat pair and a stat_header field name with a set of values. At this point, it is worth noting that although the fields fcst_lead, fcst_valid_beg and fcst_lead_beg are not in the stat_header table of the database schema, they are considered stat_header fields from the standpoint of the METviewer servlet and client. The virtual fields inithour and validhour are considered stat_header fields.</p>
+<p>The list_val request is used to conditionally list the distinct values in the stat_header table of the selected database. The stat_field element controls which field’s values should be listed. There are two conditions that can be optionally included in the request: a fcst_var/stat pair and a stat_header field name with a set of values. At this point, it is worth noting that although the fields fcst_lead, fcst_valid_beg and fcst_lead_beg are not in the stat_header table of the database schema, they are considered stat_header fields from the standpoint of the METviewer servlet and client. The virtual fields inithour and validhour are considered stat_header fields.</p>
 <p>The id element is common to the list_val and list_stat API methods, and the value specified in the request is simply echoed back to the client in the response. This feature helps the client determine which controls should be updated with the contents of the response.</p>
 <p><strong>Request #1:</strong> In this case, the request is for all distinct values of the stat_header field fcst_var, without any conditions.</p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;</span>
@@ -322,7 +322,7 @@
 </div>
 <div class="section" id="generate-plot">
 <h3><span class="section-number">7.1.4. </span>Generate Plot<a class="headerlink" href="#generate-plot" title="Permalink to this headline">¶</a></h3>
-<p>Once a user has provided all the information for a complete plot specification, the plot request handles the parsing of the plot specification and generation of the plot. If a plot is successfully create from the plot specification, the location of the plot image is included in the response. If any error or warning information was captured from R during the process, it will be included in the r_error element.</p>
+<p>Once a user has provided all the information for a complete plot specification, the plot request handles the parsing of the plot specification and generation of the plot. If a plot is successfully created from the plot specification, the location of the plot image is included in the response. If any error or warning information was captured from R during the process, it will be included in the r_error element.</p>
 <p><strong>Request</strong></p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;request&gt;</span>
   <span class="nt">&lt;db_con&gt;</span>mv_gfs_nam<span class="nt">&lt;/db_con&gt;</span>
@@ -340,7 +340,7 @@
 <div class="section" id="open-app-with-predefine-database">
 <h3><span class="section-number">7.1.5. </span>Open app with predefine database<a class="headerlink" href="#open-app-with-predefine-database" title="Permalink to this headline">¶</a></h3>
 <p>Use this url to open METviewer main page with predefine database:</p>
-<p>&lt;<a class="reference external" href="http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database">http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database</a></p>
+<p><a class="reference external" href="http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database">http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database</a></p>
 </div>
 </div>
 </div>

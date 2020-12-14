@@ -58,4 +58,4 @@ The histogram shows the relative frequency with which the event has been predict
 
 Here is the associated xml for this example. It can be copied into an empty file and saved to the desktop then uploaded into the system by clicking on the “Load XML” button in the upper-right corner of the GUI. This XML can be downloaded by visiting GitHub here ??[insert link to XML]??.
 
-.. literalinclude:: xml/reliability_xml.xml 
+.. literalinclude:: ../_static/xml/reliability_xml.xml 

@@ -207,61 +207,117 @@
             
   <div class="section" id="database-loading-module">
 <h1><span class="section-number">4. </span>Database Loading Module<a class="headerlink" href="#database-loading-module" title="Permalink to this headline">¶</a></h1>
-<p>The database loading module is used to insert, update, and delete MET output data in the database. The tool is invoked using the mv_load script. The usage statement:</p>
-<p>—- MVLoad —-</p>
-<p>Usage: mv_load</p>
-<blockquote>
-<div><p>load_spec_file
-[-index]</p>
-<p>where “load_spec_file” specifies the XML load specification document
-“-index” indicates that no data should be loaded, and only the indexing commands applied</p>
-</div></blockquote>
-<p>—- MVLoad Done —-</p>
-<p>The <strong>load_spec_file</strong> passes information about the MET output files to load into the database to the loading module. It is an XML file thats top-level tag is &lt;load_spec&gt; which contains the following elements, divided into functional sections:</p>
-<p><strong>&lt;connection&gt;:</strong> Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??</p>
-<p><strong>&lt;date_list&gt;:</strong> Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??</p>
-<p><strong>NOTE:</strong> <strong>&lt;met_version&gt;</strong> is obsolete and has been removed; remove it from the XML load specification document</p>
-<p><strong>&lt;load_stat&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to load STAT data.</p>
-<p><strong>&lt;load_mode&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to load MODE data.</p>
-<p><strong>&lt;load_mtd&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to load MODE TD data.</p>
-<p><strong>&lt;load_mpr&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to load matched pair data.</p>
-<p><strong>&lt;load_orank&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to load observed rank data.</p>
-<p><strong>&lt;force_dup_file&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicaties whether or not to force load paths/files that are already present.</p>
-<p><strong>&lt;verbose&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates the desired volume of output from the load module, with TRUE resulting in more information and FALSE resulting in less information.</p>
-<p><strong>&lt;insert_size&gt;:</strong> An integer indicating the number of MET output file rows that are inserted with each INSERT statement.</p>
-<p><strong>&lt;stat_header_db_check&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether a database query check for stat header information should be performed - <strong>WARNING:</strong> enabling this feature could significantly increase load time.</p>
-<p><strong>NOTE:</strong> <strong>&lt;stat_header_table_check&gt;</strong> has been removed; remove it from the XML load specification document.</p>
-<p><strong>&lt;mode_header_db_check&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether a database query check for MODE header information should be performed - <strong>WARNING:</strong> enabling this feature could significantly increase load time.</p>
-<p><strong>&lt;mtd_header_db_check&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether a database query check for MODE TD header information should be performed - <strong>WARNING:</strong> enabling this feature could significantly increase load time.</p>
-<p><strong>&lt;drop_indexes&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether database indexes should be dropped prior to loading new data.</p>
-<p><strong>&lt;load_indexes&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether database indexes should be created after loading new data.</p>
+<p>The database loading module is used to insert, update, and delete MET output
+data in the database. The tool is invoked using the mv_load.sh script. The
+usage statement:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---- MVLoad ----
+
+Usage: mv_load
+
+        load_spec_file
+        [-index]
+
+        where &quot;load_spec_file&quot; specifies the XML load specification document
+        &quot;-index&quot; indicates that no data should be loaded, and only the
+        indexing commands applied
+
+---- MVLoad Done ----
+</pre></div>
+</div>
+<p>The <strong>load_spec_file</strong> passes information about the MET output files to load
+into the database to the loading module. It is an XML file thats top-level
+tag is &lt;load_spec&gt; which contains the following elements, divided into
+functional sections:</p>
+<p><strong>&lt;connection&gt;:</strong> Please reference the
+“<a class="reference external" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html">Common XML Structures</a>”
+documentation.</p>
+<p><strong>&lt;date_list&gt;:</strong> Please reference the “<a class="reference external" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html">Common XML Structures</a>”
+documentation.</p>
+<p><strong>NOTE:</strong> <strong>&lt;met_version&gt;</strong> is obsolete and has been removed; remove it
+from the XML load specification document</p>
+<p><strong>&lt;load_stat&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or
+not to load STAT data.</p>
+<p><strong>&lt;load_mode&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or
+not to load MODE data.</p>
+<p><strong>&lt;load_mtd&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not
+to load MODE TD data.</p>
+<p><strong>&lt;load_mpr&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not
+to load matched pair data.</p>
+<p><strong>&lt;load_orank&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or
+not to load observed rank data.</p>
+<p><strong>&lt;force_dup_file&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether
+or not to force load paths/files that are already present.</p>
+<p><strong>&lt;verbose&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates the desired
+volume of output from the load module, with TRUE resulting in more
+information and FALSE resulting in less information.</p>
+<p><strong>&lt;insert_size&gt;:</strong> An integer indicating the number of MET output file rows
+that are inserted with each INSERT statement.</p>
+<p><strong>&lt;stat_header_db_check&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates
+whether a database query check for stat header information should be
+performed - <strong>WARNING:</strong> enabling this feature could significantly
+increase load time.</p>
+<p><strong>NOTE:</strong> <strong>&lt;stat_header_table_check&gt;</strong> has been removed; remove it
+from the XML load specification document.</p>
+<p><strong>&lt;mode_header_db_check&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates
+whether a database query check for MODE header information should be
+performed - <strong>WARNING:</strong> enabling this feature could significantly
+increase load time.</p>
+<p><strong>&lt;mtd_header_db_check&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates
+whether a database query check for MODE TD header information should
+be performed - <strong>WARNING:</strong> enabling this feature could significantly
+increase load time.</p>
+<p><strong>&lt;drop_indexes&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether
+database indexes should be dropped prior to loading new data.</p>
+<p><strong>&lt;load_indexes&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether
+database indexes should be created after loading new data.</p>
 <p><strong>&lt;group&gt;:</strong> The name of the group for the user interface.</p>
 <p><strong>&lt;description&gt;:</strong> The description of the database.</p>
 <div class="line-block">
-<div class="line"><strong>&lt;load_files&gt;:</strong> A list structure containing individual MET output files to load into the database.|         <strong>&lt;file&gt;:</strong> Contains a single MET output file to load.</div>
+<div class="line"><strong>&lt;load_files&gt;:</strong> A list structure containing individual MET output files to load into the database.</div>
+<div class="line"><br /></div>
+<div class="line"><strong>&lt;file&gt;:</strong> Contains a single MET output file to load.</div>
 <div class="line"><br /></div>
 </div>
-<p><strong>&lt;folder_tmpl&gt;:</strong> A template string describing the file structure of the input MET files, which is populated with values specified in the <strong>&lt;load_val&gt;</strong> tag structure.</p>
+<p><strong>&lt;folder_tmpl&gt;:</strong> A template string describing the file structure of
+the input MET files, which is populated with values specified in
+the <strong>&lt;load_val&gt;</strong> tag structure.</p>
 <div class="line-block">
 <div class="line"><strong>&lt;load_val&gt;:</strong> A tree structure containing values used to populate the <strong>&lt;folder_tmpl&gt;</strong> template.</div>
-<div class="line-block">
+<div class="line"><br /></div>
 <div class="line-block">
 <div class="line"><strong>&lt;field&gt;:</strong> A template value, its name is specified by the attribute name, and its values are specified by its children <strong>&lt;val&gt;</strong> tags.</div>
+<div class="line"><br /></div>
 <div class="line-block">
 <div class="line"><strong>&lt;val&gt;:</strong> A single template value which will slot into the template in the value specified by the parent field’s name.</div>
+<div class="line"><br /></div>
 <div class="line"><strong>&lt;date_list&gt;:</strong> Specifies a previously declared <strong>&lt;date_list&gt;</strong> element, using the name attribute, which represents a list of dates in a particular format.</div>
 <div class="line"><br /></div>
 </div>
 <div class="line"><strong>&lt;line_type&gt;:</strong> A list structure containing the MET output file line types to load. If omitted, all line types are loaded.</div>
+<div class="line"><br /></div>
 <div class="line-block">
 <div class="line"><strong>&lt;val&gt;:</strong> Contains a single MET output file line type to be loaded, for example, CNT.</div>
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="line"><strong>&lt;load_note&gt;:</strong> If present, creates a record in the instance_info database table with a note containing the body of this tag</div>
-<div class="line"><strong>&lt;load_xml&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to save the load xml; only effective if <strong>&lt;load_note&gt;</strong> is present - default: TRUE</div>
+<div class="line"><strong>&lt;load_note&gt;:</strong> If present, creates a record in the instance_info database database table with a note containing the body of this tag</div>
+<div class="line"><br /></div>
+<div class="line"><strong>&lt;load_xml&gt;:   TRUE</strong> or <strong>FALSE</strong>, this option indicates whether or not to save the load xml; only effective if <strong>&lt;load_note&gt;</strong> is present - default: TRUE</div>
 <div class="line"><br /></div>
 </div>
+<p><strong>Note</strong></p>
+<p>If &lt;folder_tmpl&gt; is used, at least one of &lt;load_val&gt; entry should be presented. For example, if the path is:</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;folder_tmpl&gt;</span>/path/to/data<span class="nt">&lt;/folder_tmpl&gt;</span>
+</pre></div>
+</div>
+<p>change it to</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;folder_tmpl&gt;</span>/path/to/{type}<span class="nt">&lt;/folder_tmpl&gt;</span>
+<span class="nt">&lt;load_val&gt;</span>
+   <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;type&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;val&gt;</span>data<span class="nt">&lt;/val&gt;</span>
+   <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/load_val&gt;</span>
+</pre></div>
 </div>
 <div class="section" id="example">
 <h2><span class="section-number">4.1. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -312,7 +368,9 @@
 <span class="nt">&lt;/load_spec&gt;</span>
 </pre></div>
 </div>
-<p>In this example, the load module would attempt to load any files with the suffix .stat in the following folders. This list would end at the date specified by the &lt;date_offset&gt; named folder_dates.</p>
+<p>In this example, the load module would attempt to load any files with the
+suffix .stat in the following folders. This list would end at the date
+specified by the &lt;date_offset&gt; named folder_dates.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/d1/data/arw/FULL/2010051914V
 /d1/data/arw/SWC/2010051914V
 /d1/data/nmm/FULL/2010051914V
@@ -334,10 +392,22 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Error:</p></td>
-<td><p>** ERROR: Caught class com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException: Duplicate entry ‘CT07-NMM-LIN-R2-0-2005-07-15 12:00:00-2005-07-15 12:00:00-0-2005’ for key 2</p></td>
+<td><p>** ERROR: Caught class
+com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException:
+Duplicate entry
+‘CT07-NMM-LIN-R2-0-2005-07-15 12:00:00-2005-07-15 12:00:00-0-2005’
+for key 2</p></td>
 </tr>
 <tr class="row-even"><td><p>Solution:</p></td>
-<td><p>This error is caused by trying to insert a stat_header record into the database when an identical one already exists. If identical stat_header information is present in more than one stat file, set the &lt;stat_header_db_check&gt; value to true. This setting will reduce performance, because the stat_header table is checked for duplicate stat_header each time a row is inserted. However, if a stat_header row already exists in the table with the insert information, then the existing record will be used instead of trying to insert a dupilcate.</p></td>
+<td><p>This error is caused by trying to insert a stat_header record into
+the database when an identical one already exists. If identical
+stat_header information is present in more than one stat file, set
+the &lt;stat_header_db_check&gt; value to true. This setting will reduce
+performance, because the stat_header table is checked for duplicate
+stat_header each time a row is inserted. However, if a stat_header
+row already exists in the table with the insert information, then
+the existing record will be used instead of trying to insert a
+dupilcate.</p></td>
 </tr>
 </tbody>
 </table>

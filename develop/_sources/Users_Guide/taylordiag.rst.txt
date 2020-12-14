@@ -54,4 +54,4 @@ The example Taylor diagram below shows the downward longwave radiation flux (DLW
 
 Here is the associated xml for this example. It can be copied into an empty file and saved to the desktop then uploaded into the system by clicking on the “Load XML” button in the upper-right corner of the GUI. This XML can be downloaded by visiting GitHub here ??[insert link to XML]??.
 
-.. literalinclude:: xml/taylor_diagram.xml
+.. literalinclude:: ../_static/xml/taylor_diagram.xml

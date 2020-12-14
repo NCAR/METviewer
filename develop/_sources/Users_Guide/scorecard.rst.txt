@@ -47,7 +47,7 @@ where scorecard_example.xml is the XML that contains all of your scorecard speci
 
 The scorecard_example.xml passed to the scorecard module contains information about the scorecard that will be generated. 
 
-.. literalinclude:: xml/scorecard_example.xml
+.. literalinclude:: ../_static/xml/scorecard_example.xml
 
 Here is an explanation for the sections:
 

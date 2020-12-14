@@ -1,77 +1,140 @@
 Database Loading Module
 =======================
 
-The database loading module is used to insert, update, and delete MET output data in the database. The tool is invoked using the mv_load script. The usage statement:
+The database loading module is used to insert, update, and delete MET output
+data in the database. The tool is invoked using the mv_load.sh script. The
+usage statement:
 
----- MVLoad ----
+.. code-block:: none
 
-Usage: mv_load
+  ---- MVLoad ----
 
-        load_spec_file
-        [-index]
+  Usage: mv_load
 
-        where "load_spec_file" specifies the XML load specification document
-        "-index" indicates that no data should be loaded, and only the indexing commands applied
+          load_spec_file
+          [-index]
 
----- MVLoad Done ----
+          where "load_spec_file" specifies the XML load specification document
+          "-index" indicates that no data should be loaded, and only the
+	  indexing commands applied
 
-The **load_spec_file** passes information about the MET output files to load into the database to the loading module. It is an XML file thats top-level tag is <load_spec> which contains the following elements, divided into functional sections:
+  ---- MVLoad Done ----
 
-**<connection>:** Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??
+The **load_spec_file** passes information about the MET output files to load
+into the database to the loading module. It is an XML file thats top-level
+tag is <load_spec> which contains the following elements, divided into
+functional sections:
 
-**<date_list>:** Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated?? 
+**<connection>:** Please reference the
+“`Common XML Structures
+<https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_”
+documentation.
+
+**<date_list>:** Please reference the “`Common XML Structures
+<https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html>`_”
+documentation.
 		
 
-**NOTE:** **<met_version>** is obsolete and has been removed; remove it from the XML load specification document
+**NOTE:** **<met_version>** is obsolete and has been removed; remove it
+from the XML load specification document
 
-**<load_stat>:** **TRUE** or **FALSE**, this option indicates whether or not to load STAT data.
+**<load_stat>:** **TRUE** or **FALSE**, this option indicates whether or
+not to load STAT data.
 
-**<load_mode>:** **TRUE** or **FALSE**, this option indicates whether or not to load MODE data.
+**<load_mode>:** **TRUE** or **FALSE**, this option indicates whether or
+not to load MODE data.
 
-**<load_mtd>:** **TRUE** or **FALSE**, this option indicates whether or not to load MODE TD data.
+**<load_mtd>:** **TRUE** or **FALSE**, this option indicates whether or not
+to load MODE TD data.
 
-**<load_mpr>:** **TRUE** or **FALSE**, this option indicates whether or not to load matched pair data.
+**<load_mpr>:** **TRUE** or **FALSE**, this option indicates whether or not
+to load matched pair data.
 
-**<load_orank>:** **TRUE** or **FALSE**, this option indicates whether or not to load observed rank data.
+**<load_orank>:** **TRUE** or **FALSE**, this option indicates whether or
+not to load observed rank data.
 
-**<force_dup_file>:** **TRUE** or **FALSE**, this option indicaties whether or not to force load paths/files that are already present.
+**<force_dup_file>:** **TRUE** or **FALSE**, this option indicates whether
+or not to force load paths/files that are already present.
 
-**<verbose>:** **TRUE** or **FALSE**, this option indicates the desired volume of output from the load module, with TRUE resulting in more information and FALSE resulting in less information.
+**<verbose>:** **TRUE** or **FALSE**, this option indicates the desired
+volume of output from the load module, with TRUE resulting in more
+information and FALSE resulting in less information.
 
-**<insert_size>:** An integer indicating the number of MET output file rows that are inserted with each INSERT statement.
+**<insert_size>:** An integer indicating the number of MET output file rows
+that are inserted with each INSERT statement.
 
-**<stat_header_db_check>:** **TRUE** or **FALSE**, this option indicates whether a database query check for stat header information should be performed - **WARNING:** enabling this feature could significantly increase load time.
+**<stat_header_db_check>:** **TRUE** or **FALSE**, this option indicates
+whether a database query check for stat header information should be
+performed - **WARNING:** enabling this feature could significantly
+increase load time.
 
-**NOTE:** **<stat_header_table_check>** has been removed; remove it from the XML load specification document.
+**NOTE:** **<stat_header_table_check>** has been removed; remove it
+from the XML load specification document.
 
-**<mode_header_db_check>:** **TRUE** or **FALSE**, this option indicates whether a database query check for MODE header information should be performed - **WARNING:** enabling this feature could significantly increase load time.
+**<mode_header_db_check>:** **TRUE** or **FALSE**, this option indicates
+whether a database query check for MODE header information should be
+performed - **WARNING:** enabling this feature could significantly
+increase load time.
 
-**<mtd_header_db_check>:** **TRUE** or **FALSE**, this option indicates whether a database query check for MODE TD header information should be performed - **WARNING:** enabling this feature could significantly increase load time.
+**<mtd_header_db_check>:** **TRUE** or **FALSE**, this option indicates
+whether a database query check for MODE TD header information should
+be performed - **WARNING:** enabling this feature could significantly
+increase load time.
 
-**<drop_indexes>:** **TRUE** or **FALSE**, this option indicates whether database indexes should be dropped prior to loading new data.
+**<drop_indexes>:** **TRUE** or **FALSE**, this option indicates whether
+database indexes should be dropped prior to loading new data.
 
-**<load_indexes>:** **TRUE** or **FALSE**, this option indicates whether database indexes should be created after loading new data.
+**<load_indexes>:** **TRUE** or **FALSE**, this option indicates whether
+database indexes should be created after loading new data.
 
 **<group>:** The name of the group for the user interface.
 
 **<description>:** The description of the database.
 
-| **<load_files>:** A list structure containing individual MET output files to load into the database.|         **<file>:** Contains a single MET output file to load.
-|
+| **<load_files>:** A list structure containing individual MET output files to load into the database.
+| 
+| **<file>:** Contains a single MET output file to load.
+| 
 
-**<folder_tmpl>:** A template string describing the file structure of the input MET files, which is populated with values specified in the **<load_val>** tag structure.
+**<folder_tmpl>:** A template string describing the file structure of
+the input MET files, which is populated with values specified in
+the **<load_val>** tag structure.
 
 | **<load_val>:** A tree structure containing values used to populate the **<folder_tmpl>** template.
-|        **<field>:** A template value, its name is specified by the attribute name, and its values are specified by its children **<val>** tags.       
-|                **<val>:** A single template value which will slot into the template in the value specified by the parent field's name.                
+| 
+|        **<field>:** A template value, its name is specified by the attribute name, and its values are specified by its children **<val>** tags.
+| 
+|                **<val>:** A single template value which will slot into the template in the value specified by the parent field's name.
+|
 |                **<date_list>:** Specifies a previously declared **<date_list>** element, using the name attribute, which represents a list of dates in a particular format.
 |                
-|        **<line_type>:** A list structure containing the MET output file line types to load. If omitted, all line types are loaded.       
+|        **<line_type>:** A list structure containing the MET output file line types to load. If omitted, all line types are loaded.
+| 
 |                **<val>:** Contains a single MET output file line type to be loaded, for example, CNT.
-|
-|       **<load_note>:** If present, creates a record in the instance_info database table with a note containing the body of this tag
-|       **<load_xml>:** **TRUE** or **FALSE**, this option indicates whether or not to save the load xml; only effective if **<load_note>** is present - default: TRUE
-|
+| 
+| **<load_note>:** If present, creates a record in the instance_info database database table with a note containing the body of this tag
+| 
+| **<load_xml>:   TRUE** or **FALSE**, this option indicates whether or not to save the load xml; only effective if **<load_note>** is present - default: TRUE
+| 
+
+**Note**
+
+If <folder_tmpl> is used, at least one of <load_val> entry should be presented. For example, if the path is:
+
+.. code-block:: XML
+
+  <folder_tmpl>/path/to/data</folder_tmpl>
+
+change it to
+
+.. code-block:: XML
+
+       <folder_tmpl>/path/to/{type}</folder_tmpl>
+       <load_val>
+          <field name="type">
+             <val>data</val>
+          </field>
+       </load_val>
 
 
 Example
@@ -127,7 +190,9 @@ Here is a simple example:
         </load_spec>
         
 
-In this example, the load module would attempt to load any files with the suffix .stat in the following folders. This list would end at the date specified by the <date_offset> named folder_dates.
+In this example, the load module would attempt to load any files with the
+suffix .stat in the following folders. This list would end at the date
+specified by the <date_offset> named folder_dates.
 
 .. code-block:: none
 
@@ -148,8 +213,20 @@ Troubleshooting
 .. list-table:: 
 
   * -  Error:
-    -  ** ERROR: Caught class com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException: Duplicate entry 'CT07-NMM-LIN-R2-0-2005-07-15 12:00:00-2005-07-15 12:00:00-0-2005' for key 2
+    -  ** ERROR: Caught class
+       com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException:
+       Duplicate entry
+       'CT07-NMM-LIN-R2-0-2005-07-15 12:00:00-2005-07-15 12:00:00-0-2005'
+       for key 2
   * - Solution:
-    - This error is caused by trying to insert a stat_header record into the database when an identical one already exists. If identical stat_header information is present in more than one stat file, set the <stat_header_db_check> value to true. This setting will reduce performance, because the stat_header table is checked for duplicate stat_header each time a row is inserted. However, if a stat_header row already exists in the table with the insert information, then the existing record will be used instead of trying to insert a dupilcate.
+    - This error is caused by trying to insert a stat_header record into
+      the database when an identical one already exists. If identical
+      stat_header information is present in more than one stat file, set
+      the <stat_header_db_check> value to true. This setting will reduce
+      performance, because the stat_header table is checked for duplicate
+      stat_header each time a row is inserted. However, if a stat_header
+      row already exists in the table with the insert information, then
+      the existing record will be used instead of trying to insert a
+      dupilcate.
 
 

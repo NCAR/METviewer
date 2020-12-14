@@ -206,16 +206,30 @@
             
   <div class="section" id="database-scrubbing-module">
 <h1><span class="section-number">5. </span>Database Scrubbing Module<a class="headerlink" href="#database-scrubbing-module" title="Permalink to this headline">¶</a></h1>
-<p>The database scrubbing utility is used to to delete data from METviewer databases that meets some user-specified selection criteria. The usage statement:</p>
-<p>—- Database Scrubbing —-</p>
-<p>Usage: mv_prune.sh prune_db_spec_file</p>
-<blockquote>
-<div><p>where prune_db_spec_file specifies the XML pruning specification document</p>
-</div></blockquote>
-<p>—- Database Scrubbing Done —-</p>
-<p>The prune_db_spec_file passed to the pruning module contains information about the criteria for deleting data. It is an XML file with the top-level tag <strong>&lt;prune_spec&gt;</strong> which contains the elements described below, divided into functional sections. The data to be deleted may be specified in one of three ways: as a list of file names, as a list of directories, or as a set of values for various fields in the data.</p>
-<p><strong>&lt;connection&gt;:</strong> Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??</p>
-<p><strong>&lt;info_only&gt;:</strong> <strong>TRUE</strong> or <strong>FASLE</strong>, this option indicates if the data to be deleted should only be listed (<strong>TRUE</strong>) or the actual deletion performed (<strong>FALSE</strong>).</p>
+<p>The database scrubbing utility is used to to delete data from METviewer
+databases that meets some user-specified selection criteria. The usage
+statement:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---- Database Scrubbing ----
+
+Usage: mv_prune.sh prune_db_spec_file
+
+          where prune_db_spec_file specifies the XML pruning specification document
+
+---- Database Scrubbing Done ----
+</pre></div>
+</div>
+<p>The prune_db_spec_file passed to the pruning module contains information
+about the criteria for deleting data. It is an XML file with the top-level
+tag <strong>&lt;prune_spec&gt;</strong> which contains the elements described below, divided
+into functional sections. The data to be deleted may be specified in one of
+three ways: as a list of file names, as a list of directories, or as a set
+of values for various fields in the data.</p>
+<p><strong>&lt;connection&gt;:</strong> Please reference the
+<a class="reference external" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html">Common XML Structures</a>
+documentation.</p>
+<p><strong>&lt;info_only&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, this option indicates if the data
+to be deleted should only be listed (<strong>TRUE</strong>) or the actual deletion
+performed (<strong>FALSE</strong>).</p>
 <div class="line-block">
 <div class="line"><strong>&lt;fields&gt;:</strong> A list of fields used for pruning.</div>
 <div class="line-block">
@@ -245,7 +259,7 @@
 <div class="line"><strong>&lt;folders&gt;:</strong> A set of directories to be removed.</div>
 <div class="line-block">
 <div class="line"><strong>&lt;folder_tmpl&gt;:</strong> A template string describing the file structure of the MET files, which is populated with values specified in the <strong>&lt;load_val&gt;</strong> tag structure.</div>
-<div class="line"><strong>&lt;date_list&gt;:</strong> Please reference the “Common XML Structures” documentation. ??Link to Common XML Chapter once integrated??</div>
+<div class="line"><strong>&lt;date_list&gt;:</strong> Please reference the <a class="reference external" href="https://dtcenter.github.io/METviewer/latest/Users_Guide/common.html">Common XML Structures</a> documentation.</div>
 <div class="line"><br /></div>
 <div class="line"><strong>&lt;load_val&gt;:</strong> A tree structure containing values used to populate the <strong>&lt;folder_tmpl&gt;</strong> template.</div>
 <div class="line-block">
@@ -261,7 +275,9 @@
 <div class="section" id="examples">
 <h2><span class="section-number">5.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p><strong>Example 1: Prune by describing the data (&lt;fields&gt;)</strong></p>
-<p>The following configuration will remove data from database ‘mv_database’ that has model names NAM and GFS, forecast variable APCP_03 and forecast valid dates between 2013-07-05 06:00 and 2013-07-05 18:00:00</p>
+<p>The following configuration will remove data from database ‘mv_database’
+that has model names NAM and GFS, forecast variable APCP_03 and forecast
+valid dates between 2013-07-05 06:00 and 2013-07-05 18:00:00</p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;prune_spec&gt;</span>
   <span class="nt">&lt;connection&gt;</span>
     <span class="nt">&lt;host&gt;</span>db_host:3306<span class="nt">&lt;/host&gt;</span>
@@ -296,19 +312,21 @@
 <span class="nt">&lt;/prune_spec&gt;</span>
 </pre></div>
 </div>
-<p><strong>Example 2: Prune by a list of files (&lt;files&gt;) and by a list of directories (&lt;folders&gt;)</strong></p>
-<p>This configuration will remove data from database ‘mv_database’ that was loaded from the following files:</p>
+<p><strong>Example 2: Prune by a list of files (&lt;files&gt;) and by a list of
+directories (&lt;folders&gt;)</strong></p>
+<p>This configuration will remove data from database ‘mv_database’ that
+was loaded from the following files:</p>
 <p>/d3/metprd/grid_stat/grid_stat_APCP_03_030000L_20130705_030000V.stat
 /d3/metprd/mode/mode_APCP_06_180000L_20130705_180000V_060000A_obj.txt</p>
 <p>And from the following directories:</p>
-<p>/d1/data/arw/FULL/2010051914
-/d1/data/arw/SWC/2010051914
-/d1/data/nmm/FULL/2010051914
-/d1/data/nmm/SWC/2010051914
-/d1/data/arw/FULL/2010051915
-/d1/data/arw/SWC/2010051915
-/d1/data/nmm/FULL/2010051915
-/d1/data/nmm/SWC/2010051915</p>
+<p><em>/d1/data/arw/FULL/2010051914</em>
+<em>/d1/data/arw/SWC/2010051914</em>
+<em>/d1/data/nmm/FULL/2010051914</em>
+<em>/d1/data/nmm/SWC/2010051914</em>
+<em>/d1/data/arw/FULL/2010051915</em>
+<em>/d1/data/arw/SWC/2010051915</em>
+<em>/d1/data/nmm/FULL/2010051915</em>
+<em>/d1/data/nmm/SWC/2010051915</em></p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;prune_spec&gt;</span>
   <span class="nt">&lt;connection&gt;</span>
     <span class="nt">&lt;host&gt;</span>db_host:3306<span class="nt">&lt;/host&gt;</span>

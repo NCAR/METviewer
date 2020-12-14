@@ -1,9 +1,9 @@
 METviewer Web Service
 =====================
 
-The METviewer web service is a web-server driven API that parses XML requests and returns results in an XML structure. All calls are session-less meaning that each individual call does not affect and is not affected by the results of any other call. Also, a client does not have to establish a connection with the server and all calls can be made atomically.
+The METviewer web service is a web-server driven API that parses XML requests and returns results in an XML structure. All calls are session-less meaning that each individual call does not affect and is not affected by the results of any other call. Also, a client does not have to establish a connection with the server and all calls can be made automatically.
 
-The web service can be accessed using the relative URL metviewer/servlet, for example http://www.dtcenter.org/met/metviewer/servlet. When the web service receives an HTTP GET request, it echoes the GET parameters and acts as a "ping" mechanism to ensure that the system is online and working. All API XML requests should be issued using an HMTL POST request with the XML request as the entire body. The XML response will indicate the type of request, and echo some information.
+The web service can be accessed using the relative URL metviewer/servlet, for example http://www.dtcenter.org/met/metviewer/servlet. When the web service receives an HTTP GET request, it echoes the GET parameters and acts as a "ping" mechanism to ensure that the system is online and working. All API XML requests should be issued using an HTML POST request with the XML request as the entire body. The XML response will indicate the type of request, and echo some information.
 
 There are several different request types, each with a particular format of response. The METviewer client calls the different API methods in a loose ordering:
 
@@ -50,7 +50,7 @@ Response:
 List Values
 ~~~~~~~~~~~
           
-The list_val request is used to conditionally list the distinct values in the stat_header table of the selected database. The field whose values to list is specified in the stat_field element. There are two conditions that can be optionally included in the request: a fcst_var/stat pair and a stat_header field name with a set of values. At this point, it is worth noting that although the fields fcst_lead, fcst_valid_beg and fcst_lead_beg are not in the stat_header table of the database schema, they are considered stat_header fields from the standpoint of the METviewer servlet and client. The virtual fields inithour and validhour are considered stat_header fields.
+The list_val request is used to conditionally list the distinct values in the stat_header table of the selected database. The stat_field element controls which field's values should be listed. There are two conditions that can be optionally included in the request: a fcst_var/stat pair and a stat_header field name with a set of values. At this point, it is worth noting that although the fields fcst_lead, fcst_valid_beg and fcst_lead_beg are not in the stat_header table of the database schema, they are considered stat_header fields from the standpoint of the METviewer servlet and client. The virtual fields inithour and validhour are considered stat_header fields.
 
 The id element is common to the list_val and list_stat API methods, and the value specified in the request is simply echoed back to the client in the response. This feature helps the client determine which controls should be updated with the contents of the response.
 
@@ -143,7 +143,7 @@ The list_stat request builds a list of all statistics available in the METviewer
 Generate Plot
 ~~~~~~~~~~~~~
 
-Once a user has provided all the information for a complete plot specification, the plot request handles the parsing of the plot specification and generation of the plot. If a plot is successfully create from the plot specification, the location of the plot image is included in the response. If any error or warning information was captured from R during the process, it will be included in the r_error element.
+Once a user has provided all the information for a complete plot specification, the plot request handles the parsing of the plot specification and generation of the plot. If a plot is successfully created from the plot specification, the location of the plot image is included in the response. If any error or warning information was captured from R during the process, it will be included in the r_error element.
 
 **Request**
 
@@ -167,5 +167,5 @@ Open app with predefine database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Use this url to open METviewer main page with predefine database:
 
-<http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database
+http://www.dtcenter.org/met/metviewer/metviewer1.jsp?db=name_of_database
 
