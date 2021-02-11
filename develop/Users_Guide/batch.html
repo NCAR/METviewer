@@ -457,9 +457,6 @@ starting at 1 for each fcst_var.</p>
 <div class="line"><br /></div>
 </div>
 </div>
-<blockquote>
-<div><p><strong>&lt;bootstrapping&gt;:</strong> Replaced by <strong>&lt;agg_stat&gt;</strong>, do not use <strong>&lt;bootstrapping&gt;</strong>.</p>
-</div></blockquote>
 <div class="line-block">
 <div class="line"><strong>&lt;agg_stat&gt;:</strong> Contains information about how to calculate and display aggregated statistics. If present, agg_stat is turned on. Depending on the selected <strong>&lt;dep&gt;</strong> statistics, only certain settings are appropriate.</div>
 <div class="line-block">
@@ -475,7 +472,8 @@ starting at 1 for each fcst_var.</p>
 <div class="line"><strong>&lt;boot_repl&gt;:</strong> Number of bootstrapping replications, use 1 for no bootstrapping.</div>
 <div class="line"><strong>&lt;boot_random_seed&gt;:</strong> Bootstrapping seed.</div>
 <div class="line"><strong>&lt;boot_ci&gt;:</strong> Type of confidence interval to calculate, passed to the boot.ci() R function (e.g. bca).</div>
-<div class="line"><strong>&lt;cache_agg_stat&gt;:</strong> <strong>true</strong> or <strong>false</strong>, turns on/off the prevention the reuse of existing bootstrapping output data.</div>
+<div class="line"><strong>&lt;cache_agg_stat&gt;:</strong> <strong>true</strong> or <strong>false</strong>, turns on/off the prevention the reuse of existing bootstrapping output data. Default: FALSE</div>
+<div class="line"><strong>&lt;circular_block_bootstrap&gt;:</strong> <strong>true</strong> or <strong>false</strong>, turns on/off the circular block bootstrap method. Default: TRUE. Python only.</div>
 <div class="line"><br /></div>
 </div>
 </div>
@@ -659,6 +657,8 @@ of points on 10.</p></li>
 <div class="line"><strong>&lt;box_avg&gt;:</strong> points() - draw box averages as asterisks - <strong>TRUE</strong>: on, <strong>FALSE</strong>: off - default value: <strong>FALSE</strong></div>
 <div class="line"><strong>&lt;rely_event_hist&gt;:</strong> - draw histogram of events by threshold on reliability diagram - <strong>TRUE</strong>: draw, <strong>FALSE</strong>: no draw - default value: <strong>TRUE</strong></div>
 <div class="line"><strong>&lt;ci_alpha&gt;:</strong> alpha value used to calculate the standard median error confidence intervals - default value: .05</div>
+<div class="line"><strong>&lt;eqbound_low&gt;:</strong> lower equivalence bounds expressed in standardized mean difference (Cohen’s dz) - default value: -0.001</div>
+<div class="line"><strong>&lt;eqbound_high&gt;:</strong> upper equivalence bounds expressed in standardized mean difference (Cohen’s dz) - default value: 0.001</div>
 <div class="line"><br /></div>
 </div>
 <blockquote>
@@ -692,6 +692,7 @@ statistic.</p>
 <div class="line"><br /></div>
 <div class="line">Elements specific to ROC curve:</div>
 <div class="line"><strong>&lt;add_point_thresholds&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display threshold points on the plot. The default value is <strong>TRUE</strong> (display threshold points).</div>
+<div class="line"><strong>&lt;reverse_connection_order&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to reverse the connection order of the points on the graph created from CTC data. The default value is <strong>FALSE</strong> (standard order).</div>
 <div class="line"><br /></div>
 <div class="line">Elements specific to Rely plot:</div>
 <div class="line"><strong>&lt;add_skill_line&gt;:</strong> <strong>TRUE</strong> or <strong>FALSE</strong>, indicating whether or not to display skill line on the graph. The default value is <strong>TRUE</strong> (display skill line).</div>

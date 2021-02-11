@@ -35,34 +35,34 @@ documentation.
 documentation.
 
 **<load_stat>:** **TRUE** or **FALSE**, this option indicates whether or
-not to load STAT data.
+not to load STAT data. Default: TRUE.
 
 **<load_mode>:** **TRUE** or **FALSE**, this option indicates whether or
-not to load MODE data.
+not to load MODE data. Default: TRUE.
 
 **<load_mtd>:** **TRUE** or **FALSE**, this option indicates whether or not
-to load MODE TD data.
+to load MODE TD data. Default: TRUE.
 
 **<load_mpr>:** **TRUE** or **FALSE**, this option indicates whether or not
-to load matched pair data.
+to load matched pair data. Default: FALSE.
 
 **<load_orank>:** **TRUE** or **FALSE**, this option indicates whether or
-not to load observed rank data.
+not to load observed rank data. Default: FALSE.
 
 **<force_dup_file>:** **TRUE** or **FALSE**, this option indicates whether
-or not to force load paths/files that are already present.
+or not to force load paths/files that are already present. Default: FALSE.
 
 **<verbose>:** **TRUE** or **FALSE**, this option indicates the desired
 volume of output from the load module, with TRUE resulting in more
-information and FALSE resulting in less information.
+information and FALSE resulting in less information. Default: FALSE.
 
 **<insert_size>:** An integer indicating the number of MET output file rows
-that are inserted with each INSERT statement.
+that are inserted with each INSERT statement. Default: 1.
 
 **<stat_header_db_check>:** **TRUE** or **FALSE**, this option indicates
 whether a database query check for stat header information should be
 performed - **WARNING:** enabling this feature could significantly
-increase load time.
+increase load time. Default: TRUE.
 
 **NOTE:** **<stat_header_table_check>** has been removed; remove it
 from the XML load specification document.
@@ -70,18 +70,18 @@ from the XML load specification document.
 **<mode_header_db_check>:** **TRUE** or **FALSE**, this option indicates
 whether a database query check for MODE header information should be
 performed - **WARNING:** enabling this feature could significantly
-increase load time.
+increase load time. Default: TRUE.
 
 **<mtd_header_db_check>:** **TRUE** or **FALSE**, this option indicates
 whether a database query check for MODE TD header information should
 be performed - **WARNING:** enabling this feature could significantly
-increase load time.
+increase load time. Default: TRUE.
 
 **<drop_indexes>:** **TRUE** or **FALSE**, this option indicates whether
-database indexes should be dropped prior to loading new data.
+database indexes should be dropped prior to loading new data. Default: FALSE.
 
 **<load_indexes>:** **TRUE** or **FALSE**, this option indicates whether
-database indexes should be created after loading new data.
+database indexes should be created after loading new data. Default: TRUE.
 
 **<group>:** The name of the group for the user interface.
 

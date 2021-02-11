@@ -179,13 +179,64 @@
 <p>When applicable, release notes are followed by the GitHub issue number which
 describes the bugfix, enhancement, or new feature:
 <a class="reference external" href="https://github.com/dtcenter/METviewer/issues">https://github.com/dtcenter/METviewer/issues</a></p>
-<p><strong>New in v4.0-beta1</strong></p>
-<p>Bugfixes:</p>
+</div>
+<div class="section" id="version-version-release-notes-release-date">
+<h1>Version develop release notes (20210317)<a class="headerlink" href="#version-version-release-notes-release-date" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-4-0-0-beta3-release-notes-20210128">
+<h2>Version <a class="reference external" href="https://github.com/dtcenter/METviewer/projects/17">4.0.0-beta3</a> release notes (20210128)<a class="headerlink" href="#version-4-0-0-beta3-release-notes-20210128" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li></li>
+<li><p>Bugfixes:</p>
+<ul>
+<li><p>Fixed bugs in Docker file: build of ‘pingouin’ module,  permissions for the executables, mysql user name</p></li>
 </ul>
-<p>New Features:</p>
+</li>
+<li><p>New Features:</p>
+<ul>
+<li><p>Support to reverse the connection order in ROC curve</p></li>
+<li><p>Use the circular bootstrap as a default method instead of the regular</p></li>
+<li><p>New Equivalence Testing Bounds plot</p></li>
+</ul>
+</li>
+<li><p>Enhancements:</p>
+<ul>
+<li><p>METdatadb is available in METviewer</p></li>
+<li><p>Thw warning message will be displayed if no plots were produced on AWS</p></li>
+<li><p>HTML plot is scaled to the size of the window in GUI</p></li>
+<li><p>The version number is added to the scripts INFO messages</p></li>
+<li><p>&lt;met_version&gt; tag is discontinued and removed from METviewer</p></li>
+<li><p>Updated 3rd-party libraries</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="version-4-0-0-beta2-release-notes-20201209">
+<h2>Version <a class="reference external" href="https://github.com/dtcenter/METviewer/projects/16">4.0.0-beta2</a> release notes (20201209)<a class="headerlink" href="#version-4-0-0-beta2-release-notes-20201209" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>Bugfixes:</p>
+<ul>
+<li><p>Fixed the UI bug when the plot formatting menu is inaccessible when the Series formatting menu is pulled up and then down</p></li>
+</ul>
+</li>
+<li><p>New Features:</p>
+<ul>
+<li><p>In the scorecard XML allow users to specify the label that will be used instead of CSV list for &lt;plot_fix&gt; fcst_init_beg</p></li>
+<li><p>In the scorecard add support for the weights.</p></li>
+<li><p>Python implementation of Reliability diagram</p></li>
+<li><p>Add nbrctc data to the Performance diagram</p></li>
+</ul>
+</li>
+<li><p>Enhancements:</p>
+<ul>
+<li><p>Revise computation of No-Skill reference line on Reliability diagram</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="version-4-0-0-beta1-release-notes-20201023">
+<h2>Version <a class="reference external" href="https://github.com/dtcenter/METviewer/projects/15">4.0.0-beta1</a> release notes (20201023)<a class="headerlink" href="#version-4-0-0-beta1-release-notes-20201023" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New Features:</p>
+<ul>
 <li><p>Uses <a class="reference external" href="https://github.com/dtcenter/METplotpy">METplotpy v1.0-beta1</a>
 and  <a class="reference external" href="https://github.com/dtcenter/METcalcpy">METcalcpy v1.0-beta1</a></p></li>
 <li><p>Plotly/Python implementation of the Series plot
@@ -193,11 +244,15 @@ and  <a class="reference external" href="https://github.com/dtcenter/METcalcpy">
 <li><p>Interactive plots in GUI (currently is implemented for Series plots
 only - will add other plots later)</p></li>
 </ul>
-<p>Enhancements:</p>
-<ul class="simple">
+</li>
+<li><p>Enhancements:</p>
+<ul>
 <li><p>Check-box to add/remove No-Skill line
 (<a class="reference external" href="https://github.com/dtcenter/METviewer/issues/209">#209</a>)</p></li>
 </ul>
+</li>
+</ul>
+</div>
 </div>
 
 

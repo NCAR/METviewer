@@ -209,7 +209,6 @@ starting at 1 for each fcst_var.
 |               **<fix>:** Do not use **<fix>**, use **<plot_fix>** instead.
 |
 
-        **<bootstrapping>:** Replaced by **<agg_stat>**, do not use **<bootstrapping>**.
 
 |       **<agg_stat>:** Contains information about how to calculate and display aggregated statistics. If present, agg_stat is turned on. Depending on the selected **<dep>** statistics, only certain settings are appropriate.
 |               **<agg_ctc>:** **TRUE** or **FALSE**, indicating whether or not to aggregate CTCs.
@@ -224,7 +223,8 @@ starting at 1 for each fcst_var.
 |               **<boot_repl>:** Number of bootstrapping replications, use 1 for no bootstrapping.
 |               **<boot_random_seed>:** Bootstrapping seed.
 |               **<boot_ci>:** Type of confidence interval to calculate, passed to the boot.ci() R function (e.g. bca).
-|               **<cache_agg_stat>:** **true** or **false**, turns on/off the prevention the reuse of existing bootstrapping output data.
+|               **<cache_agg_stat>:** **true** or **false**, turns on/off the prevention the reuse of existing bootstrapping output data. Default: FALSE
+|               **<circular_block_bootstrap>:** **true** or **false**, turns on/off the circular block bootstrap method. Default: TRUE. Python only.
 |
 
                 When using **<agg_stat>**, the following constraints and
@@ -400,6 +400,8 @@ starting at 1 for each fcst_var.
 |      **<box_avg>:** points() - draw box averages as asterisks - **TRUE**: on, **FALSE**: off - default value: **FALSE**
 |      **<rely_event_hist>:** - draw histogram of events by threshold on reliability diagram - **TRUE**: draw, **FALSE**: no draw - default value: **TRUE**
 |      **<ci_alpha>:** alpha value used to calculate the standard median error confidence intervals - default value: .05
+|      **<eqbound_low>:** lower equivalence bounds expressed in standardized mean difference (Cohen's dz) - default value: -0.001
+|      **<eqbound_high>:** upper equivalence bounds expressed in standardized mean difference (Cohen's dz) - default value: 0.001
 |
 
        The following group of settings should be set to lists of values
@@ -432,6 +434,7 @@ starting at 1 for each fcst_var.
 |
 |      Elements specific to ROC curve:
 |      **<add_point_thresholds>:** **TRUE** or **FALSE**, indicating whether or not to display threshold points on the plot. The default value is **TRUE** (display threshold points).
+|      **<reverse_connection_order>:** **TRUE** or **FALSE**, indicating whether or not to reverse the connection order of the points on the graph created from CTC data. The default value is **FALSE** (standard order).
 |
 |      Elements specific to Rely plot:
 |      **<add_skill_line>:** **TRUE** or **FALSE**, indicating whether or not to display skill line on the graph. The default value is **TRUE** (display skill line).
